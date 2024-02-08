@@ -1,0 +1,49 @@
+@use "global" as *;
+
+/*リンクを右下に固定*/
+#page-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  background-color: $white;
+  z-index: 10;
+  width: 3rem;
+  height: 3rem;
+  border: 0.0625rem solid $green;
+  border-radius: 50%;
+  box-shadow: 0 0.25rem 0.25rem rgba($color: $black2, $alpha: 0.25);
+  cursor: pointer;
+
+    /*はじめは非表示*/
+  // opacity: 0;
+  // transform: translateY(6.25rem);
+  @include mq("md"){
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+#page-top::before{
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 25%;
+  width: 2.5rem;
+  height: 0.0625rem;
+  border-bottom: 0.0625rem solid $green;
+  transform: rotate(-90deg);
+}
+
+#page-top::after{
+  content: '';
+  width: 0.7rem;
+  height: 2.5rem;
+  border-top: 0.0625rem solid $green;
+  transform: rotate(-50deg);
+  transform-origin: top right;
+  position: absolute;
+  top: 1.25rem;
+  right: 50%;
+  box-sizing: border-box;
+}
+

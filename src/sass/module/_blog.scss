@@ -1,0 +1,63 @@
+@use "global" as *;
+
+.blog{
+  @include mq("md"){
+    position: relative;
+  }
+}
+
+.blog::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 60%;
+  background-image: url(/assets/images/blog-bg.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.blog__cards {
+  margin-top: 1.75rem;
+  @include mq("md"){
+    margin-top: 5rem;
+  }
+}
+
+.blog__card{
+  @include mq("md"){
+  width: calc(33.3333% - 2.5rem * 2/3);
+  }
+}
+
+.blog__card:not(:first-child){
+  margin-top: 2.5rem;
+  @include mq("md"){
+    margin-top: 0;
+    margin-left: 2.5rem;
+  }
+}
+
+
+.blog__button-wrap{
+  margin-top: 2.5rem;
+  @include mq("md"){
+    margin-top: 5rem;
+  }
+}
+
+.blog__button{
+  margin: 0 auto;
+}
+
+.blog__top-img-wrap{
+  width: 30%;
+  max-width: 27.3125rem;
+  position: absolute;
+  top: 2%;
+  left: 6%;
+  z-index: 5;
+}
+

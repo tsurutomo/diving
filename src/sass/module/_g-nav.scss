@@ -1,0 +1,27 @@
+@use "global" as *;
+
+.g-nav li a{
+  position: relative;
+}
+
+.g-nav li a:hover{
+	color: $white;
+}
+
+.g-nav li a::after {
+  content: '';
+  position: absolute;
+  bottom: 1.4375rem;
+  left: 10%;
+  width: 80%;
+  height: 0.0625rem;
+  background:$white;
+  border-radius: 3.125rem;
+  transition: transform .3s;
+  transform: scale(0, 1);
+  transform-origin: center top;
+}
+
+.g-nav li a:hover::after {
+  transform: scale(1, 1);
+}

@@ -1,0 +1,58 @@
+@use "global" as *;
+
+.top-campaign{
+  padding-top: 2.5rem;
+  @include mq("md"){
+    padding-top: 7.5rem;
+  }
+}
+
+.top-about-us{
+  padding-top: 2.5rem;
+  @include mq("md"){
+    padding-top: 4.375rem;
+  }
+}
+
+.top-info{
+  padding-top: 5rem;
+  @include mq("md"){
+    padding-top: 6.25rem;
+  }
+}
+
+.top-blog{
+  padding-top: 5.0625rem;
+  @include mq("md"){
+    padding-top: 6.25rem;
+  }
+}
+
+
+.top-voice{
+  padding-top: 5rem;
+  @include mq("md"){
+    padding-top: 8.75rem;
+  }
+}
+
+.top-price{
+  padding-top: 5rem;
+  @include mq("md"){
+    padding-top: 6.25rem;
+  }
+}
+
+.top-contact{
+  padding-top: 5rem;
+  @include mq("md"){
+    padding-top: 6.25rem;
+  }
+}
+
+.top-footer{
+  padding-top: 3rem;
+  @include mq("md"){
+    padding-top: 5rem;
+  }
+}

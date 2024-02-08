@@ -1,0 +1,51 @@
+@use "global" as *;
+.fv{
+  position: relative;
+  z-index: 1;
+  // height: 100vh;
+  min-height: 25rem;
+}
+
+.fv__inner{
+  height: inherit;
+}
+
+.fv__title-wrap{
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  color: $white;
+  text-align: center;
+}
+
+.fv__title{
+  font-size: 2.5rem;
+  letter-spacing: 0.54em;
+  line-height: calc(48/40);
+  font-family: $third-font-family;
+  padding-left: 1.5rem;
+  font-weight: 400;
+  @include mq("md"){
+    font-size: 5rem;
+    line-height: calc(100/80);
+  }
+}
+
+.fv__sub-title{
+  font-size: 1.25rem;
+  font-family: $second-font-family;
+}
+
+.fv__swiper,
+.fv__swiper .swiper-img,
+.fv__swiper .swiper-img img {
+    height: inherit;
+}
+
+.fv__swiper .swiper-img img {
+  width: 100%;
+  object-fit: cover;
+}

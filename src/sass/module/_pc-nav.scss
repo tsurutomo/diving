@@ -1,0 +1,29 @@
+@use "global" as *;
+
+.pc-nav{
+  height: inherit;
+}
+
+.pc-nav__items{
+  display: flex;
+  align-items: center;
+  height: inherit;
+}
+
+.pc-nav__item{
+  height: inherit;
+}
+
+
+.pc-nav__link{
+  font-size: 1.125rem;
+  line-height: 1;
+  font-family: $second-font-family;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: inherit;
+  padding: 0 1.25rem;
+}

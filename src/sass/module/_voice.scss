@@ -1,0 +1,136 @@
+@use "global" as *;
+
+.voice{
+  padding-bottom: 5rem;
+  @include mq("md"){
+    padding-bottom: 9rem;
+    position: relative;
+  }
+}
+
+.voice__contents{
+  margin-top: 2.5rem;
+  @include mq("md"){
+    margin-top: 1.875rem;
+  }
+}
+
+.voice__cards{
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  @include mq("md"){
+    flex-direction: row;
+  }
+}
+
+.voice-card{
+  box-shadow: 0.125rem 0.125rem 0.625rem rgba($color: $black2, $alpha: 0.25);
+  padding: 0.9375rem 1rem 1.5rem;
+}
+
+.voice-card__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.voice-card__topic{
+  @include mq("md"){
+    width: 56%;
+    margin-top: 1.5rem;
+  }
+}
+
+.voice-card__info{
+  @include mq("md"){
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+  }
+}
+
+.voice-card__gender {
+  font-size: 0.75rem;
+}
+
+.voice-card__tag {
+  color: $green;
+  font-size: 0.75rem;
+  line-height: calc(22/12);
+  padding: 0.25rem 1rem 0.25rem;
+  border: 0.0625rem solid $green;
+}
+
+.voice-card__sub-title {
+  font-size: 1rem;
+  margin-top: 0.25rem;
+  font-weight: $medium;
+  position: relative;
+  @include mq("md"){
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+  }
+}
+
+.voice-card__sub-title::before{
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 100%;
+  height: 0.0625rem;
+  border-radius: 0.3125rem;
+  background: $green;
+}
+
+.voice-card__img {
+  aspect-ratio: 151/117;
+  margin-left: 0.8125rem;
+  @include mq("md"){
+    aspect-ratio: 180/140;
+    width: 40%;
+  }
+}
+
+.voice-card__img img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.voice-card__text {
+  margin-top: 0.9375rem;
+  line-height: 1.5;
+}
+
+.voice__button-wrap{
+  text-align: center;
+  margin-top: 2.5rem;
+  @include mq("md"){
+    margin-top: 5rem;
+  }
+}
+
+.voice__button{
+  margin: 0 auto;
+}
+
+.voice__top-img-wrap{
+  width: 20%;
+  max-width: 18.8125rem;
+  position: absolute;
+  top: 2%;
+  left: 6%;
+  z-index: 5;
+}
+
+.voice__under-img-wrap{
+  width: 11%;
+  max-width: 4.4375rem;
+  position: absolute;
+  right: 12%;
+  bottom: 8%;
+  z-index: 5;
+}
