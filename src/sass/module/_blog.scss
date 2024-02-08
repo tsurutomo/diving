@@ -19,6 +19,18 @@
   z-index: -1;
 }
 
+.blog__inner{
+  width: 100%;
+  padding-right: 1.3125rem;
+  padding-left: 1.3125rem;
+  margin-right: auto;
+  margin-left: auto;
+  @include mq("md"){
+    padding-right: 1.5626em;
+    padding-left: 1.5626em;
+    max-width: 70.625rem;
+  }
+}
 .blog__cards {
   margin-top: 1.75rem;
   @include mq("md"){

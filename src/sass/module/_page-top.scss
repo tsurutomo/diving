@@ -2,17 +2,29 @@
 
 /*リンクを右下に固定*/
 #page-top {
-  position: fixed;
-  right: 1.25rem;
-  bottom: 1.25rem;
-  background-color: $white;
-  z-index: 10;
-  width: 3rem;
-  height: 3rem;
-  border: 0.0625rem solid $green;
-  border-radius: 50%;
-  box-shadow: 0 0.25rem 0.25rem rgba($color: $black2, $alpha: 0.25);
-  cursor: pointer;
+  align-items: center;
+    background: #fff;
+    border: solid 1px #408F95;
+    border-radius: 50%;
+    bottom: 2.5rem;
+    display: flex;
+    height: 3rem;
+    justify-content: center;
+    position: fixed;
+    right: 1.25rem;
+    width: 3rem;
+    z-index: 2;
+  // position: fixed;
+  // right: 1.25rem;
+  // bottom: 1.25rem;
+  // background-color: $white;
+  // z-index: 10;
+  // width: 3rem;
+  // height: 3rem;
+  // border: 0.0625rem solid $green;
+  // border-radius: 50%;
+  // box-shadow: 0 0.25rem 0.25rem rgba($color: $black2, $alpha: 0.25);
+  // cursor: pointer;
 
     /*はじめは非表示*/
   // opacity: 0;
@@ -23,27 +35,43 @@
   }
 }
 
-#page-top::before{
-  position: absolute;
-  content: "";
-  top: 50%;
-  left: 25%;
-  width: 2.5rem;
-  height: 0.0625rem;
-  border-bottom: 0.0625rem solid $green;
-  transform: rotate(-90deg);
-}
 
-#page-top::after{
-  content: '';
-  width: 0.7rem;
-  height: 2.5rem;
-  border-top: 0.0625rem solid $green;
-  transform: rotate(-50deg);
-  transform-origin: top right;
-  position: absolute;
-  top: 1.25rem;
-  right: 50%;
-  box-sizing: border-box;
-}
 
+
+// #page-top::before{
+//   position: absolute;
+//   content: "";
+//   top: 50%;
+//   left: 25%;
+//   width: 2.5rem;
+//   height: 0.0625rem;
+//   border-bottom: 0.0625rem solid $green;
+//   transform: rotate(-90deg);
+// }
+
+// #page-top::after{
+//   content: '';
+//   width: 0.7rem;
+//   height: 2.5rem;
+//   border-top: 0.0625rem solid $green;
+//   transform: rotate(-50deg);
+//   transform-origin: top right;
+//   position: absolute;
+//   top: 1.25rem;
+//   right: 50%;
+//   box-sizing: border-box;
+// }
+.page-top__arrow{
+  align-items: center;
+    background: #fff;
+    border: solid 1px #408F95;
+    border-radius: 50%;
+    bottom: 2.5rem;
+    display: flex;
+    height: 3rem;
+    justify-content: center;
+    position: fixed;
+    right: 1.25rem;
+    width: 3rem;
+    z-index: 2;
+}
