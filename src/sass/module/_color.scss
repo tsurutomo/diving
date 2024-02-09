@@ -11,6 +11,13 @@
   margin-top: 0.25rem;
 }
 
+.color-green-white{
+  color: $green;
+  @include mq("md"){
+    color: $white;
+  }
+}
+
 div.color-box{
   position: relative;
   width: 100%;
