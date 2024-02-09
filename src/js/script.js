@@ -79,49 +79,14 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
 
 
 //ページトップ
-    // const pageTop = $("#page-top");
-    // pageTop.hide();
-
-    // // ページが読み込まれたときとリサイズされたときに実行
-    // function adjustPageTopPosition() {
-    //     const windowHeight = $(window).height();
-    //     const footerHeight = $("footer").outerHeight(true); // trueでマージンも含めた高さを取得
-    //     const minTopPosition = windowHeight - footerHeight - pageTop.outerHeight();
-    //     pageTop.css("top", Math.max(0, minTopPosition)); // ページ上部からの最小位置を0に制限
-    // }
-
-    // adjustPageTopPosition(); // 初期位置調整
-
-    // $(window).on("scroll resize", function () {
-    //     if ($(this).scrollTop() > 120) { 
-    //         pageTop.fadeIn();
-    //     } else {
-    //         pageTop.fadeOut();
-    //     }
-    // });
-
-    // pageTop.click(function () {
-    //     $("body,html").animate(
-    //         {
-    //             scrollTop: 0,
-    //         },
-    //         200
-    //     );
-    //     return false;
-    // });
-
-    // // ウィンドウがリサイズされたときにページトップボタンの位置を調整
-    // $(window).on("resize", function() {
-    //     adjustPageTopPosition();
-    // });
     $(function () {
         const pageTop = $("#page-top");
         pageTop.hide();
         $(window).scroll(function () {
-          if ($(this).scrollTop() > 120) { 
+          if ($(this).scrollTop() > 120) {
             pageTop.fadeIn();
           } else {
-            pageTop.fadeOut();
+            pageTop.fadeOut()
           }
         });
         pageTop.click(function () {
