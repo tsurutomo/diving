@@ -12,7 +12,8 @@
   margin-top: 1.6875rem;
   position: relative;
   @include mq("md"){
-    margin-top: 2.5rem;
+    margin-top: 2.75rem;
+    margin-right: calc(50% - 50.5vw);
   }
 }
 
@@ -38,6 +39,10 @@
 
 .campaign__card-body{
   padding: 1rem 1rem 1.6rem;
+  @include mq("md"){
+    padding-top: 1.625rem;
+    padding-bottom: 2.5rem;
+  }
 }
 
 .campaign__card-tag{
@@ -46,6 +51,9 @@
   line-height: calc(22/12);
   padding: 0.3125rem 0.7rem 0.3125rem;
   border: 0.0625rem solid $green;
+  @include mq("md"){
+    padding: 0.4375rem 1rem 0.4375rem;
+  }
 }
 
 .campaign__card-name{
@@ -55,6 +63,9 @@
   line-height: calc(24/16);
   color: $black;
   position: relative;
+  @include mq("md"){
+    margin-top: 0.625rem;
+  }
 }
 
 .campaign__card-name::before{
@@ -72,6 +83,10 @@
 .campaign__card-text-wrap{
   margin-top: 0.5rem;
   padding: 0 1.125rem 0;
+  @include mq("md"){
+    margin-top: 0;
+    padding-top: 1.5rem;
+  }
 }
 
 .campaign__card-text{
@@ -80,6 +95,12 @@
   line-height: calc(24/14);
   text-align: center;
   margin-top: 1.0625rem;
+  @include mq("md"){
+    margin-top: 0;
+    font-size: 1rem;
+    line-height: calc(24/16);
+  }
+
 }
 
 .campaign__card-price-wrap{
@@ -118,17 +139,18 @@
   font-weight: $bold;
   line-height: 1;
   font-family: $third-font-family;
-  margin-left: 1rem;
+  // margin-left: 1rem;
   @include mq("md"){
-    font-size: 2.5rem;
+    font-size: min(2.8vw,2.5rem);
+    margin-left: 8%;
   }
 }
 
 .campaign-swiper__button-wrap {
   @include mq("md"){
     position: absolute;
-    top: 7.5rem;
-    right: 12%;
+    top: 8.83rem;
+    right: 11.8%;
     display: flex;
     justify-content: center;
   }
@@ -147,7 +169,7 @@
 }
 
 .campaign-swiper__button-wrap .swiper-button-next {
-  margin-left: 5rem;
+  margin-left: 6.25rem;
 }
 
 .campaign-swiper__button-wrap .swiper-button-prev::before,
@@ -195,7 +217,7 @@
 .campaign__button-wrap{
   margin-top: 1.875rem;
   @include mq("md"){
-    margin-top: 5rem;
+    margin-top: 4.375rem;
   }
 }
 

@@ -51,11 +51,10 @@
   @include mq("md"){
     margin-top: 0;
     position: absolute;
-    top: 50%;
-    left: 18%;
+    top: 48.3%;
+    left: 18.5%;
     transform: translateY(-50%);
     display: flex;
-    align-items: center;
   }
 }
 
@@ -105,7 +104,7 @@
   width: 100%;
   max-width: 12.125rem;
   position: absolute;
-  bottom: 5%;
+  bottom: 7.3%;
   right: 5.7%;
   z-index: 5;
 }

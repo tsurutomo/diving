@@ -27,10 +27,11 @@
 /*is-OPEN時の動き*/
 .hamburger.is-open span{
   width: 2.5rem;
+
 }
 .hamburger.is-open span:nth-child(1) {
- top: 0.6rem;
- transform: rotate(45deg);
+ top: 0.85rem;
+ transform: rotate(35deg);
 }
 
 .hamburger.is-open span:nth-child(2) {
@@ -39,6 +40,6 @@
 }
 
 .hamburger.is-open span:nth-child(3) {
- top: -1rem;
- transform: rotate(-45deg);
+ top: -0.85rem;
+ transform: rotate(-35deg);
 }

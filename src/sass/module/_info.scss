@@ -13,16 +13,6 @@
   @include mq("md"){
     margin-top: 2.5rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-.info__text-content{
-  margin-top: 1.5rem;
-  @include mq("md"){
-    margin-top: 0;
-    margin-left: 3rem;
   }
 }
 
@@ -31,6 +21,10 @@
   font-weight: $bold;
   line-height: calc(24/20);
   position: relative;
+  @include mq("md"){
+    font-size: 1.5rem;
+    line-height: calc(24/24);
+  }
 }
 
 .info__sub-title::before{
@@ -43,12 +37,34 @@
   height: 0.0625rem;
   border-radius: 0.3125rem;
   background: $green;
+  @include mq("md"){
+    bottom: -0.625rem;
+  }
+}
+
+.info__img-wrap{
+  @include mq("md"){
+    width: 50%;
+  }
+}
+
+
+.info__text-content{
+  margin-top: 1.5rem;
+  @include mq("md"){
+    margin-top: 3.8125rem;
+    margin-left: 2.9375rem;
+    width: 45%;
+  }
 }
 
 .info__text{
   margin-top: 0.8125rem;
   font-size: 1rem;
   line-height: calc(24/16);
+  @include mq("md"){
+    margin-top: 1.125rem;
+  }
 }
 
 .info__button-wrap{

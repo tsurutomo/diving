@@ -16,6 +16,14 @@ div.color-box{
   width: 100%;
 }
 
+div.color-box.color-info{
+  position: relative;
+  width: 100%;
+  @include mq("md"){
+    width: 50%;
+  }
+}
+
 div.color-box.color-voice{
   position: relative;
   width: 100%;

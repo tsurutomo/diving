@@ -1,7 +1,7 @@
 @use "global" as *;
 
 .voice{
-  padding-bottom: 5rem;
+  padding-bottom: 5.25rem;
   @include mq("md"){
     padding-bottom: 9rem;
     position: relative;
@@ -27,6 +27,9 @@
 .voice-card{
   box-shadow: 0.125rem 0.125rem 0.625rem rgba($color: $black2, $alpha: 0.25);
   padding: 0.87rem 1rem 1.5rem;
+  @include mq("md"){
+  padding: 0.87rem 1.5rem 1.5rem;
+  }
 }
 
 .voice-card__content {
@@ -37,8 +40,8 @@
 
 .voice-card__topic{
   @include mq("md"){
-    width: 56%;
-    margin-top: 1.5rem;
+    width: 61%;
+    margin-top: 2.125rem;
   }
 }
 
@@ -53,6 +56,9 @@
 .voice-card__gender {
   font-size: 0.75rem;
   padding-bottom: 0.12rem;
+  @include mq("md"){
+    padding-bottom: 0;
+  }
 }
 
 .voice-card__tag {
@@ -61,6 +67,9 @@
   line-height: calc(22/12);
   padding: 0.31rem 0.68rem 0.31rem;
   border: 0.0625rem solid $green;
+  @include mq("md"){
+    padding: 0.31rem 1rem 0.31rem;
+  }
 }
 
 .voice-card__sub-title {
@@ -92,7 +101,7 @@
   margin-top: 0.5rem;
   @include mq("md"){
     aspect-ratio: 180/140;
-    width: 40%;
+    width: 38%;
   }
 }
 
@@ -105,6 +114,9 @@
 .voice-card__text {
   margin-top: 1.12rem;
   line-height: 1.5;
+  @include mq("md"){
+    margin-top: 2.625rem;
+  }
 }
 
 .voice__button-wrap{
@@ -120,11 +132,11 @@
 }
 
 .voice__top-img-wrap{
-  width: 20%;
+  width: 22%;
   max-width: 18.8125rem;
   position: absolute;
-  top: 2%;
-  left: 6%;
+  top: 2.7%;
+  left: 7%;
   z-index: 5;
 }
 
@@ -132,7 +144,7 @@
   width: 11%;
   max-width: 4.4375rem;
   position: absolute;
-  right: 12%;
+  right: 12.6%;
   bottom: 8%;
   z-index: 5;
 }

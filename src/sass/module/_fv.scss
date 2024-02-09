@@ -2,7 +2,6 @@
 .fv{
   position: relative;
   z-index: 1;
-  // height: 100vh;
   min-height: 25rem;
 }
 
@@ -31,6 +30,7 @@
   @include mq("md"){
     font-size: 5rem;
     line-height: calc(100/80);
+    padding-left: 2.5rem;
   }
 }
 

@@ -10,43 +10,42 @@
 .top-about-us{
   padding-top: 2.5rem;
   @include mq("md"){
-    padding-top: 4.375rem;
+    padding-top: 4.5rem;
   }
 }
 
 .top-info{
   padding-top: 5rem;
   @include mq("md"){
-    padding-top: 6.25rem;
+    padding-top: 6.375rem;
   }
 }
 
 .top-blog{
   padding-top: 5.0625rem;
   @include mq("md"){
-    padding-top: 6.25rem;
+    padding-top: 6.3125rem;
   }
 }
-
 
 .top-voice{
   padding-top: 5.25rem;
   @include mq("md"){
-    padding-top: 8.75rem;
+    padding-top: 9rem;
   }
 }
 
 .top-price{
   padding-top: 5rem;
   @include mq("md"){
-    padding-top: 6.25rem;
+    padding-top: 6.2rem;
   }
 }
 
 .top-contact{
   padding-top: 5rem;
   @include mq("md"){
-    padding-top: 6.25rem;
+    padding-top: 8.75rem;
   }
 }
 
