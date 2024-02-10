@@ -11,6 +11,7 @@
 .footer__heading{
   @include mq("md"){
     display: flex;
+    align-items: flex-end;
     gap: 2.5rem;
   }
 }
@@ -46,12 +47,12 @@
   margin-top: 2.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 4%;
   padding-right: 0.6875rem;
   @include mq("md"){
-    margin-top: 1.5rem;
+    margin-top: 1.75rem;
     padding-right: 0;
+    align-items: flex-start;
     gap: 11%;
   }
 }
@@ -60,7 +61,6 @@
 .footer-nav__right{
   @include mq("md"){
     display: flex;
-    align-items: center;
   }
 }
 
@@ -73,16 +73,13 @@
 .footer-nav__items{
     display: flex;
     flex-direction: column;
-    @include mq("md"){
-    gap: 1.25rem;
-    }
+    gap: 1.125rem;
   }
 
 .footer-nav__item{
   color: $white;
   list-style: none;
   padding-left: 1.375rem;
-  margin-top: 1rem;
 }
 
 
@@ -108,7 +105,6 @@
   }
 }
 
-
 .footer-nav__link{
   display: block;
   color: $white;
@@ -119,6 +115,7 @@
   text-align: center;
   color: $white;
   font-size: 0.75rem;
+  font-family: $second-font-family;
   line-height: calc(18/12);
   margin-top: 2.5rem;
   @include mq("md"){

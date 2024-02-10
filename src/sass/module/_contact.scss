@@ -2,7 +2,7 @@
 
 .contact {
   position: relative;
-  padding-bottom: 6.4375em;
+  padding-bottom: 6.25rem;
   filter: drop-shadow(0 0.25rem 0.25rem rgba($color: $black2, $alpha: 0.25));
   @include mq("md"){
     padding-bottom: 10rem;
