@@ -5,11 +5,11 @@
 }
 
 .section__main-title{
-  font-size: 2rem;
+  font-size: rem(32);
   line-height: calc(40/32);
   font-family: $second-font-family;
   @include mq("md"){
-    font-size: 2.5rem;
+    font-size: rem(40);
     line-height: 1;
   }
 }
@@ -21,12 +21,12 @@
 }
 
 .section__sub-title{
-  margin-top: 0.25rem;
-  font-size: 0.75rem;
+  margin-top: rem(4);
+  font-size: rem(12);
   line-height: calc(18/12);
   color: $green;
   @include mq("md"){
-    margin-top: 0.375rem;
+    margin-top: rem(6);
   }
 }
 

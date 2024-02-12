@@ -1,29 +1,29 @@
 @use "global" as *;
 
 .campaign{
-  padding-bottom: 2.5rem;
+  padding-bottom: rem(40);
   @include mq("md"){
-    padding-bottom: 4.375rem;
+    padding-bottom: rem(70);
     position: relative;
   }
 }
 
 .campaign-swiper{
-  margin-top: 1.6875rem;
+  margin-top: rem(27);
   position: relative;
   @include mq("md"){
-    margin-top: 2.75rem;
+    margin-top: rem(44);
     margin-right: calc(50% - 50.5vw);
   }
 }
 
 .campaign__cards{
-  padding-bottom: 0.625rem;
+  padding-bottom: rem(10);
 }
 .campaign__card{
   display: block;
   color: $white;
-  box-shadow: 0 0.25rem 0.25rem rgba($color: $black2, $alpha: 0.25);
+  box-shadow: 0 rem(4) rem(4) rgba($color: $black2, $alpha: 0.25);
 }
 
 .campaign__card-img{
@@ -38,33 +38,33 @@
 }
 
 .campaign__card-body{
-  padding: 1rem 1rem 1.6rem;
+  padding: rem(16) rem(16) rem(26);
   @include mq("md"){
-    padding-top: 1.625rem;
-    padding-bottom: 2.5rem;
+    padding-top: rem(26);
+    padding-bottom: rem(40);
   }
 }
 
 .campaign__card-tag{
   color: $green;
-  font-size: 0.75rem;
+  font-size: rem(12);
   line-height: calc(22/12);
-  padding: 0.3125rem 0.7rem 0.3125rem;
-  border: 0.0625rem solid $green;
+  padding: rem(5) rem(12) rem(5);
+  border: rem(1) solid $green;
   @include mq("md"){
-    padding: 0.4375rem 1rem 0.4375rem;
+    padding: rem(7) rem(16) rem(7);
   }
 }
 
 .campaign__card-name{
-  margin-top: 0.375rem;
-  font-size: 1rem;
+  margin-top: rem(6);
+  font-size: rem(16);
   font-weight: $medium;
   line-height: calc(24/16);
   color: $black;
   position: relative;
   @include mq("md"){
-    margin-top: 0.625rem;
+    margin-top: rem(10);
   }
 }
 
@@ -73,31 +73,31 @@
     display: inline-block;
     position: absolute;
     left: 0;
-    bottom: -0.625rem;
+    bottom: rem(-10);
     width: 100%;
-    height: 0.0625rem;
-    border-radius: 0.3125rem;
+    height: rem(161);
+    border-radius: rem(5);
     background: $green;
 }
 
 .campaign__card-text-wrap{
-  margin-top: 0.5rem;
-  padding: 0 1.125rem 0;
+  margin-top: rem(8);
+  padding: 0 rem(18) 0;
   @include mq("md"){
     margin-top: 0;
-    padding-top: 1.5rem;
+    padding-top: rem(24);
   }
 }
 
 .campaign__card-text{
   color: $black;
-  font-size: 0.875rem;
+  font-size: rem(14);
   line-height: calc(24/14);
   text-align: center;
-  margin-top: 1.0625rem;
+  margin-top: rem(17);
   @include mq("md"){
     margin-top: 0;
-    font-size: 1rem;
+    font-size: rem(16);
     line-height: calc(24/16);
   }
 
@@ -107,18 +107,18 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  margin-top: 0.5rem;
+  margin-top: rem(8);
 }
 
 .campaign__card-list-price{
   color: $black;
-  font-size: 1.25rem;
+  font-size: rem(20);
   font-weight: $bold;
   line-height: 1;
   font-family: $third-font-family;
   position: relative;
   @include mq("md"){
-    font-size: 1.5rem;
+    font-size: rem(24);
   }
 }
 
@@ -127,7 +127,7 @@
   position: absolute;
   display: inline-block;
   width: 100%;
-  height: 0.1875rem;
+  height: rem(3);
   background-color: $red;
   top: 50%;
   transform: translateY(-50%);
@@ -135,13 +135,12 @@
 
 .campaign__card-price{
   color: $green;
-  font-size: 2rem;
+  font-size: rem(32);
   font-weight: $bold;
   line-height: 1;
   font-family: $third-font-family;
-  // margin-left: 1rem;
   @include mq("md"){
-    font-size: min(2.8vw,2.5rem);
+    font-size: min(2.8vw,rem(40));
     margin-left: 8%;
   }
 }

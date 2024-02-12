@@ -39,17 +39,17 @@
 
 #page-top::after{
   content: '';
-  width: 0.7rem;
-  height: 2.5rem;
-  border-top: 0.0625rem solid $green;
+  width: rem(12);
+  height: rem(40);
+  border-top: rem(1) solid $green;
   transform: rotate(-50deg);
   transform-origin: top right;
   position: absolute;
-  top: 0.6rem;
+  top: rem;
   right: 45%;
   box-sizing: border-box;
   @include mq("md"){
-  top: 1.25rem;
+  top: rem(10);
   right: 50%;
   }
 }

@@ -11,12 +11,12 @@
 .g-nav li a::after {
   content: '';
   position: absolute;
-  bottom: 1.4375rem;
+  bottom: rem(23);
   left: 10%;
   width: 80%;
-  height: 0.0625rem;
+  height: rem(1);
   background:$white;
-  border-radius: 3.125rem;
+  border-radius: rem(50);
   transition: transform .3s;
   transform: scale(0, 1);
   transform-origin: center top;

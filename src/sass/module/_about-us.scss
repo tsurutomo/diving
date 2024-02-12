@@ -1,18 +1,18 @@
 @use "global" as *;
 
 .about-us{
-  padding-bottom: 4.375rem;
+  padding-bottom: rem(70);
   @include mq("md"){
-    padding-bottom: 10.25rem;
+    padding-bottom: rem(164);
     position: relative;
   }
 }
 
 .about-us__container{
-  margin-top: 1.8125rem;
+  margin-top: rem(30);
   position: relative;
-  @include mq("lg"){
-    margin-top: 2.5rem;
+  @include mq("md"){
+    margin-top: rem(40);
   }
 }
 
@@ -21,15 +21,15 @@
 }
 
 .about-us__right-wrap {
-  padding-top: 1.5625rem;
+  padding-top: rem(25);
   width: 81%;
-  min-width: 17.5625rem;
+  min-width: rem(281);
   margin-left: auto;
   aspect-ratio: 281/186;
   @include mq("md"){
-    padding-top: 5rem;
+    padding-top: rem(80);
     width: 100%;
-    max-width: 55rem;
+    max-width: rem(880);
   }
 }
 
@@ -37,17 +37,17 @@
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 8rem;
+  min-width: rem(128);
   width: 37%;
   aspect-ratio: 400/600;
   @include mq("md"){
     width: 100%;
-    max-width: 25rem;
+    max-width: rem(400);
   }
 }
 
 .about-us__contents {
-  margin-top: 2.625rem;
+  margin-top: rem(42);
   @include mq("md"){
     margin-top: 0;
     position: absolute;
@@ -62,22 +62,22 @@
 
 .about-us__copy {
   color: $green;
-  font-size: 2.5rem;
+  font-size: rem(40);
   line-height: 1;
   font-family: $second-font-family;
   @include mq("md"){
     color: $white;
-    font-size: 5rem;
+    font-size: rem(80);
     line-height: 1.25;
     width: 45%
   }
 }
 
 .about-us__text-box {
-  margin-top: 1rem;
+  margin-top: rem(16);
   @include mq("md"){
     margin-top: 0;
-    margin-left: 2.5rem;
+    margin-left: rem(40);
     width: 45%;
   }
 }
@@ -90,9 +90,9 @@
 }
 
 .about-us__button-wrapper {
-  margin-top: 3.125rem;
+  margin-top: rem(50);
   @include mq("md"){
-    margin-top: 2.5rem;
+    margin-top: rem(40);
   }
 }
 
@@ -102,7 +102,7 @@
 
 .about-us__under-img-wrap{
   width: 100%;
-  max-width: 12.125rem;
+  max-width: rem(194);
   position: absolute;
   bottom: 7.3%;
   right: 5.7%;

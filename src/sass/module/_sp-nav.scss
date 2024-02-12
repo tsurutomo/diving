@@ -12,7 +12,7 @@
 }
 
 .sp-nav__list{
-  padding: 4rem 2.375rem 6.9375rem 1rem;
+  padding: rem(64) rem(38) rem(111) rem(16);
   margin-right: auto;
   margin-left: auto;
   display: flex;
@@ -27,25 +27,25 @@
 .sp-nav__item{
   color: $white;
   list-style: none;
-  padding-left: 1.375rem;
-  margin-top: 1.5rem;
+  padding-left: rem(22);
+  margin-top: rem(24);
 }
 
 .sp-nav__item.sp-nav__item--icon{
-  font-size: 1rem;
+  font-size: rem(16);
   font-weight: $bold;
   line-height: calc(18/16);
-  margin-top: 2.5rem;
+  margin-top: rem(40);
   background-image: url(/assets/images/starfish.png);
   background-position: top left;
   background-repeat: no-repeat;
-  background-size: cover 1.125rem;
-  padding-left: 1.375rem;
-  line-height:1.125rem;
+  background-size: cover rem(18);
+  padding-left: rem(22);
+  line-height:rem(18);
 }
 
 .sp-nav__link{
-  font-size: 1rem;
+  font-size: rem(16);
   font-weight: $regular;
   display: block;
   color: $white;
