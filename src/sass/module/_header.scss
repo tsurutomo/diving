@@ -1,7 +1,7 @@
 @use "global" as *;
 
 .header{
-  background-color: rgba($color: $green, $alpha: 0.68);
+  background-color: rgba($color: $black, $alpha: 0.68);
   width: 100%;
   height: rem(80);
   @include mq("md"){
@@ -35,4 +35,7 @@
 .header__sp-nav{
   background-color: $green;
   display: flex;
+  @include mq("md"){
+    display: none;
+  }
 }

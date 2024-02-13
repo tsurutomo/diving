@@ -8,6 +8,10 @@
   }
 }
 
+.info__inner{
+  max-width: rem(600);
+}
+
 .info__contents{
   margin-top: rem(29);
   @include mq("md"){
@@ -48,6 +52,12 @@
   }
 }
 
+.info__img-wrap img{
+  aspect-ratio: 1080/712;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 
 .info__text-content{
   margin-top: rem(24);
@@ -60,7 +70,7 @@
 
 .info__text{
   margin-top: rem(13);
-  font-size: rem(6);
+  font-size: rem(16);
   line-height: calc(24/16);
   @include mq("md"){
     margin-top: rem(18);

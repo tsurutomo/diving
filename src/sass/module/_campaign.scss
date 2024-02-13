@@ -1,5 +1,4 @@
 @use "global" as *;
-
 .campaign{
   padding-bottom: rem(40);
   @include mq("md"){
@@ -20,8 +19,11 @@
 .campaign__cards{
   padding-bottom: rem(10);
 }
+
 .campaign__card{
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   color: $white;
   box-shadow: 0 rem(4) rem(4) rgba($color: $black2, $alpha: 0.25);
 }
@@ -75,7 +77,7 @@
     left: 0;
     bottom: rem(-10);
     width: 100%;
-    height: rem(161);
+    height: rem(1);
     border-radius: rem(5);
     background: $green;
 }

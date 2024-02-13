@@ -1,21 +1,25 @@
 @use "global" as *;
 
 .cards {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(1, 3fr);;
   @include mq("md"){
-    flex-direction: row;
+    grid-template-columns: repeat(3, 1fr);;
   }
 }
 
 .card-list__item {
+  flex-grow: 1;
   display: block;
   background-color: $white;
   box-shadow: rem(2) rem(2) rem(10) rgba($color: $black2, $alpha: 0.25);
+  transition: border 0.3s;
+  &:hover{
+    border: rem(2) solid $green;
+  }
 }
 
 .card__img {
-  aspect-ratio: 301/196;
   padding: rem(16) rem(16) 0;
 }
 

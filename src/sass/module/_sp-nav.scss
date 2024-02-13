@@ -16,7 +16,9 @@
   margin-right: auto;
   margin-left: auto;
   display: flex;
-  justify-content: space-between;
+  gap: 2vw;
+  align-items: center;
+  justify-content: center;
 }
 
 .sp-nav__items{
@@ -33,7 +35,6 @@
 
 .sp-nav__item.sp-nav__item--icon{
   font-size: rem(16);
-  font-weight: $bold;
   line-height: calc(18/16);
   margin-top: rem(40);
   background-image: url(/assets/images/starfish.png);
@@ -50,4 +51,8 @@
   display: block;
   color: $white;
   line-height: calc(18/16);
+}
+
+.sp-nav__item.sp-nav__item--icon.sp-nav__link{
+  font-weight: $bold;
 }

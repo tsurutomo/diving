@@ -8,6 +8,10 @@
   }
 }
 
+.about-us__inner{
+  max-width: rem(600);
+}
+
 .about-us__container{
   margin-top: rem(30);
   position: relative;
@@ -25,12 +29,16 @@
   width: 81%;
   min-width: rem(281);
   margin-left: auto;
-  aspect-ratio: 281/186;
   @include mq("md"){
     padding-top: rem(80);
     width: 100%;
     max-width: rem(880);
   }
+}
+
+.about-us__right-wrap img{
+  aspect-ratio: 1760/1212;
+  object-fit: cover;
 }
 
 .about-us__left-wrap {
@@ -39,11 +47,15 @@
   left: 0;
   min-width: rem(128);
   width: 37%;
-  aspect-ratio: 400/600;
   @include mq("md"){
     width: 100%;
     max-width: rem(400);
   }
+}
+
+.about-us__left-wrap img{
+  aspect-ratio: 400/600;
+  object-fit: cover;
 }
 
 .about-us__contents {
