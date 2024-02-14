@@ -150,75 +150,79 @@
 .campaign-swiper__button-wrap {
   @include mq("md"){
     position: absolute;
-    top: 8.83rem;
+    top: rem(140);
     right: 11.8%;
     display: flex;
     justify-content: center;
-  }
+}
 }
 
 .campaign-swiper__button-wrap .swiper-button-prev,
 .campaign-swiper__button-wrap .swiper-button-next {
   position: relative;
   background-color:$white;
-  border: 0.0625rem solid $green;
+  border: rem(1) solid $green;
   border-radius: 50%;
+  transition: opacity 0.3s;
   @include mq(md){
-      width: 5rem;
-      height: 5rem;
+      width: rem(80);
+      height: rem(80);
+  }
+  &:hover{
+    opacity: 0.7;
   }
 }
 
 .campaign-swiper__button-wrap .swiper-button-next {
-  margin-left: 6.25rem;
+  margin-left: rem(100);
 }
 
 .campaign-swiper__button-wrap .swiper-button-prev::before,
 .campaign-swiper__button-wrap .swiper-button-next::before {
   content: "";
   position: absolute;
-  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-bottom: 0.0625rem solid $green;
+  border-bottom: rem(1) solid $green;
   @include mq(md){
-    width: 2.5rem;
-    height: 0.25rem;
+    width: rem(40);
+    height: rem(20);
   }
 }
 
 .campaign-swiper__button-wrap .swiper-button-prev::after{
   content: "";
   position: absolute;
-  width: 1rem;
-  height: 0.625rem;
-  border-left: 0.0625rem solid $green;
+  width: rem(8);
+  height: rem(16);
+  border-left: rem(1) solid $green;
   transform: rotate(50deg);
   transform-origin: top right;
   position: absolute;
-  top: 2.875rem;
-  left: 1.25rem;
+  top: rem(34);
+  left: rem(28);
   box-sizing: border-box;
 }
 
 .campaign-swiper__button-wrap .swiper-button-next::after{
   content: "";
   position: absolute;
-  width: 1rem;
-  height: 0.625rem;
-  border-right: 0.0625rem solid $green;
+  width: rem(8);
+  height: rem(16);
+  border-right: rem(1) solid $green;
   transform: rotate(-50deg);
   transform-origin: top right;
   position: absolute;
-  top: 2.125rem;
-  right: 1.625rem;
+  top: rem(28);
+  right: rem(31);
   box-sizing: border-box;
 }
 
+
 .campaign__button-wrap{
-  margin-top: 1.875rem;
+  margin-top: rem(30);
   @include mq("md"){
-    margin-top: 4.375rem;
+    margin-top: rem(70);
   }
 }
 
