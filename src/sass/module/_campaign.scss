@@ -1,8 +1,6 @@
 @use "global" as *;
 .campaign{
-  padding-bottom: rem(40);
   @include mq("md"){
-    padding-bottom: rem(70);
     position: relative;
   }
 }
@@ -49,6 +47,7 @@
 }
 
 .campaign__card-tag{
+  display: inline-block;
   color: $green;
   font-size: rem(12);
   line-height: calc(22/12);
@@ -65,31 +64,20 @@
   font-weight: $medium;
   line-height: calc(24/16);
   color: $black;
-  position: relative;
+  border-bottom: rem(1) solid $green;
+  padding-bottom: rem(10);
   @include mq("md"){
     margin-top: rem(10);
   }
-}
-
-.campaign__card-name::before{
-    content: "";
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    bottom: rem(-10);
-    width: 100%;
-    height: rem(1);
-    border-radius: rem(5);
-    background: $green;
 }
 
 .campaign__card-text-wrap{
   margin-top: rem(8);
   padding: 0 rem(18) 0;
   @include mq("md"){
-    margin-top: 0;
+    margin-top: auto;
     padding-top: rem(24);
-  }
+    }
 }
 
 .campaign__card-text{
@@ -103,7 +91,6 @@
     font-size: rem(16);
     line-height: calc(24/16);
   }
-
 }
 
 .campaign__card-price-wrap{

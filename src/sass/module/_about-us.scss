@@ -1,15 +1,9 @@
 @use "global" as *;
 
-.about-us{
-  padding-bottom: rem(70);
+.about-us__inner{
   @include mq("md"){
-    padding-bottom: rem(164);
     position: relative;
   }
-}
-
-.about-us__inner{
-  max-width: rem(600);
 }
 
 .about-us__container{
@@ -70,8 +64,6 @@
   }
 }
 
-
-
 .about-us__copy {
   color: $green;
   font-size: rem(40);
@@ -81,7 +73,6 @@
     color: $white;
     font-size: rem(80);
     line-height: 1.25;
-    width: 45%
   }
 }
 
@@ -116,7 +107,7 @@
   width: 100%;
   max-width: rem(194);
   position: absolute;
-  bottom: 7.3%;
-  right: 5.7%;
+  bottom: -11%;
+  right: -6%;
   z-index: 5;
 }

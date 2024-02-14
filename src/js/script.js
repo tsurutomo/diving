@@ -1,19 +1,26 @@
 jQuery(function ($) { // この中であればWordpressでも「$」が使用可能になる
 
-    //ナビバートグル
-    $('.js-hamburger').on('click', function () {
-      if ($('.js-hamburger').hasClass('is-open')) {
+    //ハンバーガーメニュー
+  $('.js-hamburger').on('click', function () {
+    if ($('.js-hamburger').hasClass('is-open')) {
+      $('body').removeClass('sp-nav-open');
+      $(this).removeClass('is-open');
+      setTimeout(function() {
         $('.js-drawer-menu').fadeOut();
-        $(this).removeClass('is-open');
-      } else {
-        $('.js-drawer-menu').fadeIn();
-        $(this).addClass('is-open');
-      }
-    });
-    $('.js-drawer-menu').on('click', function () {
-      $('.js-drawer-menu').fadeOut();
-      $('.js-hamburger').removeClass('is-open');
-    });
+      }, 300);
+    } else {
+      $('body').addClass('sp-nav-open');
+      $(this).addClass('is-open');
+      $('.js-drawer-menu').fadeIn();
+    }
+  });
+
+  $('.js-drawer-menu').on('click', function () {
+    $('body').removeClass('sp-nav-open');
+    $('.js-hamburger').removeClass('is-open');
+    $('.js-drawer-menu').fadeOut();
+  });
+
 
   //swiper
     const mv_swiper = new Swiper(".js-fv-swiper", {
@@ -99,4 +106,21 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
           return false;
         });
       });
+
+// SPサイズで追従するための処理
+$(window).resize(function() {
+  if ($(window).width() <= 768) {
+    const windowHeight = $(window).height();
+    const buttonHeight = pageTop.outerHeight();
+    const bottomMargin = 20;
+
+    pageTop.css({
+      bottom: windowHeight - buttonHeight - bottomMargin
+    });
+  } else {
+    pageTop.css({
+      bottom: 'rem(16)'
+    });
+  }
+}).resize();
 });
