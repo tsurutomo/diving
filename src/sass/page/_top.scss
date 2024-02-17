@@ -31,29 +31,33 @@
 }
 
 .top-voice{
-  padding-top: rem(84);
+  margin-top: rem(84);
   @include mq("md"){
-    padding-top: rem(144);
+    margin-top: rem(144);
   }
 }
 
 .top-price{
+  margin-top: rem(84);
   padding-top: rem(80);
   @include mq("md"){
+    margin-top: rem(144);
     padding-top: rem(100);
   }
 }
 
 .top-contact{
-  padding-top: rem(80);
+  margin-top: rem(80);
   @include mq("md"){
-    padding-top: rem(140);
+    margin-top: rem(140);
   }
 }
 
 .top-footer{
+  margin-top: rem(100);
   padding-top: rem(48);
   @include mq("md"){
+    margin-top: rem(160);
     padding-top: rem(80);
   }
 }

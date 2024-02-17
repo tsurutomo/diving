@@ -86,41 +86,59 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
 
 
 //ページトップ
-    $(function () {
-        const pageTop = $("#page-top");
-        pageTop.hide();
-        $(window).scroll(function () {
-          if ($(this).scrollTop() > 120) {
+
+const pageTop = $("#page-top");
+    pageTop.hide();
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 120) {
             pageTop.fadeIn();
-          } else {
-            pageTop.fadeOut()
-          }
-        });
-        pageTop.click(function () {
-          $("body,html").animate(
-            {
-              scrollTop: 0,
-            },
-            200
-          );
-          return false;
-        });
-      });
-
-// SPサイズで追従するための処理
-$(window).resize(function() {
-  if ($(window).width() <= 768) {
-    const windowHeight = $(window).height();
-    const buttonHeight = pageTop.outerHeight();
-    const bottomMargin = 20;
-
-    pageTop.css({
-      bottom: windowHeight - buttonHeight - bottomMargin
+        } else {
+            pageTop.fadeOut();
+        }
     });
-  } else {
-    pageTop.css({
-      bottom: 'rem(16)'
-    });
-  }
-}).resize();
+    pageTop.click(function () {
+        $("body,html").animate({
+            scrollTop: 0,
+        },500
+        );
+        return false;
+    }); 
+
+        // const pageTop = $(".js-top-button");
+        // pageTop.hide();
+        // $(window).scroll(function () {
+        //   if ($(this).scrollTop() > 120) {
+        //     pageTop.fadeIn();
+        //   } else {
+        //     pageTop.fadeOut()
+        //   }
+        // });
+        // pageTop.click(function () {
+        //   $("body,html").animate(
+        //     {
+        //       scrollTop: 0,
+        //     },
+        //     200
+        //   );
+        //   return false;
+        // });
+
+
+// // SPサイズで追従するための処理
+// $(window).resize(function() {
+//   if ($(window).width() <= 768) {
+//     const windowHeight = $(window).height();
+//     const buttonHeight = pageTop.outerHeight();
+//     const bottomMargin = 20;
+
+//     pageTop.css({
+//       bottom: windowHeight - buttonHeight - bottomMargin
+//     });
+//   } else {
+//     pageTop.css({
+//       bottom: 'rem(16)'
+//     });
+//   }
+// }).resize();
+
 });
