@@ -20,6 +20,17 @@
   }
 }
 
+
+.section__main-title::first-letter{
+  color: $green;
+}
+
+.section__main-title.section__main-title--white::first-letter{
+  @include mq("md"){
+    color: $white;
+  }
+}
+
 .section__sub-title{
   margin-top: rem(4);
   font-size: rem(12);
