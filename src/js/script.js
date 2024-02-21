@@ -1,46 +1,23 @@
 jQuery(function ($) { // この中であればWordpressでも「$」が使用可能になる
 
     //ハンバーガーメニュー
-//   $('.js-hamburger').on('click', function () {
-//     if ($('.js-hamburger').hasClass('is-open')) {
-//       $('body').removeClass('sp-nav-open');
-//       $(this).removeClass('is-open');
-//       setTimeout(function() {
-//         $('.js-drawer-menu').fadeOut();
-//       }, 300);
-//     } else {
-//       $('body').addClass('sp-nav-open');
-//       $(this).addClass('is-open');
-//       $('.js-drawer-menu').fadeIn();
-//     }
-//   });
-
-//   $('.js-drawer-menu').on('click', function () {
-//     $('body').removeClass('sp-nav-open');
-//     $('.js-hamburger').removeClass('is-open');
-//     $('.js-drawer-menu').fadeOut();
-//   });
-
-$('.js-hamburger').on('click', function () {
+  $('.js-hamburger').on('click', function () {
     if ($('.js-hamburger').hasClass('is-open')) {
       $('body').removeClass('sp-nav-open');
       $(this).removeClass('is-open');
-      $('.js-header').removeClass('is-open'); // .js-headerにも.is-openを削除する
       setTimeout(function() {
         $('.js-drawer-menu').fadeOut();
       }, 300);
     } else {
       $('body').addClass('sp-nav-open');
       $(this).addClass('is-open');
-      $('.js-header').addClass('is-open'); // .js-headerにも.is-openを追加する
       $('.js-drawer-menu').fadeIn();
     }
   });
-  
+
   $('.js-drawer-menu').on('click', function () {
     $('body').removeClass('sp-nav-open');
     $('.js-hamburger').removeClass('is-open');
-    $('.js-header').removeClass('is-open'); // .js-headerにも.is-openを削除する
     $('.js-drawer-menu').fadeOut();
   });
 

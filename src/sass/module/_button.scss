@@ -5,7 +5,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: rem(20) rem(4) rem(24);
+  padding: rem(16) rem(45) rem(16) rem(40);
   position: relative;
   z-index: 1;
 }
@@ -16,6 +16,7 @@
   top: rem(4);
   left: rem(4);
   width: 100%;
+  height: 100%;
   border: rem(1) solid $green;
   z-index: -2;
 }
@@ -27,6 +28,9 @@
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0, 1);
   transform-origin: left top;
   transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
   z-index: -1;
@@ -42,6 +46,7 @@
   line-height: calc(22/14);
   font-family: $second-font-family;
   position: relative;
+  padding-right: rem(44);
   transition: color .2s;
 }
 
@@ -59,49 +64,10 @@
   display: block;
   transform: skew(45deg);
   width: rem(40);
+  height: rem(6);
   transition: border-color 0.2s;
 }
 
 .button:hover p::before{
   border-color: $green;
 }
-
-// .button::before{
-  // content: "";
-  // position: absolute;
-  // border: rem(1) solid $green;
-  // background-color: transparent;
-  // width: 100%;
-  // height: 100%;
-  // bottom: rem(-4);
-  // right: rem(-4);
- 
-
-// }
-// .button:hover::after{
-//     transform: scale(1, 1);
-// }
-
-// .button::after{
-//   background-color: $white;
-//   content: "";
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   transform: scale(0, 1);
-  
-// }
-
-// .button-arrow{
-//   margin-left: rem(8);
-  // width: rem(40);
-//   height: rem(6);
-  
-//   transition: border-color 0.2s;
-// }
-
-// .button:hover .button-arrow{
-//   border-color: $green;
-// }

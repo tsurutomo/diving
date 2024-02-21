@@ -43,13 +43,10 @@
 
 .blog__button-wrap{
   margin-top: rem(40);
+  text-align: center;
   @include mq("md"){
     margin-top: rem(80);
   }
-}
-
-.blog__button{
-  margin: 0 auto;
 }
 
 .blog__top-img-wrap{

@@ -212,13 +212,10 @@
 
 .campaign__button-wrap{
   margin-top: rem(30);
+  text-align: center;
   @include mq("md"){
     margin-top: rem(70);
   }
-}
-
-.campaign__button{
-  margin: 0 auto;
 }
 
 .campaign-swiper__button-wrap .swiper-button-prev::before {

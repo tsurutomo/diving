@@ -94,13 +94,10 @@
 
 .about-us__button-wrapper {
   margin-top: rem(50);
+  text-align: center;
   @include mq("md"){
     margin-top: rem(40);
   }
-}
-
-.about-us__button {
-  margin: 0 auto;
 }
 
 .about-us__under-img-wrap{
