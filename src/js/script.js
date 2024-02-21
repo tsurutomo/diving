@@ -1,26 +1,29 @@
 jQuery(function ($) { // この中であればWordpressでも「$」が使用可能になる
 
     //ハンバーガーメニュー
-  $('.js-hamburger').on('click', function () {
-    if ($('.js-hamburger').hasClass('is-open')) {
-      $('body').removeClass('sp-nav-open');
-      $(this).removeClass('is-open');
-      setTimeout(function() {
+    $('.js-hamburger').on('click', function () {
+        if ($('.js-header').hasClass('is-open')) {
+            $('.js-header').removeClass('is-open');
+        } else {
+            $('.js-header').addClass('is-open');
+        }
+        if ($('.js-hamburger').hasClass('is-open')) {
+            $('body').removeClass('sp-nav-open');
+            $(this).removeClass('is-open');
+            setTimeout(function() {
+            $('.js-drawer-menu').fadeOut();
+        }, 300);
+        } else {
+            $('body').addClass('sp-nav-open');
+            $(this).addClass('is-open');
+            $('.js-drawer-menu').fadeIn();
+        }
+    });
+    $('.js-drawer-menu').on('click', function () {
+        $('body').removeClass('sp-nav-open');
+        $('.js-hamburger').removeClass('is-open');
         $('.js-drawer-menu').fadeOut();
-      }, 300);
-    } else {
-      $('body').addClass('sp-nav-open');
-      $(this).addClass('is-open');
-      $('.js-drawer-menu').fadeIn();
-    }
-  });
-
-  $('.js-drawer-menu').on('click', function () {
-    $('body').removeClass('sp-nav-open');
-    $('.js-hamburger').removeClass('is-open');
-    $('.js-drawer-menu').fadeOut();
-  });
-
+    });
 
   //swiper
     const mv_swiper = new Swiper(".js-fv-swiper", {

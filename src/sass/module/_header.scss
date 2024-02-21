@@ -9,9 +9,9 @@
   }
 }
 
-// .header.is-open{
-//   background-color: $green;
-// }
+.header.is-open{
+  background-color: $green;
+}
 
 .header__inner{
   display: flex;
@@ -38,7 +38,7 @@
 
 .header__sp-nav{
   position: absolute;
-  top: 0;
+  top: rem(80);
   left: 0;
   right: 0;
   z-index: 999;

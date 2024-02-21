@@ -2,12 +2,11 @@
 
 .sp-nav{
   width: 100%;
-  // height: calc(100vh - rem(64));
+  height: 100vh;
   overflow-y: auto;
 }
 
 .sp-nav__list{
-  margin-top: rem(64);
   padding-right: rem(11);
   padding-left: rem(11);
   width: 100%;
