@@ -16,17 +16,8 @@
 
 .top-info{
   margin-top: rem(70);
-  padding-top: rem(80);
   @include mq("md"){
     margin-top: rem(164);
-    padding-top: rem(102);
-  }
-}
-
-.top-blog{
-  padding-top: rem(80);
-  @include mq("md"){
-    padding-top: rem(101);
   }
 }
 
@@ -39,10 +30,8 @@
 
 .top-price{
   margin-top: rem(84);
-  padding-top: rem(80);
   @include mq("md"){
     margin-top: rem(144);
-    padding-top: rem(100);
   }
 }
 
@@ -55,9 +44,7 @@
 
 .top-footer{
   margin-top: rem(100);
-  padding-top: rem(48);
   @include mq("md"){
     margin-top: rem(160);
-    padding-top: rem(80);
   }
 }
