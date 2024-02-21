@@ -9,6 +9,10 @@
   }
 }
 
+.header.is-open{
+  background-color: $green;
+}
+
 .header__inner{
   display: flex;
   justify-content: space-between;
@@ -33,9 +37,13 @@
 }
 
 .header__sp-nav{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: none;
   background-color: $green;
   display: flex;
-  @include mq("md"){
-    display: none;
-  }
 }
+
