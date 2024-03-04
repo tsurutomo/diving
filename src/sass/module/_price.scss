@@ -26,8 +26,9 @@
 }
 
 .price__img-wrap {
+  width: 100%;
   @include mq("md"){
-    width: 45%;
+    width: 69%;
     margin-left: rem(93);
   }
 }
@@ -35,6 +36,9 @@
 .price__img-wrap img{
   aspect-ratio: 690/454;
   object-fit: cover;
+  width: 100%;
+  height: auto;
+
     @include mq("md"){
       aspect-ratio: 984/1482;
     }

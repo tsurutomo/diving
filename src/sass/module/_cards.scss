@@ -1,0 +1,19 @@
+@use "global" as *;
+
+.cards {
+  display: grid;
+  gap: rem(40);
+  grid-template-columns: repeat(1, 3fr);
+  @include mq("md"){
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cards-sort{
+  display: grid;
+  grid-template-columns: auto(1, 2fr);
+  gap: rem(40);
+  @include mq("md"){
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -15,36 +15,15 @@
   }
 }
 
-div.color-box{
+.color-box{
   position: relative;
-  width: 100%;
 }
 
-div.color-box.color-info{
-  position: relative;
-  width: 100%;
-  @include mq("md"){
-    width: 50%;
-  }
+.color-box img{
+  display: block;
 }
 
-div.color-box.color-voice{
-  position: relative;
-  width: 100%;
-  @include mq("md"){
-    width: 40%;
-  }
-}
-
-div.color-box.color-price{
-  position: relative;
-  width: 100%;
-  @include mq("md"){
-    width: 69%;
-  }
-}
-
-div.color-box div.color{
+.color-box .color{
   position: absolute;
   top: 0;
   right: 0;
@@ -52,9 +31,4 @@ div.color-box div.color{
   height: 100%;
   z-index: 2;
   background-color: $green;
-}
-
-div.color-box img{
-  display: block;
-  width: 100%;
 }

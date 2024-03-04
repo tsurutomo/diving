@@ -49,6 +49,7 @@
 }
 
 .info__img-wrap{
+  width: 100%;
   @include mq("md"){
     width: 50%;
   }

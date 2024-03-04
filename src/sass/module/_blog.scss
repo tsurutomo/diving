@@ -28,10 +28,6 @@
   }
 }
 
-.blog__card{
-  display: flex;
-}
-
 .blog__card:not(:first-child){
   margin-top: rem(40);
   @include mq("md"){

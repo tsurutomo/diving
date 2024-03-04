@@ -1,15 +1,17 @@
 @use "global" as *;
 
-.cards {
-  display: grid;
-  gap: rem(40);
-  grid-template-columns: repeat(1, 3fr);
-  @include mq("md"){
-    grid-template-columns: repeat(3, 1fr);
+.card{
+  display: flex;
+  background-color: $white;
+  transition: border .3s;
+  &:hover{
+    border: rem(2) solid $green;
   }
 }
 
-.card-list__item {
+
+
+.card__list {
   flex-grow: 1;
   display: block;
   background-color: $white;

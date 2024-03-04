@@ -1,0 +1,94 @@
+@use "global" as *;
+
+.card-sort{
+  box-shadow: 0.125rem 0.125rem 0.625rem rgba($color: $black2, $alpha: 0.25);
+  padding: rem(14) rem(16) rem(24);
+  width: 100%;
+  @include mq("md"){
+  padding: rem(14) rem(24) rem(24);
+  }
+}
+
+.card-sort__content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-sort__topic{
+  width: 100%;
+  margin-top: auto;
+  @include mq("md"){
+    width: 61%;
+    margin-top: rem(34);
+  }
+}
+
+.card-sort__info{
+  @include mq("md"){
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+  }
+}
+
+.card-sort__gender{
+  font-size: rem(12);
+  padding-bottom: rem(2);
+  @include mq("md"){
+    padding-bottom: 0;
+  }
+}
+
+.card-sort__tag{
+  color: $green;
+  font-size: rem(12);
+  line-height: calc(22/12);
+  padding: rem(5) rem(10) rem(5);
+  border: rem(1) solid $green;
+  @include mq("md"){
+    padding: rem(5) rem(16) rem(5);
+  }
+}
+
+.card-sort__sub-title{
+  font-size: rem(16);
+  margin-top: rem(7);
+  font-weight: $medium;
+  position: relative;
+  @include mq("md"){
+    margin-top: rem(8);
+    font-size: rem(24);
+  }
+}
+
+.card-sort__sub-title::before{
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: rem(-4);
+  width: 100%;
+  height: rem(1);
+  border-radius: rem(5);
+  background: $green;
+}
+
+
+.card-sort__img-wrap{
+  width: 50%;
+  margin-left: rem(13);
+  margin-top: rem(8);
+  @include mq("md"){
+    aspect-ratio: 180/140;
+    width: 38%;
+  }
+}
+
+.card-sort__text{
+  margin-top: rem(18);
+  line-height: 1.5;
+  @include mq("md"){
+    margin-top: rem(42);
+  }
+}
