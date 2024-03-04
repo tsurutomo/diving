@@ -26,9 +26,9 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
   <!-- JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="./assets/js/jquery.inview.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script defer src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script defer src="./assets/js/jquery.inview.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script defer src="./assets/js/script.js"></script>
 </head>
 <body>
@@ -87,7 +87,7 @@
       </div>
       <!-- pc-nav -->
       <nav class="header__pc-nav pc-nav u-desktop">
-        <ul class="pc-nav__items g-nav">
+        <ul class="pc-nav__items">
           <li class="pc-nav__item"><a href="#" class="pc-nav__link">Campaign<span class="color-white">キャンペーン</span></a></li>
           <li class="pc-nav__item"><a href="#" class="pc-nav__link">About&nbsp;us<span class="color-white">私たちについて</span></a></li>
           <li class="pc-nav__item"><a href="#" class="pc-nav__link">Information<span class="color-white">ダイビング情報</span></a></li>
@@ -273,7 +273,7 @@
           <h2 class="title__sub-title">ダイビング情報</h2>
         </div>
         <div class="info__contents">
-          <div class="info__img-wrap color-box color-info">
+          <div class="info__img-wrap color-box">
             <img src="/assets/images/info.jpg" width="1080" height="712" alt="２匹の魚が泳いでいる様子">
           </div>
           <div class="info__text-content">
@@ -294,8 +294,8 @@
           <h2 class="title__sub-title title__sub-title--white">ブログ</h2>
         </div>
         <ul class="blog__cards cards">
-          <li class="blog__card card-list">
-            <a href="" class="card-list__item">
+          <li class="cards__card card">
+            <a href="#" class="card__list">
               <figure class="card__img">
                 <img src="/assets/images/blog01.jpg" alt="サンゴの写真">
               </figure>
@@ -306,8 +306,8 @@
               </div>
             </a>
           </li>
-          <li class="blog__card card-list">
-            <a href="#" class="card-list__item">
+          <li class="cards__card card">
+            <a href="#" class="card__list">
               <figure class="card__img">
                 <img src="/assets/images/blog02.jpg" alt="泳ぐウミガメ">
               </figure>
@@ -318,8 +318,8 @@
               </div>
             </a>
           </li>
-          <li class="blog__card card-list">
-            <a href="" class="card-list__item">
+          <li class="cards__card card">
+            <a href="#" class="card__list">
               <figure class="card__img">
                 <img src="/assets/images/blog03.jpg" alt="顔を覗かせるカクレクマノミ">
               </figure>
@@ -347,36 +347,36 @@
           <h2 class="title__sub-title">お客様の声</h2>
         </div>
         <div class="voice__contents">
-          <ul class="voice__cards">
-            <li class="voice__card voice-card">
-              <div class="voice-card__content">
-                <div class="voice-card__topic">
-                  <div class="voice-card__info">
-                    <p class="voice-card__gender">20代(女性)</p>
-                    <span class="voice-card__tag">ライセンス講習</span>
+          <ul class="voice__cards-sort cards-sort">
+            <li class="cards-sort__card card-sort">
+              <div class="card-sort__content">
+                <div class="card-sort__topic">
+                  <div class="card-sort__info">
+                    <p class="card-sort__gender">20代(女性)</p>
+                    <span class="card-sort__tag">ライセンス講習</span>
                   </div>
-                  <h3 class="voice-card__sub-title">ここにタイトルが入ります。ここにタイトル</h3>
+                  <h3 class="card-sort__sub-title">ここにタイトルが入ります。ここにタイトル</h3>
                 </div>
-                <div class="voice-card__img color-box color-voice">
+                <div class="card-sort__img-wrap color-box">
                   <img src="/assets/images/voice01.jpg" alt="帽子を被った女性">
                 </div>
               </div>
-              <p class="voice-card__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
+              <p class="card-sort__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
             </li>
-            <li class="voice__card voice-card">
-              <div class="voice-card__content">
-                <div class="voice-card__topic">
-                  <div class="voice-card__info">
-                    <p class="voice-card__gender">30代(男性)</p>
-                    <span class="voice-card__tag">ファンダイビング</span>
+            <li class="cards-sort__card card-sort">
+              <div class="card-sort__content">
+                <div class="card-sort__topic">
+                  <div class="card-sort__info">
+                    <p class="card-sort__gender">30代(男性)</p>
+                    <span class="card-sort__tag">ファンダイビング</span>
                   </div>
-                  <h3 class="voice-card__sub-title">ここにタイトルが入ります。ここにタイトル</h3>
+                  <h3 class="card-sort__sub-title">ここにタイトルが入ります。ここにタイトル</h3>
                 </div>
-                <div class="voice-card__img color-box color-voice">
+                <div class="card-sort__img-wrap color-box">
                   <img src="/assets/images/voice02.jpg" alt="親指を立てる男性">
                 </div>
               </div>
-              <p class="voice-card__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
+              <p class="card-sort__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
             </li>
           </ul>
         </div>
@@ -399,11 +399,11 @@
           <h2 class="title__sub-title">料金一覧</h2>
         </div>
         <div class="price__contents">
-          <div class="price__img-wrap color-box u-mobile">
-            <img src="/assets/images/price-sp.jpg" width="rem(690)" height="rem(454)" alt="ウミガメ">
+          <div class="price__img-wrap color-box c u-mobile">
+            <img src="/assets/images/price-sp.jpg" width="690" height="454" alt="ウミガメ">
           </div>
-          <div class="price__img-wrap color-box color-price u-desktop">
-            <img src="/assets/images/price-pc.jpg"  width="rem(984)" height="rem(1482)" alt="たくさんの魚">
+          <div class="price__img-wrap color-box  u-desktop">
+            <img src="/assets/images/price-pc.jpg"  width="984" height="1482" alt="たくさんの魚">
 
           </div>
           <div class="price__box">
