@@ -2,11 +2,6 @@
 
 .card{
   display: flex;
-  background-color: $white;
-  transition: border .3s;
-  &:hover{
-    border: rem(2) solid $green;
-  }
 }
 
 
