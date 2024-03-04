@@ -12,7 +12,7 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
             $(this).removeClass('is-open');
             setTimeout(function() {
             $('.js-drawer-menu').fadeOut();
-        }, 300);
+        }, 100);
         } else {
             $('body').addClass('sp-nav-open');
             $(this).addClass('is-open');
