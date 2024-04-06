@@ -23,6 +23,7 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         $('body').removeClass('sp-nav-open');
         $('.js-hamburger').removeClass('is-open');
         $('.js-drawer-menu').fadeOut();
+        $('.js-header').removeClass('is-open');
     });
 
   //swiper

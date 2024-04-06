@@ -1,15 +1,5 @@
 @use "global" as *;
 
-/* 右下に固定 */
-// #page-top a {
-//   background-color: #1cb4d3;
-//   bottom: 0;
-//   color: pink;
-//   padding: 20px;
-//   position: fixed;
-//   right: 0;
-// }
-
 #page-top a{
   position: fixed;
   right: rem(16);
