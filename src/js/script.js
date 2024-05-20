@@ -108,3 +108,22 @@ const pageTop = $("#page-top");
         return false;
     });
 });
+
+//要素を取得
+const modal = document.querySelector('.js-modal'),
+      open = document.querySelector('.js-modal-open');
+
+//「開くボタン」をクリックしてモーダルを開く
+function modalOpen() {
+  modal.classList.add('is-active');
+}
+open.addEventListener('click', modalOpen);
+
+
+//「モーダルの外側」をクリックしてモーダルを閉じる
+function modalOut(e) {
+  if (e.target == modal) {
+    modal.classList.remove('is-active');
+  }
+}
+addEventListener('click', modalOut);

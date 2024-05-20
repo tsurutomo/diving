@@ -1,0 +1,41 @@
+@use "global" as *;
+
+.tag__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(16);
+  @include mq("md"){
+    gap: rem(32);
+  }
+}
+
+.tag__item {
+  background-color: $white;
+  border: rem(1) solid $green;
+  padding: rem(6);
+  text-align: center;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: rem(164);
+  text-transform: uppercase;
+}
+
+.tag__item.is-active{
+  background-color: $green;
+}
+
+.tag__item a{
+  color: $green;
+  display: block;
+  font-size: rem(14);
+  line-height: calc(22/14);
+  transition: opacity .3s;
+  &:hover{
+    opacity: 0.7;
+  }
+}
+
+.tag__item.is-active a{
+  color: $white;
+}
+

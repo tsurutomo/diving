@@ -115,6 +115,17 @@
   }
 }
 
+.campaign__card-list-price--lower{
+  display: grid;
+  grid-template-columns: repeat(1, 4fr);
+  gap: rem(40);
+  @include mq("md"){
+    grid-template-columns: repeat(2, 2fr);
+    column-gap: rem(40);
+    row-gap: rem(80);
+  }
+}
+
 .campaign__card-list-price::before{
   content: "";
   position: absolute;
@@ -224,3 +235,52 @@
 .campaign-swiper__button-wrap .swiper-button-next::before {
   transform: translate(-50%, -50%);
 }
+
+
+
+
+.campaign__lower{
+  position: relative;
+}
+
+.campaign__lower-top-img-wrap{
+  max-width: rem(301);
+  position: absolute;
+  top: rem(100);
+  left: calc(50% - min(48vw, rem(620)));
+  z-index: -2;
+}
+.campaign__card-text-lower{
+  margin-top: rem(24);
+}
+.campaign__card-desc {
+  color: $black;
+  font-family: $base-font-family;
+  font-size: rem(16);
+  line-height: calc(24/16);
+}
+
+.campaign__card-bottom{
+  text-align: center;
+  margin-top: rem(32);
+}
+
+.campaign__card-time{
+  color: $green;
+  font-size: rem(16);
+  font-family: $third-font-family;
+  line-height: calc(18/16);
+}
+
+.campaign__card-info {
+  color: $green;
+  font-size: rem(14);
+  line-height: calc(18/14);
+  margin-top: rem(8);
+
+}
+
+.campaign-lower-button{
+  margin-top: rem(16);
+}
+
