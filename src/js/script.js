@@ -109,21 +109,61 @@ const pageTop = $("#page-top");
     });
 });
 
-//要素を取得
-const modal = document.querySelector('.js-modal'),
-      open = document.querySelector('.js-modal-open');
+// //要素を取得
+// const modal = document.querySelector('.js-modal'),
+//       open = document.querySelector('.js-modal-open');
 
-//「開くボタン」をクリックしてモーダルを開く
-function modalOpen() {
-  modal.classList.add('is-active');
-}
-open.addEventListener('click', modalOpen);
+// //「開くボタン」をクリックしてモーダルを開く
+// function modalOpen() {
+//   modal.classList.add('is-active');
+// }
+// open.addEventListener('click', modalOpen);
 
 
-//「モーダルの外側」をクリックしてモーダルを閉じる
-function modalOut(e) {
-  if (e.target == modal) {
-    modal.classList.remove('is-active');
-  }
-}
-addEventListener('click', modalOut);
+// //「モーダルの外側」をクリックしてモーダルを閉じる
+// function modalOut(e) {
+//   if (e.target == modal) {
+//     modal.classList.remove('is-active');
+//   }
+// }
+// addEventListener('click', modalOut);
+
+//モーダル
+//     $(".js-modal-open").each(function () {
+//         $(this).on("click", function (e) {
+//             e.preventDefault();
+//             var target = $(this).data("target");
+//             var modal  = document.getElementById(target);
+//             $(modal).fadeIn();
+//             $("html,body").css("overflow", "hidden");
+//         });
+//     });
+//     $(".js-modal").on("click", function(e) {
+//         if ($(e.target).closest(".modal__content").length === 0) {
+//             $(this).fadeOut(); // フェードアウト効果でモーダルを非表示
+//             $("html, body").css("overflow", "initial"); // ページのスクロールを再度有効にする
+//         }
+//     });
+// ;
+
+$(document).ready(function() {
+    // モーダルを開く処理
+    $(".js-modal-open").each(function() {
+        $(this).on("click", function(e) {
+            e.preventDefault(); // デフォルトのアクション（リンクを辿るなど）を防止
+            var target = $(this).data("target"); // data-target属性からターゲットモーダルのIDを取得
+            var modal = document.getElementById(target); // IDでモーダル要素を取得
+            $(modal).fadeIn(); // フェードイン効果でモーダルを表示
+            $("html, body").css("overflow", "hidden"); // ページのスクロールを無効にする
+        });
+    });
+
+    // モーダルの外側（背景）をクリックしてモーダルを閉じる処理
+    $(".js-modal").on("click", function(e) {
+        if ($(e.target).closest(".modal__content").length === 0) {
+            $(this).fadeOut(); // フェードアウト効果でモーダルを非表示
+            $("html, body").css("overflow", "initial"); // ページのスクロールを再度有効にする
+        }
+    });
+    
+});
