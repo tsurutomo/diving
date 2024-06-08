@@ -19,6 +19,18 @@
   padding-bottom: rem(10);
 }
 
+.campaign__cards--lower{
+  display: grid;
+  grid-template-columns: repeat(1, 4fr);
+  gap: rem(40);
+  @include mq("md"){
+    grid-template-columns: repeat(2, 2fr);
+    column-gap: rem(40);
+    row-gap: rem(80);
+  }
+}
+
+
 .campaign__swiper .swiper-slide{
   height: auto;
 }
@@ -115,16 +127,6 @@
   }
 }
 
-.campaign__card-list-price--lower{
-  display: grid;
-  grid-template-columns: repeat(1, 4fr);
-  gap: rem(40);
-  @include mq("md"){
-    grid-template-columns: repeat(2, 2fr);
-    column-gap: rem(40);
-    row-gap: rem(80);
-  }
-}
 
 .campaign__card-list-price::before{
   content: "";
@@ -236,20 +238,6 @@
   transform: translate(-50%, -50%);
 }
 
-
-
-
-.campaign__lower{
-  position: relative;
-}
-
-.campaign__lower-top-img-wrap{
-  max-width: rem(301);
-  position: absolute;
-  top: rem(100);
-  left: calc(50% - min(48vw, rem(620)));
-  z-index: -2;
-}
 .campaign__card-text-lower{
   margin-top: rem(24);
 }

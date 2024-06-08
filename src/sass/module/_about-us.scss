@@ -30,10 +30,15 @@
   }
 }
 
+
 .about-us__right-wrap img{
-  aspect-ratio: 1760/1212;
+  aspect-ratio: 281/186;
   object-fit: cover;
+  @include mq("md"){
+    aspect-ratio: 880/581;
+  }
 }
+
 
 .about-us__left-wrap {
   position: absolute;
