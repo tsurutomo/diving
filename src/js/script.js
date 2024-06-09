@@ -165,5 +165,11 @@ $(document).ready(function() {
             $("html, body").css("overflow", "initial"); // ページのスクロールを再度有効にする
         }
     });
-    
 });
+
+//アコーディオン
+$('.js-accordion-title').on('click', function () {
+    $(this).next().slideToggle();
+    $(this).toggleClass('is-open');
+});
+
