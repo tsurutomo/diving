@@ -77,10 +77,11 @@
   display: block;
   top: 0;
   left: 0;
-  background-image: url(/assets/images/starfish-g.webp);
+  background-image: url(/assets/images/star-fish-g.webp);
   background-repeat: no-repeat;
   background-size: cover;
   width: rem(18);
   height: rem(18);
+  z-index: 9999;
 }
 

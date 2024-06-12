@@ -1,0 +1,44 @@
+@use "global" as *;
+
+.privacy__inner{
+  width: 100%;
+  max-width: rem(600);
+  padding-right: rem(15);
+  padding-left: rem(15);
+  margin-right: auto;
+  margin-left: auto;
+  @include mq("md"){
+    max-width: rem(850);
+    padding-right: rem(25);
+    padding-left: rem(25);
+  }
+}
+
+.privacy__title {
+  color: $black;
+  font-size: rem(24);
+  font-weight: $medium;
+  @include mq("md"){
+    font-size: rem(32);
+  }
+}
+
+.privacy__content {
+  margin-top: rem(40);
+  color: $black;
+  font-size: rem(16);
+  line-height: 2;
+}
+
+.privacy__content p:not(:first-child){
+  margin-top: rem(30);
+}
+
+.privacy__content ol{
+  list-style-type: decimal;
+}
+
+.privacy__content li{
+  margin-left: rem(24);
+}
+
