@@ -1,0 +1,52 @@
+@use "global" as *;
+
+.side{
+  margin-top: rem(80);
+  @include mq("md"){
+    margin-top: 0;
+    margin-left: 7%;
+    width: 27%;
+    flex-shrink: 0;
+  }
+}
+
+.side__content + .side__content{
+  margin-top: rem(80);
+}
+
+.side__title {
+  color: $black;
+  font-size: rem(24);
+  padding-left: rem(80);
+  position: relative;
+  padding: rem(9) 0 rem(6);
+}
+
+.side__title::before{
+  content:"";
+  position: absolute;
+  display: block;
+  width: rem(8);
+  top: 0;
+  left: 0;
+  height: rem(50);
+  background-color: $green;
+}
+
+.side__title::after{
+  content: "";
+  position: absolute;
+  background-image: url(/assets/images/whale-g.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 0;
+  left: rem(24);
+  width: rem(50);
+  height: rem(50);
+}
+
+.side__button-wrap{
+  margin-top: rem(40);
+  display: block;
+  text-align: center;
+}

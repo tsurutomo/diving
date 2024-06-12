@@ -167,6 +167,17 @@ $(document).ready(function() {
     });
 });
 
+//タブメニュー
+$('.js-tab-menu').on('click', function () {
+    $('.js-tab-menu').removeClass('is-active');
+    $('.js-tab-content').removeClass('is-active');
+    $(this).addClass('is-active');
+    var number = $(this).data("number");
+    $('#' + number).addClass('is-active');
+});
+
+
+
 //アコーディオン
 $('.js-accordion-title').on('click', function () {
     $(this).next().slideToggle();

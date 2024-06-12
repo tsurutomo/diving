@@ -35,7 +35,7 @@
   <header class="header layout-header js-header">
     <div class="header__inner">
       <h1 class="header__logo">
-        <a href="#" class="header__logoーlink"><img src="/assets/images/CodeUpslogo.svg" alt="CodeUps"></a>
+        <a href="index.html" class="header__logoーlink"><img src="/assets/images/CodeUpslogo.svg" alt="CodeUps"></a>
       </h1>
       <!-- hamburger -->
       <div class="header__drawer hamburger js-hamburger u-mobile">
@@ -105,12 +105,12 @@
     <div class="fv__lower fv-lower">
       <div class="fv-lower__inner">
         <div class="fv-lower__tittle-wrap">
-          <h1 class="fv-lower__title">Information</h1>
+          <h1 class="fv-lower__title">Blog</h1>
         </div>
         <div class="fv-lower__img-wrap">
           <picture>
-            <source srcset="/assets/images/info-fv.webp" media="(min-width: 768px)"/>
-            <img src="/assets/images/info-fvsp.webp" width="750" height="920" alt="海でスキューバダイビングをする人">
+            <source srcset="/assets/images/blog-fv.webp" media="(min-width: 768px)"/>
+            <img src="/assets/images/blog-fvsp.webp" width="750" height="920" alt="海でスキューバダイビングをする人">
           </picture>
         </div>
       </div>
@@ -118,56 +118,150 @@
     <!-- パンくずリスト-->
     <div class="breadcrumb top-breadcrumb">
       <div class="breadcrumb__inner inner">
-        <div class="breadcrumb__item">TOP > お客様の声</div>
+        <div class="breadcrumb__item">TOP > ブログ一覧 > ブログ詳細</div>
       </div>
     </div>
-    <!--information -->
-    <section class="info__lower info-lower lower top-lower">
-      <div class="info-lower__inner inner">
-        <!--タブメニュー -->
-        <div class="info-lower__tab tab">
-          <ul class="tab__menu">
-            <li class="tab__menu-item js-tab-menu is-active" data-number="tab01">ライセンス<br class="u-mobile">講習</li>
-            <li class="tab__menu-item js-tab-menu" data-number="tab02">ファン<br class="u-mobile">ダイビング</li>
-            <li class="tab__menu-item js-tab-menu" data-number="tab03">体験<br class="u-mobile">ダイビング</li>
-          </ul>
-          <ul class="tab__content">
-            <li id="tab01" class="tab__content-item js-tab-content is-active">
-              <div class="tab__content-box">
-                <h2 class="tab__content-title">ライセンス講習</h2>
-                <p class="tab__content-text">泳げない人も、ちょっと水が苦手な人も、ダイビングを「安全に」楽しんでいただけるよう、スタッフがサポートいたします&#33スキューバダイビングを楽しむためには最低限の知識とスキルが要求されます。知識やスキルと言ってもそんなに難しい事ではなく、安全に楽しむ事を目的としたものです。プロダイバーの指導のもと知識とスキルを習得しCカードを取得して、ダイバーになろう&#33</p>
+    <div class="blog__lower-detail lower detail top-lower">
+      <div class="detail__inner inner">
+        <div class="detail__container">
+          <div class="detail__contents">
+            <time datetime="2023-11-17" class="detail__time">2023.11/17</time>
+            <h2 class="detail__title">ライセンス取得</h2>
+            <figure class="detail__img">
+              <img src="/assets/images/blog01.webp" width="602" height="402" alt="珊瑚礁">
+            </figure>
+            <p class="detail__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            <figure class="detail__img">
+              <img src="/assets/images/blog01.webp" width="602" height="402" alt="珊瑚礁">
+            </figure>
+            <p class="detail__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+            <ul class="detail__list">
+              <li class="detail__item">リスト1</li>
+              <li class="detail__item">リスト2</li>
+              <li class="detail__item">リスト3</li>
+            </ul>
+            <p class="detail__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+        </div>
+    <!-- サイド -->
+    <aside class="blog-lower__side side">
+      <div class="side__content">
+        <h2 class="side__title">人気記事</h2>
+        <ul class="side__popular-list popular top-side">
+          <li class="popular__item">
+            <a href="#">
+              <figure class="popular__img">
+                <img src="/assets/images/blog-card4.webp" alt="黄色い魚">
+              </figure>
+              <div class="popular__body">
+                <time class="popular__time" datetime="2023-11-17">2023.11/17</time>
+                <p class="popular__title">ライセンス取得</p>
               </div>
-              <div class="tab__content-img">
-                <img src="/assets/images/info01.webp" alt="海でダイビングをする人たち">
+            </a>
+          </li>
+          <li class="popular__item">
+            <a href="#">
+              <figure class="popular__img">
+                <img src="/assets/images/blog02.webp" width="602" height="402" alt="ウミガメ">
+              </figure>
+              <div class="popular__body">
+                <time class="popular__time" datetime="2023-11-17">2023.11/17</time>
+                <p class="popular__title">ウミガメと泳ぐ</p>
               </div>
+            </a>
+          </li>
+          <li class="popular__item">
+            <a href="#">
+              <figure class="popular__img">
+                <img src="/assets/images/blog03.webp" width="602" height="402" alt="カクレクマノミ">
+              </figure>
+              <div class="popular__body">
+                <time class="popular__time" datetime="2023-11-17">2023.11/17</time>
+                <p class="popular__title">カクレクマノミ</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="side__content">
+        <h2 class="side__title">口コミ</h2>
+        <div class="side__review__box review top-side">
+          <a href="#">
+          <figure class="review__img">
+            <img src="/assets/images/voice5.webp" width="360" height="280" alt="腕を組み微笑む夫婦">
+          </figure>
+          <div class="review__body">
+            <p class="review__gender">30代(カップル)</p>
+            <h3 class="review__title">ここにタイトルが入ります。ここにタイトル</h3>
+          </div>
+          </a>
+        </div>
+        <div class="side__button-wrap">
+          <a href="#" class="button"><p>View&nbsp;more</p></a>
+        </div>
+      </div>
+      <div class="side__content">
+        <h2 class="side__title">キャンペーン</h2>
+        <ul class="side__campaign campaign__cards campaign__cards--side top-side">
+          <li class="campaign__card">
+            <a href="#">
+              <figure class="campaign__card-img">
+                <img src="/assets/images/campaign1.jpg" width="666" height="446" alt="海の中で泳ぐ色鮮やかな魚たち">
+              </figure>
+              <div class="campaign__card-body">
+                <h3 class="campaign__card-name">ライセンス取得</h3>
+              </div>
+              <div class="campaign__card-text-wrap">
+                <p class="campaign__card-text">全部コミコミ(お一人様)</p>
+                <div class="campaign__card-price-wrap">
+                  <p class="campaign__card-list-price">¥56,000</p>
+                  <p class="campaign__card-price">¥46,000</p>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="campaign__card">
+            <a href="#">
+              <figure class="campaign__card-img">
+                <img src="/assets/images/campaign2.jpg" width="666" height="446" alt="船が浮かぶ透き通った海">
+              </figure>
+              <div class="campaign__card-body">
+                <h3 class="campaign__card-name">貸切体験ダイビング</h3>
+              </div>
+              <div class="campaign__card-text-wrap">
+                <p class="campaign__card-text">全部コミコミ(お一人様)</p>
+                <div class="campaign__card-price-wrap">
+                  <p class="campaign__card-list-price">¥24,000</p>
+                  <p class="campaign__card-price">¥18,000</p>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <div class="side__button-wrap">
+          <a href="#" class="button"><p>View&nbsp;more</p></a>
+        </div>
+      </div>
+      <div class="side__content">
+        <h2 class="side__title">アーカイブ</h2>
+        <div class="side__archive archive top-side">
+          <ul class="archive__list">
+            <li class="archive__item">
+              <p class="archive__year"><a href="#">2023</a></p>
+              <p class="archive__month"><a href="#">3月</a></p>
+              <p class="archive__month"><a href="#">2月</a></p>
+              <p class="archive__month"><a href="#">1月</a></p>
             </li>
-            <li id="tab02" class="tab__content-item js-tab-content">
-              <div class="tab__content-box">
-                <h2 class="tab__content-title">ファンダイビング</h2>
-                <p class="tab__content-text">ブランクダイバー、ライセンスを取り立ての方も安心&#33沖縄本島を代表する「青の洞窟」（真栄田岬）やケラマ諸島などメジャーなポイントはモチロンのこと、最北端「辺戸岬」や最南端の「大渡海岸」等もご用意&#33</p>
-              </div>
-              <div class="tab__content-img">
-                <img src="/assets/images/info02.webp" alt="海で泳ぐ魚たち">
-              </div>
-            </li>
-            <li id="tab03" class="tab__content-item js-tab-content">
-              <div class="tab__content-box">
-                <h2 class="tab__content-title">体験ダイビング</h2>
-                <p class="tab__content-text">ブランクダイバー、ライセンスを取り立ての方も安心&#33沖縄本島を代表する「青の洞窟」（真栄田岬）やケラマ諸島などメジャーなポイントはモチロンのこと、最北端「辺戸岬」や最南端の「大渡海岸」等もご用意&#33</p>
-              </div>
-              <div class="tab__content-img">
-                <img src="/assets/images/info03.webp" alt="泳ぐ縞模様の魚">
-              </div>
+            <li class="archive__item">
+              <p class="archive__year"><a href="#">2022</a></p>
             </li>
           </ul>
         </div>
       </div>
-      <div class="info-lower__img-wrap lower-img-wrap">
-        <img src="/assets/images/voice-top__img.png" alt="泳ぐ魚たちのイラスト">
-      </div>
-    </section>
-     <!-- contact -->
-     <section class="contact top-contact">
+    </aside>
+  </div>
+</div>
+    <!-- contact -->
+    <section class="contact top-contact">
       <div class="contact__inner inner">
         <div class="contact__contents">
           <div class="contact__access">
@@ -201,7 +295,6 @@
         <img src="/assets/images/fish-green.png" alt="魚たちのイラスト">
       </div>
     </div>
-
     </section>
   </main>
   <footer class="footer top-footer">
@@ -234,13 +327,13 @@
             </div>
             <div class="footer-nav__box">
               <ul class="footer-nav__items footer-nav__items--left">
-                <li class="footer-nav__item footer-nav__item--icon footer-nav--mg"><a href="#" class="footer-nav__link">ダイビング情報</a></li>
+                <li class="footer-nav__item footer-nav__item--icon footer-nav--mg"><a href="information.html" class="footer-nav__link">ダイビング情報</a></li>
                 <li class="footer-nav__item"><a href="" class="footer-nav__link">ライセンス講習</a></li>
                 <li class="footer-nav__item"><a href="" class="footer-nav__link">体験ダイビング</a></li>
                 <li class="footer-nav__item"><a href="" class="footer-nav__link">ファンダイビング</a></li>
               </ul>
               <ul class="footer-nav__items">
-                <li class="footer-nav__item footer-nav__item--icon"><a href="" class="footer-nav__link">ブログ</a></li>
+                <li class="footer-nav__item footer-nav__item--icon"><a href="blog.html" class="footer-nav__link">ブログ</a></li>
               </ul>
             </div>
           </div>
@@ -250,7 +343,7 @@
                 <li class="footer-nav__item footer-nav__item--icon footer-nav__item--top"><a href="voice.html" class="footer-nav__link">お客様の声</a></li>
               </ul>
               <ul class="footer-nav__items">
-                <li class="footer-nav__item footer-nav__item--icon"><a href="#" class="footer-nav__link">料金一覧</a></li>
+                <li class="footer-nav__item footer-nav__item--icon"><a href="price.html" class="footer-nav__link">料金一覧</a></li>
                 <li class="footer-nav__item"><a href="" class="footer-nav__link">ライセンス講習</a></li>
                 <li class="footer-nav__item"><a href="" class="footer-nav__link">体験ダイビング</a></li>
                 <li class="footer-nav__item"><a href="" class="footer-nav__link">ファンダイビング</a></li>
@@ -261,13 +354,13 @@
                 <li class="footer-nav__item footer-nav__item--icon footer-nav--mg"><a href="faq.html" class="footer-nav__link">よくある質問</a></li>
               </ul>
               <ul class="footer-nav__items">
-                <li class="footer-nav__item footer-nav__item--icon"><a href="" class="footer-nav__link">プライバシー<br class="u-mobile">ポリシー</a></li>
+                <li class="footer-nav__item footer-nav__item--icon"><a href="privacy.html" class="footer-nav__link">プライバシー<br class="u-mobile">ポリシー</a></li>
               </ul>
               <ul class="footer-nav__items">
                 <li class="footer-nav__item footer-nav__item--icon"><a href="" class="footer-nav__link">利用規約</a></li>
               </ul>
               <ul class="footer-nav__ites">
-                <li class="footer-nav__item footer-nav__item--icon"><a href="" class="footer-nav__link">お問い合わせ</a></li>
+                <li class="footer-nav__item footer-nav__item--icon"><a href="contact.html" class="footer-nav__link">お問い合わせ</a></li>
               </ul>
             </div>
           </div>

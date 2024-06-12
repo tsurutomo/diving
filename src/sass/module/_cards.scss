@@ -17,3 +17,9 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.cards-lower{
+  @include mq("md"){
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

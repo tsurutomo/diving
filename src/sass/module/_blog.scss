@@ -53,3 +53,9 @@
   z-index: 5;
 }
 
+.blog-lower__container{
+  @include mq("md"){
+    display: flex;
+  }
+}
+

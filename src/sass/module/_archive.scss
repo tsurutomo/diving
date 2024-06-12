@@ -1,0 +1,51 @@
+@use "global" as *;
+
+
+.archive__item {
+  color: $green;
+  font-size: rem(24);
+}
+
+.archive__item + .archive__item{
+  margin-top: rem(4);
+}
+
+.archive__year {
+  position: relative;
+  padding-left: rem(32);
+}
+
+.archive__month {
+  margin-top: rem(4);
+  margin-left: rem(24);
+  padding-left: rem(32);
+  position: relative;
+}
+
+.archive__year::before,
+.archive__month::before{
+  content: "";
+  position: absolute;
+  top: rem(10);
+  left: 0;
+  border-bottom: rem(10) solid transparent;
+  border-left: rem(18) solid $green;
+  border-top: rem(10) solid transparent;
+}
+
+.archive__year.is-active,
+.archive__month.is-active{
+  position: relative;
+}
+
+.archive__year.is-active::before,
+.archive__month.is-active::before{
+  content: "";
+  position: absolute;
+  border-bottom: rem(10) solid transparent;
+  border-left: rem(18) solid $green;
+  border-top: rem(10) solid transparent;
+  transform: rotate(90deg);
+}
+
+

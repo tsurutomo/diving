@@ -30,6 +30,13 @@
   }
 }
 
+.campaign__cards--side{
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+  gap: rem(40);
+
+}
+
 
 .campaign__swiper .swiper-slide{
   height: auto;
