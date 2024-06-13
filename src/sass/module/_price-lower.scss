@@ -1,0 +1,29 @@
+@use "global" as *;
+
+.price__lower {
+
+}
+
+.price-lower {
+
+}
+
+.price-lower__inner {
+  width: 100%;
+  max-width: rem(600);
+  padding-right: rem(15);
+  padding-left: rem(15);
+  margin-right: auto;
+  margin-left: auto;
+  @include mq("md"){
+    max-width: rem(750);
+    padding-right: rem(25);
+    padding-left: rem(25);
+  }
+}
+
+.price-lower__container {
+
+}
+
+

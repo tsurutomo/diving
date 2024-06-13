@@ -1,0 +1,75 @@
+@use "global" as *;
+
+.form {
+
+}
+
+.form__wrap {
+  border-bottom: rem(1) dotted $green;
+  padding-bottom: rem(24);
+  @include mq("md"){
+    padding-bottom: rem(40);
+  }
+
+}
+
+.form__label {
+  color: $black;
+  font-size: rem(16);
+  font-weight: $bold;
+}
+
+.form__label span{
+  color: $white;
+  font-size: rem(12);
+  letter-spacing: 0.04em;
+  padding: rem(2) rem(16);
+  background-color: $red;
+  margin-left: rem(8);
+}
+
+.form-input {
+  margin-top: rem(16);
+  border: rem(1) solid $green;
+  padding: rem(8) rem(16);
+}
+
+.form__radio {
+
+}
+
+.form-radio {
+
+}
+
+.form__field {
+
+}
+
+.form__data-select {
+
+}
+
+.form__select {
+
+}
+
+.form__wrap--textarea {
+
+}
+
+.form__textarea {
+
+}
+
+.form-textarea {
+
+}
+
+.form__submit {
+
+}
+
+.form-submit {
+
+}
