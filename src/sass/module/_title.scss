@@ -5,6 +5,7 @@
 }
 
 .title__main-title{
+  color: $black;
   font-size: rem(32);
   line-height: calc(40/32);
   font-family: $second-font-family;
@@ -31,7 +32,7 @@
   }
 }
 
-.title__main-title .title__main-title--big{
+.title__main-title.title__main-title--big{
   font-size: rem(80);
   line-height: 1;
   font-weight: $normal;
