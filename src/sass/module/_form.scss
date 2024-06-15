@@ -4,18 +4,25 @@
 
 }
 
-.form__wrap {
+.form__item {
   border-bottom: rem(1) dotted $green;
   padding-bottom: rem(24);
   @include mq("md"){
     padding-bottom: rem(40);
+    display: flex;
   }
 }
 
-.form__wrap + .form__wrap{
+.form__item + .form__item{
   margin-top: rem(24);
   @include mq("md"){
     margin-top: rem(40);
+  }
+}
+
+.form__title{
+  @include mq("md"){
+    flex-basis: rem(220);
   }
 }
 
@@ -25,7 +32,7 @@
   font-weight: $bold;
 }
 
-.form__label span{
+.form__title .required{
   color: $white;
   font-size: rem(12);
   letter-spacing: 0.04em;
@@ -34,48 +41,147 @@
   margin-left: rem(8);
 }
 
-.form-input {
+.form__input,
+.form__textarea {
   margin-top: rem(16);
   border: rem(1) solid $green;
   padding: rem(8) rem(16);
-}
-
-.form__radio {
-
-}
-
-.form-radio {
+  display: inline-block;
+  width: 100%;
+  @include mq("md"){
+    width: 68%;
+  }
 
 }
 
-.form__field {
-
+.form__input::placeholder{
+  color: $green2;
+  font-size: rem(16);
 }
 
-.form__data-select {
-
+.form__checkbox{
+  display: flex;
+  flex-direction: column;
+  gap: rem(4);
 }
 
-.form__select {
-
+.form__checkbox span{
+  color: $black;
+  font-size: rem(16);
+  padding-left: rem(22);
+  position: relative;
 }
 
-.form__wrap--textarea {
-
+.form__checkbox span::before{
+  position: absolute;
+  content: "";
+  border: rem(1) solid $green;
+  top: rem(6);
+  left: 0;
+  width: rem(14);
+  height: rem(14);
 }
 
-.form__textarea {
-
+.form__checkbox input + span::after{
+  position: absolute;
+  content: "";
+  width: rem(10);
+  height: rem(5);
+  transform: rotate(-45deg);
+  border-bottom: rem(2) solid $red;
+  border-left: rem(2) solid $red;
+  top: rem(8);
+  left: rem(5);
+  opacity: 0;
 }
 
-.form-textarea {
+.form__checkbox input:checked + span::after{
+  opacity: 1;
+}
 
+
+.form__select{
+  position: relative;
+}
+
+.form__select::after{
+  position: absolute;
+  content: "";
+  top: rem(9);
+  right: rem(9);
+  width: rem(12);
+  height: rem(12);
+  transform: translateY(50%);
+  border-top: rem(10) solid $green;
+  border-right: rem(8) solid transparent;
+  border-left: rem(8) solid transparent;
+}
+
+.form__select select{
+  padding: rem(10) rem(8);
+  color: $black;
+  font-size: rem(12);
+  width: 100%;
+  // display: inline-block;
+  border: rem(1) solid $green;
+  cursor: pointer;
+  @include mq("md"){
+    padding: rem(8);
+    width: rem(480);
+  }
+}
+
+.form__privacy{
+  margin-top: rem(40);
+  text-align: center;
+  @include mq("md"){
+    margin-top: rem(80);
+  }
+}
+
+.form__privacy span{
+  position: relative;
+  display: inline-block;
+  color: $black;
+  font-size: rem(14);
+  line-height: calc(22/14);
+  padding-left: rem(30);
+  @include mq("md"){
+    padding-left: rem(38);
+  }
+}
+
+.form__privacy span::before{
+  position: absolute;
+  content: "";
+  border: rem(1) solid $green;
+  left: 0;
+  width: rem(22);
+  height: rem(22);
+}
+
+.form__privacy input + span::after{
+  position: absolute;
+  content: "";
+  width: rem(10);
+  height: rem(5);
+  transform: rotate(-45deg);
+  border-bottom: rem(2) solid $red;
+  border-left: rem(2) solid $red;
+  top: rem(5);
+  left: rem(5);
+  opacity: 0;
+}
+
+.form__privacy input:checked + span::after{
+  opacity: 1;
 }
 
 .form__submit {
-
-}
-
-.form-submit {
-
+  display: block;
+  text-align: center;
+  margin-top: rem(24);
+  @include mq("md"){
+    margin-top: rem(40);
+  }
 }
