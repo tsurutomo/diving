@@ -10,6 +10,10 @@
   z-index: 1;
 }
 
+.button--reverse{
+  background-color: $white;
+}
+
 .button::before{
   content: "";
   position: absolute;
@@ -19,6 +23,12 @@
   height: 100%;
   border: rem(1) solid $green;
   z-index: -2;
+}
+
+.button--reverse::before{
+  content: "";
+  position: absolute;
+  border: rem(1) solid $white;
 }
 
 .button::after{
@@ -36,6 +46,13 @@
   z-index: -1;
 }
 
+.button--reverse::after{
+  background-color: $green;
+  border: rem(1) solid $white;
+  content: "";
+  position: absolute;
+}
+
 .button:hover::after{
   transform: scale(1, 1);
 }
@@ -50,8 +67,16 @@
   transition: color .2s;
 }
 
+.button--reverse p{
+  color: $green;
+}
+
 .button:hover p{
   color: $green;
+}
+
+.button--reverse:hover p{
+  color: $white;
 }
 
 .button p::before{
@@ -68,6 +93,15 @@
   transition: border-color 0.2s;
 }
 
+.button--reverse p::before{
+  border-bottom: rem(1) solid $green;
+  border-right: rem(2) solid $green;
+}
+
 .button:hover p::before{
   border-color: $green;
+}
+
+.button--reverse:hover p::before{
+  border-color: $white;
 }

@@ -4,3 +4,30 @@
   color: $black;
   font-size: rem(14);
 }
+
+.breadcrumb__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb__item + .breadcrumb__item::before {
+  content: ">";
+  padding: 0 rem(8);
+}
+
+.breadcrumb__item--white + .breadcrumb__item--white::before {
+  content: ">";
+  color: $white;
+}
+
+.breadcrumb__item a{
+  color: $black;
+  font-size: rem(14);
+}
+
+.breadcrumb__item--white a{
+  color: $white;
+}

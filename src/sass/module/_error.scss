@@ -1,0 +1,73 @@
+;@use "global" as *;
+
+
+.error{
+  padding: rem(80) 0 rem(48);
+  background-color: $green;
+  @include mq("md"){
+    padding-bottom: rem(148);
+  }
+}
+
+.error__inner{
+  position: relative;
+}
+
+.error__inner::before{
+  content: "";
+  position: absolute;
+  background-image: url(/assets/images/whale.webp);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: rem(345);
+  z-index: 9999;
+  @include mq("md"){
+    width: rem(698);
+    height: rem(698);
+  }
+}
+
+.error__container{
+  margin-top: rem(52);
+  text-align: center;
+  @include mq("md"){
+    margin-top: rem(120);
+  }
+}
+
+.error__title {
+  text-align: center;
+  color: $white;
+  font-size: rem(80);
+  font-family: $third-font-family;
+  font-weight: $regular;
+  letter-spacing: 0.5em;
+  @include mq("md"){
+    font-size: rem(160);
+
+  }
+
+}
+
+.error__text {
+  color: $white;
+  font-size: rem(16);
+  font-family: $third-font-family;
+  line-height: calc(24/16);
+  margin-top: rem(4);
+  @include mq("md"){
+    margin-top: rem(24);
+  }
+}
+
+.error__button-wrap {
+  margin-top: rem(40);
+  @include mq("md"){
+    margin-top: rem(80);
+  }
+}
+

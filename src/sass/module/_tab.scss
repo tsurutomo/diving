@@ -6,41 +6,106 @@
   align-items: center;
 }
 
-.tab__menu-item {
-  color: $green;
-  cursor: pointer;
+.tab__menu-item{
+  box-shadow: rem(2) rem(4) rem(2) 0 rgba($color: $black2, $alpha: 0.25);
   font-size: rem(14);
   width: 100%;
   max-width: rem(102);
-  padding: rem(10) rem(16);
-  position: relative;
-  text-align: center;
-  background-color: $green2;
-  box-shadow: rem(2) rem(4) rem(2) 0 rgba($color: $black2, $alpha: 0.25);
   @include mq("md"){
-    box-shadow: none;
-    font-size: rem(24);
-    padding: rem(28) rem(30);
-    text-align: right;
     max-width: rem(300);
   }
 }
 
-.tab__menu-item::after{
+.tab__menu-item a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $green;
+  color: $white;
+  position: relative;
+  padding: rem(10) rem(16);
+}
+
+.tab__menu-icon{
+
+  margin-right:rem(8);
   @include mq("md"){
-    content: "";
+        box-shadow: none;
+        font-size: rem(24);
+        padding: rem(28);
+        text-align: right;
+        max-width: rem(300);
+}
+}
+
+.tab__menu-icon::before{
+  @include mq("md"){
     position: absolute;
-    top: rem(18);
-    left: rem(28);
+    content: "";
     background-image: url(/assets/images/whale-g.webp);
     background-repeat: no-repeat;
     background-size: cover;
-    display: block;
     width: rem(64);
     height: rem(64);
-    z-index: 9999;
+    top: rem(18);
   }
+
 }
+// .tab__menu-item {
+//   color: $green;
+//   cursor: pointer;
+//   font-size: rem(14);
+//   width: 100%;
+//   max-width: rem(102);
+//   padding: rem(10) rem(16);
+//   // position: relative;
+//   // display: flex;
+//   // align-items: center;
+
+
+//   background-color: $green2;
+//   box-shadow: rem(2) rem(4) rem(2) 0 rgba($color: $black2, $alpha: 0.25);
+//   @include mq("md"){
+//     box-shadow: none;
+//     font-size: rem(24);
+//     padding: rem(28);
+//     text-align: right;
+//     max-width: rem(300);
+//   }
+// }
+
+// .tab__menu-icon{
+//   margin-right: rem(8);
+// }
+
+// // .tab__menu-icon span{
+// //   margin-right: rem(8);
+// // }
+
+// .tab__menu-icon::before{
+//   @include mq("md"){
+//     content: "";
+//     position: absolute;
+//     top: rem(18);
+//     // left: rem(24);
+//     background-image: url(/assets/images/whale-g.webp);
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     display: inline-block;
+//     width: rem(64);
+//     height: rem(64);
+//     z-index: 9999;
+//   }
+// }
+
+// .tab__menu-icon.tab__menu-icon--shark::before{
+//   background-image: url(/assets/images/shark.webp);
+// }
+
+// .tab__menu-icon.tab__menu-icon--fish::before{
+//   background-image: url(/assets/images/fish.webp);
+// }
+
 
 .tab__menu-item.is-active{
   color: $white;

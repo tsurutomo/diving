@@ -1,0 +1,96 @@
+@use "global" as *;
+
+.site-map-nav {
+  margin-top: rem(40);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4%;
+  padding-right: rem(11);
+  @include mq("md"){
+    margin-top: rem(28);
+    padding-right: 0;
+    align-items: flex-start;
+    gap: 11%;
+  }
+}
+
+.site-map-nav__left,
+.site-map-nav__right {
+  @include mq("md"){
+    display: flex;
+  }
+
+}
+
+.site-map-nav__box:not(:first-of-type) {
+  @include mq("md"){
+    margin-left: rem(120);
+  }
+}
+
+.site-map-nav__items {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+}
+
+.site-map-nav__item {
+  color: $black;
+  list-style: none;
+  padding-left: rem(22);
+}
+
+.site-map-nav__item--icon {
+  padding-left: rem(22);
+  margin-top: rem(40);
+  position: relative;
+}
+
+.site-map-nav__item--icon::before{
+  position: absolute;
+  content: "";
+  background-image: url(/assets/images/star-fish-b.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: 50%;
+  left: 0;
+  width: rem(18);
+  height: rem(18);
+  transform: translateY(-50%);
+}
+
+// .site-map-nav__item--icon {
+//   font-weight: $bold;
+//   line-height: calc(18/16);
+//   margin-top: rem(14);
+//   background-image: url(/assets/images/starfish.png);
+//   background-position: top left;
+//   background-repeat: no-repeat;
+//   background-size: cover rem(18);
+//   padding-left: rem(22);
+//   line-height: rem(18);
+//   margin-top: rem(40);
+
+// }
+
+.site-map-nav__item.site-map-nav__item--top {
+  margin-top: 0;
+}
+
+.site-map-nav__item.site-map-nav--mg{
+  @include mq("md"){
+    margin-top: 0;
+  }
+}
+
+.site-map-nav__item a{
+  display: block;
+  color: $black;
+  transition: opacity 0.3s;
+  &:hover{
+    opacity: 0.7;
+  }
+}
+
