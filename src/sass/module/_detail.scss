@@ -5,13 +5,16 @@
 }
 
 .detail__container {
-  display: flex;
-
+  @include mq("md"){
+    display: flex;
+  }
 }
 
 .detail__contents {
-  width: 64%;
-  flex-shrink: 0;
+  @include mq("md"){
+    width: 64%;
+    flex-shrink: 0;
+  }
 }
 
 .detail__time {

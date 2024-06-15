@@ -1,5 +1,11 @@
 @use "global" as *;
 
+.site-map__img-wrap{
+  @include mq("md"){
+    display: none;
+  }
+}
+
 .site-map-nav {
   margin-top: rem(40);
   display: flex;
@@ -60,20 +66,6 @@
   height: rem(18);
   transform: translateY(-50%);
 }
-
-// .site-map-nav__item--icon {
-//   font-weight: $bold;
-//   line-height: calc(18/16);
-//   margin-top: rem(14);
-//   background-image: url(/assets/images/starfish.png);
-//   background-position: top left;
-//   background-repeat: no-repeat;
-//   background-size: cover rem(18);
-//   padding-left: rem(22);
-//   line-height: rem(18);
-//   margin-top: rem(40);
-
-// }
 
 .site-map-nav__item.site-map-nav__item--top {
   margin-top: 0;

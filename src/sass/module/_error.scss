@@ -20,7 +20,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  top: 0;
+  top: rem(-52);
   left: 0;
   width: 100%;
   height: rem(345);
@@ -28,6 +28,7 @@
   @include mq("md"){
     width: rem(698);
     height: rem(698);
+    top: rem(-120);
   }
 }
 
