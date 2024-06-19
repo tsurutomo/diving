@@ -12,6 +12,9 @@
   width: 90%;
   @include mq("md"){
     width: 63%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
