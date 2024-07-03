@@ -4,17 +4,24 @@
   margin-top: rem(40);
   padding: rem(16);
   box-shadow: rem(2) rem(2) rem(10) rem(0) rgba($color:$black2, $alpha: 0.25);
+  transition: border-color .3s;
 }
 
 .popular__item a{
   display: flex;
 }
 
+
+.popular__item:hover {
+  border: rem(2) solid $green;
+}
+
+
 .popular__img {
   width: 41%;
   flex-shrink: 0;
-
 }
+
 .popular__img img {
   aspect-ratio: 121/90;
   width: 100%;

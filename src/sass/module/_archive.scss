@@ -13,9 +13,11 @@
 .archive__year {
   position: relative;
   padding-left: rem(32);
+  cursor: pointer;
 }
 
 .archive__month {
+  cursor: pointer;
   margin-top: rem(4);
   margin-left: rem(24);
   padding-left: rem(32);
@@ -31,6 +33,15 @@
   border-bottom: rem(10) solid transparent;
   border-left: rem(18) solid $green;
   border-top: rem(10) solid transparent;
+  transition: opacity .3s;
+}
+
+.archive__year:hover {
+  opacity: 0.7;
+}
+
+.archive__month:hover{
+  opacity: 0.7;
 }
 
 .archive__year.is-active,

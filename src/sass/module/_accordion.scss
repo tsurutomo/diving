@@ -29,6 +29,7 @@
   right: rem(16);
   background-color: $white;
   transition: transform .3s;
+  cursor: pointer;
   @include mq("md"){
     width: rem(32);
     right: rem(40);

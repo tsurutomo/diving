@@ -4,6 +4,8 @@
   display: flex;
 }
 
+
+
 .card__list {
   flex-grow: 1;
   display: block;
@@ -11,6 +13,8 @@
   box-shadow: rem(2) rem(2) rem(10) rgba($color: $black2, $alpha: 0.25);
   padding: rem(16) rem(16) rem(24);
 }
+
+
 
 .card__img {
   overflow: hidden;
