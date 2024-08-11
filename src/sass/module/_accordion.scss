@@ -12,6 +12,7 @@
 
 .accordion__title {
   background-color: $green;
+  cursor: pointer;
   padding: rem(16);
   position: relative;
   @include mq("md"){

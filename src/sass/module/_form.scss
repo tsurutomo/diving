@@ -87,7 +87,7 @@
   content: "";
   width: rem(10);
   height: rem(5);
-  transform: rotate(-45deg);
+  transform: translateX(-25%) rotate(-45deg);
   border-bottom: rem(2) solid $red;
   border-left: rem(2) solid $red;
   top: rem(8);
