@@ -26,7 +26,8 @@
 
 .fv-lower__title {
   color: $white;
-  font-size: rem(40);
+  font-size: rem(36);
+  line-height: 1.2;
   font-family: $second-font-family;
   @include mq("md"){
     font-size: rem(80);

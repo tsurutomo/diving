@@ -12,7 +12,7 @@
 
 .detail__contents {
   @include mq("md"){
-    width: 64%;
+    width: 65%;
     flex-shrink: 0;
   }
 }
@@ -29,11 +29,17 @@
   font-size: rem(24);
   font-weight: $medium;
   border-bottom: rem(1) solid $green;
+  @include mq("md"){
+    font-size: rem(32);
+  }
 }
 
 .detail__img {
   margin-top: rem(24);
   width: 100%;
+  @include mq("md"){
+    margin-top: rem(40);
+  }
 }
 
 .detail__img img{

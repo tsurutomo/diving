@@ -1,25 +1,35 @@
 @use "global" as *;
 
+.popular{
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+}
+
 .popular__item{
-  margin-top: rem(40);
-  padding: rem(16);
+  cursor: pointer;
   box-shadow: rem(2) rem(2) rem(10) rem(0) rgba($color:$black2, $alpha: 0.25);
-  transition: border-color .3s;
 }
 
 .popular__item a{
+  border : rem(1) solid transparent;
+  transition: border-color .3s;
+  padding: rem(14) rem(16) rem(14);
   display: flex;
 }
 
-
-.popular__item:hover {
-  border: rem(2) solid $green;
+.popular__item a:hover{
+  border-color: $green;
 }
 
 
+
 .popular__img {
-  width: 41%;
+  width: 48%;
   flex-shrink: 0;
+  @include mq("md"){
+    width: 46%;
+  }
 }
 
 .popular__img img {
@@ -31,6 +41,9 @@
 
 .popular__body {
   margin-left: rem(16);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .popular__time {
@@ -38,8 +51,6 @@
   font-size: rem(12);
   font-family: $second-font-family;
   line-height: calc(18/12);
-
-
 }
 
 .popular__title {
@@ -47,6 +58,5 @@
   font-size: rem(16);
   font-weight: $medium;
   margin-top: rem(4);
-
 }
 

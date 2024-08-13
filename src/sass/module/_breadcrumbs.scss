@@ -14,12 +14,12 @@
 }
 
 .breadcrumb__item + .breadcrumb__item::before {
-  content: ">";
+  content: "＞";
   padding: 0 rem(8);
 }
 
 .breadcrumb__item--white + .breadcrumb__item--white::before {
-  content: ">";
+  content: "＞";
   color: $white;
 }
 

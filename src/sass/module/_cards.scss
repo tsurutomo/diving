@@ -15,11 +15,13 @@
   gap: rem(40);
   @include mq("md"){
     grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: rem(80);
   }
 }
 
 .cards-lower{
   @include mq("md"){
     grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: rem(80);
   }
 }

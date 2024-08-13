@@ -29,7 +29,7 @@
   display: inline-block;
   width: rem(10);
   height: rem(10);
-  transform: rotate(-45deg);
+  transform: translateX(25%) rotate(-45deg);
   transition: border-color .3s
 }
 
@@ -39,7 +39,7 @@
   display: inline-block;
   width: rem(10);
   height: rem(10);
-  transform: rotate(45deg);
+  transform: translateX(-25%) rotate(45deg);
   transition: border-color .3s
 }
 

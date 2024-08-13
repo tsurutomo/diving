@@ -27,8 +27,7 @@
   @include mq("md"){
     flex-direction: column-reverse;
     gap: rem(12);
-    width: 30%;
-    padding: rem(36);
+    width: 28%;
   }
 }
 
@@ -54,6 +53,7 @@
   border-collapse: collapse;
   @include mq("md"){
     width: 70%;
+    text-align: left;
   }
 }
 
@@ -69,7 +69,7 @@
   padding: rem(7);
   @include mq("md"){
     width: 48%;
-    // padding: rem(16);
+    padding: rem(18) rem(16) rem(18);
   }
 }
 
@@ -83,4 +83,3 @@
     padding: rem(16);
   }
 }
-

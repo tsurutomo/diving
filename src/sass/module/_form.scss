@@ -50,8 +50,12 @@
   width: 100%;
   @include mq("md"){
     width: 68%;
+    margin-top: 0;
   }
+}
 
+.form__textarea {
+  resize: none;
 }
 
 .form__input::placeholder{
@@ -122,7 +126,6 @@
   color: $black;
   font-size: rem(12);
   width: 100%;
-  // display: inline-block;
   border: rem(1) solid $green;
   cursor: pointer;
   @include mq("md"){

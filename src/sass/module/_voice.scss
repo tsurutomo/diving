@@ -34,3 +34,10 @@
   bottom: rem(-61);
   z-index: 5;
 }
+
+.voice-lower__contents{
+  margin-top: rem(44);
+  @include mq("md"){
+    margin-top: rem(30);
+  }
+}

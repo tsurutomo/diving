@@ -18,8 +18,8 @@
 
 .archive__month {
   cursor: pointer;
-  margin-top: rem(4);
-  margin-left: rem(24);
+  margin-top: rem(2);
+  margin-left: rem(30);
   padding-left: rem(32);
   position: relative;
 }
@@ -34,6 +34,10 @@
   border-left: rem(18) solid $green;
   border-top: rem(10) solid transparent;
   transition: opacity .3s;
+}
+
+.archive__year.is-active::before{
+  transform: rotate(90deg);
 }
 
 .archive__year:hover {
