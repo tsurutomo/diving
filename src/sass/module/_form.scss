@@ -1,8 +1,5 @@
 @use "global" as *;
 
-.form {
-
-}
 
 .form__item {
   border-bottom: rem(1) dotted $green;
@@ -103,7 +100,6 @@
   opacity: 1;
 }
 
-
 .form__select{
   position: relative;
 }
@@ -119,6 +115,7 @@
   border-top: rem(10) solid $green;
   border-right: rem(8) solid transparent;
   border-left: rem(8) solid transparent;
+  pointer-events: none;
 }
 
 .form__select select{
