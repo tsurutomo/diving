@@ -140,6 +140,7 @@ $('.js-tab-menu').on('click', function () {
     $('#' + number).addClass('is-active');
 });
 
+
 //アコーディオン
 $('.js-accordion-title').on('click', function () {
     $(this).next().slideToggle();

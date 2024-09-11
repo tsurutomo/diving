@@ -117,3 +117,8 @@ a {
   color: inherit;
   transition: opacity 0.3s;
 }
+
+:root{
+	--header: 100px;
+	scroll-padding: var(--header);
+}
