@@ -20,12 +20,15 @@
 .gallery__item{
   list-style: none;
   cursor: pointer;
+
 }
 
 .gallery__item:nth-child(6n+1){
+  min-height: rem(345);
   @include mq("md"){
     grid-column: span 3;
     grid-row: span 2;
+    min-height: rem(492);
   }
 }
 
