@@ -20,15 +20,12 @@
 .gallery__item{
   list-style: none;
   cursor: pointer;
-
 }
 
 .gallery__item:nth-child(6n+1){
-  min-height: rem(345);
   @include mq("md"){
     grid-column: span 3;
     grid-row: span 2;
-    min-height: rem(492);
   }
 }
 
@@ -43,7 +40,7 @@
 .gallery__item:nth-child(6n+4){
   @include mq("md"){
     grid-column: span 4;
-    grid-row: span 1
+    grid-row: span 1;
   }
 }
 
@@ -56,8 +53,8 @@
 
 .gallery__item:nth-child(6n+6){
   @include mq("md"){
-    grid-column: 5/8;
-    grid-row: 3/5;
+    grid-column: span 3;
+    grid-row: span 2;
   }
 }
 
@@ -101,6 +98,3 @@
   left: 0;
   z-index: 10000;
 }
-
-
-
