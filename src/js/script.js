@@ -187,3 +187,21 @@ $('.js-accordion-title').on('click', function () {
     $(this).toggleClass('is-open');
 });
 
+//ブログページ・アーカイブをクリックしたら開く
+$(document).ready(function() {
+    $('.archive__year').on('click', function() {
+      // クリックされた要素がis-activeかどうかを判定
+        if ($(this).hasClass('is-active')) {
+            // すでにis-activeの場合、is-activeを外して月を隠す
+            $(this).removeClass('is-active');
+            $(this).siblings('.archive__month').slideUp();
+        } else {
+            // is-activeではない場合、他の要素からis-activeを削除して月を非表示
+            $('.archive__year').removeClass('is-active');
+            $('.archive__month').slideUp();
+            // クリックされた要素にis-activeを追加して、月を表示
+            $(this).addClass('is-active');
+            $(this).siblings('.archive__month').slideDown();
+        }
+    });
+});

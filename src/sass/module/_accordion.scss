@@ -1,9 +1,9 @@
 @use "global" as *;
-.accordion{
+.accordions{
   width: 100%;
 }
 
-.accordion__item:not(:first-child) {
+.accordion:not(:first-child) {
   margin-top: rem(44);
   @include mq("md"){
     margin-top: rem(40);
