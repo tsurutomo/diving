@@ -140,6 +140,46 @@ $('.js-tab-menu').on('click', function () {
     $('#' + number).addClass('is-active');
 });
 
+//ナビメニューからタブへ飛ぶ時
+$(document).ready(function() {
+    var headerHeight = 90; // ヘッダーの高さを指定
+    // ページ読み込み時にURLのハッシュを確認
+    $(window).on('load', function() {
+      var currentHash = window.location.hash.substring(1); // 現在のURLのハッシュを取得（#を除く）
+        if (currentHash) {
+            setTimeout(function() {
+            activateTab(currentHash); // 遅延させて処理を実行
+            }, 100); // 100ミリ秒の遅延を入れる
+        }
+    });
+    // タブリンクをクリックしたときの処理
+    $('.js-tab-link').on('click', function(event) {
+      var targetPage = $(this).attr('href').split('#')[0]; // リンク先のページ部分（information.htmlなど）を取得
+      var tabID = $(this).attr('href').split('#')[1]; // タブIDを取得
+      // 現在のページとリンク先が同じ場合のみ、スムーススクロールを実行
+        if (targetPage === "" || window.location.pathname.endsWith(targetPage)) {
+            event.preventDefault(); // 同一ページの時のみリンク動作を無効化
+            activateTab(tabID); // タブをアクティブにする
+        }
+    });
+    // タブをアクティブにする関数
+    function activateTab(tabID) {
+      // すべてのタブメニューからis-activeクラスを削除
+        $('.js-tab-menu').removeClass('is-active');
+
+      // 対応するタブメニューアイテムにis-activeクラスを追加
+        var $targetTabMenuItem = $('.js-tab-menu[data-number="' + tabID + '"]');
+        if ($targetTabMenuItem.length) {
+            $targetTabMenuItem.addClass('is-active');
+        // スムーススクロールさせる（ヘッダー分の高さを考慮して90px下げる）
+        $('html, body').animate({
+            scrollTop: $targetTabMenuItem.offset().top - headerHeight
+        }, 500); // 800ミリ秒でスクロール
+        }
+    }
+});
+
+
 
 //アコーディオン
 $('.js-accordion-title').on('click', function () {

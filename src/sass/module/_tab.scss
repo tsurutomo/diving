@@ -37,9 +37,10 @@
   @include mq("md"){
     content: "";
     position: absolute;
-    top: rem(18);
-    left: rem(24);
-    background-image: url(/assets/images/whale-g.webp);
+    top: 50%;
+    transform: translateY(-50%);
+    left: rem(20);
+    background-image: url(/assets/images/whale.svg);
     background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
@@ -53,21 +54,34 @@
 
 .tab__menu-icon.tab__menu-icon--shark::before{
   @include mq("md"){
-    background-image: url(/assets/images/shark.webp);
-    top: rem(16);
-    transition : background-image .3s;
+    background-image: url(/assets/images/shark.svg);
   }
 }
 
 .tab__menu-icon.tab__menu-icon--fish::before{
   @include mq("md"){
-    background-image: url(/assets/images/fish.webp);
+    background-image: url(/assets/images/fish.svg);
   }
 }
 
-.tab__menu-item:hover .tab__menu-icon::before{
+.tab__menu-item:hover .tab__menu-icon--whale::before{
   @include mq("md"){
-    background-image: url(/assets/images/whale-w.webp);
+    background-image: url(/assets/images/whale.svg);
+    filter: brightness(0) invert(1);
+  }
+}
+
+.tab__menu-item:hover .tab__menu-icon--shark::before{
+  @include mq("md"){
+    background-image: url(/assets/images/shark.svg);
+    filter: brightness(0) invert(1);
+  }
+}
+
+.tab__menu-item:hover .tab__menu-icon--fish::before{
+  @include mq("md"){
+    background-image: url(/assets/images/fish.svg);
+    filter: brightness(0) invert(1);
   }
 }
 
@@ -84,16 +98,28 @@
   @include mq("md"){
     content: "";
     position: absolute;
-    top: rem(18);
-    left: rem(30);
-    background-image: url(/assets/images/whale-w.webp);
+    top: 50%;
+    left: rem(20);
+    transform: translateY(-50%);
     background-repeat: no-repeat;
     background-size: cover;
-    display: block;
+    display: inline-block;
     width: rem(64);
     height: rem(64);
     z-index: 9999;
+    filter: brightness(0) invert(1);
   }
+}
+
+.tab__menu-item.is-active .tab__menu-icon--whale::before{
+  background-image: url(/assets/images/whale.svg);
+}
+.tab__menu-item.is-active .tab__menu-icon--shark::before{
+  background-image: url(/assets/images/shark.svg);
+}
+
+.tab__menu-item.is-active .tab__menu-icon--fish::before{
+  background-image: url(/assets/images/fish.svg);
 }
 
 .tab__content {
