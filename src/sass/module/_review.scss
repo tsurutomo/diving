@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.review{
+.review a{
   transition: opacity .3s;
   &:hover{
     opacity: 0.7;

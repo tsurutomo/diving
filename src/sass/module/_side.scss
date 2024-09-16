@@ -22,7 +22,7 @@
   }
 }
 
-.side__content + .side__content{
+.side__wrap + .side__wrap{
   margin-top: rem(80);
 }
 
@@ -56,6 +56,10 @@
   left: rem(24);
   width: rem(50);
   height: rem(50);
+}
+
+.side__content{
+  margin-top: rem(24);
 }
 
 .side__button-wrap{

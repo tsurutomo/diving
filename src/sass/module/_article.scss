@@ -1,31 +1,31 @@
 @use "global" as *;
 
-.popular{
+.article{
   display: flex;
   flex-direction: column;
   gap: rem(24);
   margin-top: rem(24);
 }
 
-.popular__item{
+.article__item{
   cursor: pointer;
   box-shadow: rem(2) rem(2) rem(10) rem(0) rgba($color:$black2, $alpha: 0.25);
 }
 
-.popular__item a{
+.article__item a{
   border : rem(1) solid transparent;
   transition: border-color .3s;
   padding: rem(14) rem(16) rem(14);
   display: flex;
 }
 
-.popular__item a:hover{
+.article__item a:hover{
   border-color: $green;
 }
 
 
 
-.popular__img {
+.article__img {
   width: 48%;
   flex-shrink: 0;
   @include mq("md"){
@@ -33,28 +33,28 @@
   }
 }
 
-.popular__img img {
+.article__img img {
   aspect-ratio: 121/90;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.popular__body {
+.article__body {
   margin-left: rem(16);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.popular__time {
+.article__time {
   color: $black;
   font-size: rem(12);
   font-family: $second-font-family;
   line-height: calc(18/12);
 }
 
-.popular__title {
+.article__title {
   color: $black;
   font-size: rem(16);
   font-weight: $medium;
