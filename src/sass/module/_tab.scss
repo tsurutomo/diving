@@ -4,6 +4,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: rem(16);
 }
 
 .tab__menu-item{
@@ -73,13 +75,8 @@
   color: $white;
   background-color: $green;
   box-shadow: rem(2) rem(4) rem(2) 0 rgba($color: $black2, $alpha: 0.25);
-  &:hover{
-    color: $green;
-    background-color: $green2;
-  }
   @include mq("md"){
     box-shadow: rem(4) rem(8) rem(4) 0 rgba($color: $black2, $alpha: 0.25);
-    transition: color .3s ,background-color .3s;
   }
 }
 
@@ -96,15 +93,7 @@
     width: rem(64);
     height: rem(64);
     z-index: 9999;
-    transition : background-image .3s;
   }
-}
-
-.tab__menu-item.is-active:hover.tab__menu-item.is-active .tab__menu-icon::before{
-  @include mq("md"){
-    background-image: url(/assets/images/whale-g.webp);
-  }
-
 }
 
 .tab__content {

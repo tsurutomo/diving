@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   gap: rem(16);
   @include mq("md"){
-    gap: rem(32);
+    gap: rem(16) rem(32);
   }
 }
 
@@ -25,7 +25,7 @@
   display: block;
   font-size: rem(14);
   line-height: calc(22/14);
-  transition: background-color .3s color .3s;
+  transition: background-color .3s, color .3s;
 }
 
 .tag__item a:hover{
