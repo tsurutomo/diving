@@ -109,14 +109,13 @@ const pageTop = $("#page-top");
     });
 });
 
-
+//モーダル
 $(document).ready(function() {
     // モーダルを開く処理
-    $(".js-modal-open").each(function() {
+    $(".js-modal-open").each(function(index) {
         $(this).on("click", function(e) {
-            e.preventDefault(); // デフォルトのアクション（リンクを辿るなど）を防止
-            var target = $(this).data("target"); // data-target属性からターゲットモーダルのIDを取得
-            var modal = document.getElementById(target); // IDでモーダル要素を取得
+            e.preventDefault(); // デフォルトのアクションを防止
+            var modal = $(".js-modal").eq(index); // クリックされた要素のインデックスに対応するモーダルを取得
             $(modal).fadeIn(); // フェードイン効果でモーダルを表示
             $("html, body").css("overflow", "hidden"); // ページのスクロールを無効にする
         });
@@ -130,6 +129,7 @@ $(document).ready(function() {
         }
     });
 });
+
 
 //タブメニュー
 $('.js-tab-menu').on('click', function () {
