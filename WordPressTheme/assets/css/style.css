@@ -3162,6 +3162,12 @@ html {
 	width: 38%;
 }
 
+.card-sort__img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
 .card-sort__text {
 	margin-top: 2.625rem;
 }
