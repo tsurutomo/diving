@@ -2,19 +2,20 @@
 <?php wp_head(); ?>
 <main>
 <!--fv-->
-<div class="fv-lower">
-      <div class="fv-lower__inner">
-        <div class="fv-lower__tittle-wrap">
-          <h1 class="fv-lower__title">Voice</h1>
-        </div>
-        <div class="fv-lower__img-wrap">
-          <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/voice-fv.webp" media="(min-width: 768px)"/>
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-fvsp.webp" width="750" height="920" alt="スキューバダイビングをする人たち">
-          </picture>
-        </div>
+<?php get_template_part('include/fv-lower') ?>
+<!-- <div class="fv-lower">
+  <div class="fv-lower__inner">
+      <div class="fv-lower__tittle-wrap">
+        <h1 class="fv-lower__title">Voice</h1>
       </div>
-    </div>
+      <div class="fv-lower__img-wrap">
+      <picture>
+        <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/voice-fv.webp" media="(min-width: 768px)"/>
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-fvsp.webp" width="750" height="920" alt="スキューバダイビングをする人たち">
+      </picture>
+      </div>
+  </div>
+</div> -->
     <!-- パンくずリスト-->
     <?php get_template_part('include/breadcrumb') ?>
     <!-- voice -->
@@ -23,10 +24,39 @@
         <!--tag-->
         <div class="voice-lower__tag tag">
           <ul class="tag__list">
-            <li class="tag__item is-active"><a href="" >all</a></li>
-            <li class="tag__item"><a href="" >ライセンス講習</a></li>
-            <li class="tag__item"><a href="" >ファンダイビング</a></li>
-            <li class="tag__item"><a href="" >体験ダイビング</a></li>
+          <?php
+              $current_term_id = get_queried_object()->term_id;
+              $terms = get_terms([
+                'taxonomy' => 'voice_category',
+                'orderby' => 'description',
+                'order'   => 'ASC'
+              ]);
+
+              // 'all'リンクの生成
+              $home_class = (is_post_type_archive('voice')) ? 'is-active' : '';
+              $home_link = sprintf(
+                  '<li class="tag__item %s"><a href="%s" title="%s">all</a></li>',
+                  $home_class,
+                  esc_url(home_url('/voice')),
+                  esc_attr(__('View all posts', 'textdomain'))
+              );
+              echo $home_link;
+
+              // タームリンクの生成
+              if ($terms) {
+                  foreach ($terms as $term) {
+                      $term_class = ($current_term_id === $term->term_id) ? 'is-active' : '';
+                      $term_link = sprintf(
+                          '<li class="tag__item %s"><a href="%s" title="%s">%s</a></li>',
+                          $term_class,
+                          esc_url(get_term_link($term->term_id)),
+                          esc_attr(sprintf(__('View all posts in %s', 'textdomain'), $term->name)),
+                          esc_html($term->name)
+                      );
+                      echo $term_link;
+                  }
+              }
+            ?>
           </ul>
         </div>
         <div class="voice-lower__contents">
@@ -37,9 +67,23 @@
                 <div class="card-sort__content">
                   <div class="card-sort__topic">
                     <div class="card-sort__info">
-                      <p class="card-sort__gender">20代(女性)</p>
-                      <?php $cat = get_the_category(); ?>
-                      <span class="card-sort__tag"><?php the_category(); ?></span>
+                      <p class="card-sort__gender">
+                        <?php
+                          $age = get_field('add_age'); 
+                          $gender = get_field('add_gender');
+                          if ($age && $gender) {
+                            echo esc_html($age) . ' (' . esc_html($gender) . ')';
+                          }
+                        ?>
+                      </p>
+                      <?php
+                          $taxonomy_terms = get_the_terms($post->ID, 'voice_category');
+                          if ( ! empty( $taxonomy_terms ) ) {
+                              foreach( $taxonomy_terms as $taxonomy_term ) {
+                                  echo '<span class="card-sort__tag">' . esc_html( $taxonomy_term->name ) . '</span>';
+                              }
+                          }
+                      ?>
                     </div>
                     <h3 class="card-sort__sub-title"><?php the_title(); ?></h3>
                   </div>
@@ -51,39 +95,21 @@
                     <?php endif; ?>
                   </div>
                 </div>
-                <p class="card-sort__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。</p>
+                <p class="card-sort__text">
+                <?php
+                    $text = get_field('add_text');
+                    if ($text) {
+                      echo esc_html($text);
+                    }
+                  ?>
+                </p>
               </li>
               <?php endwhile; endif; ?>
           </ul>
         </div>
         <!-- ページネーション -->
         <div class="voice-lower__pagination pagination top-pagenation">
-          <ul class="pagination__list">
-            <li class="pagination__item">
-              <a href="#"><span class="pagination__prev"></span></a>
-            </li>
-            <li class="pagination__item is-active">
-              <a href="#">1</a>
-            </li>
-            <li class="pagination__item">
-              <a href="#">2</a>
-            </li>
-            <li class="pagination__item">
-              <a href="#">3</a>
-            </li>
-            <li class="pagination__item">
-              <a href="#">4</a>
-            </li>
-            <li class="pagination__item u-desktop">
-              <a href="#">5</a>
-            </li>
-            <li class="pagination__item u-desktop">
-              <a href="#">6</a>
-            </li>
-            <li class="pagination__item">
-              <a href="#"><span class="pagination__next"></span></a>
-            </li>
-          </ul>
+            <?php wp_pagenavi(); ?>
         </div>
       </div>
     </section>

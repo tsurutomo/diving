@@ -22,62 +22,17 @@
     <section class="faq bg-fish top-lower">
       <div class="faq__inner">
         <div class="faq__accordions accordions js-accordion">
-          <div class="accordions__accordion accordion">
-            <div class="accordion__title js-accordion-title">
-              <p class="accordion__title-text">ここに質問が入ります。</p>
+          <?php $faq = SCF::get('faq_list');
+            foreach($faq as $val): ?>
+            <div class="accordions__accordion accordion">
+              <div class="accordion__title js-accordion-title">
+                <p class="accordion__title-text"><?php echo esc_html($val['add_question']); ?></p>
+              </div>
+              <div class="accordion__content js-accordion-content">
+                <p class="accordion__text"><?php echo esc_html($val['add_answer']); ?></p>
+              </div>
             </div>
-            <div class="accordion__content js-accordion-content">
-              <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-            </div>
-          </div>
-          <div class="accordions__accordion accordion">
-            <div class="accordion__title js-accordion-title">
-              <p class="accordion__title-text">ここに質問が入ります。</p>
-            </div>
-            <div class="accordion__content js-accordion-content">
-              <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-            </div>
-          </div>
-          <div class="accordions__accordion accordion">
-            <div class="accordion__title js-accordion-title">
-              <p class="accordion__title-text">ここに質問が入ります。</p>
-            </div>
-            <div class="accordion__content js-accordion-content">
-              <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-            </div>
-          </div>
-          <div class="accordions__accordion accordion">
-            <div class="accordion__title js-accordion-title">
-              <p class="accordion__title-text">ここに質問が入ります。</p>
-            </div>
-            <div class="accordion__content js-accordion-content">
-              <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-            </div>
-          </div>
-          <div class="accordions__accordion accordion">
-            <div class="accordion__title js-accordion-title">
-              <p class="accordion__title-text">ここに質問が入ります。</p>
-            </div>
-            <div class="accordion__content js-accordion-content">
-              <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-            </div>
-          </div>
-          <div class="accordions__accordion accordion">
-            <div class="accordion__title js-accordion-title">
-              <p class="accordion__title-text">ここに質問が入ります。</p>
-            </div>
-            <div class="accordion__content js-accordion-content">
-              <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-            </div>
-          </div>
-          <div class="accordions__accordion accordion">
-            <div class="accordion__title js-accordion-title">
-              <p class="accordion__title-text">ここに質問が入ります。</p>
-            </div>
-            <div class="accordion__content js-accordion-content">
-              <p class="accordion__text">ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります</p>
-            </div>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </section>

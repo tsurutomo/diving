@@ -1589,15 +1589,14 @@ address .contact__access-text {
 .form__checkbox span {
 	color: #0D2936;
 	font-size: 1rem;
-	padding-left: 1.375rem;
+	/* padding-left: 1.375rem; */
 	position: relative;
 }
 
 .form__checkbox span::before {
 	border: 0.0625rem solid #408F95;
-	content: "";
 	height: 0.875rem;
-	left: 0;
+	left: -1.375rem;
 	position: absolute;
 	top: 0.375rem;
 	width: 0.875rem;
@@ -1608,7 +1607,7 @@ address .contact__access-text {
 	border-left: 0.125rem solid #C94800;
 	content: "";
 	height: 0.3125rem;
-	left: 0.3125rem;
+	left: -1.125rem;
 	opacity: 0;
 	position: absolute;
 	top: 0.5rem;
@@ -1658,15 +1657,15 @@ address .contact__access-text {
 	display: inline-block;
 	font-size: 0.875rem;
 	line-height: 1.5714285714;
-	padding-left: 1.875rem;
+	/* padding-left: 1.875rem; */
 	position: relative;
 }
 
 .form__privacy span::before {
 	border: 0.0625rem solid #408F95;
-	content: "";
 	height: 1.375rem;
-	left: 0;
+	left: -1.875rem;
+	display: inline-block;
 	position: absolute;
 	width: 1.375rem;
 }
@@ -1676,7 +1675,7 @@ address .contact__access-text {
 	border-left: 0.125rem solid #C94800;
 	content: "";
 	height: 0.3125rem;
-	left: 0.3125rem;
+	left: -1.5rem;
 	opacity: 0;
 	position: absolute;
 	top: 0.3125rem;
@@ -2166,7 +2165,7 @@ address .contact__access-text {
 	border-top: 0.0625rem solid #408F95;
 	display: inline-block;
 	height: 0.625rem;
-	transform: translateX(25%) rotate(-45deg);
+	transform: translateX(25%);
 	transition: border-color 0.3s;
 	width: 0.625rem;
 }
@@ -2176,7 +2175,7 @@ address .contact__access-text {
 	border-top: 0.0625rem solid #408F95;
 	display: inline-block;
 	height: 0.625rem;
-	transform: translateX(-25%) rotate(45deg);
+	transform: translateX(-25%);
 	transition: border-color 0.3s;
 	width: 0.625rem;
 }
@@ -2812,6 +2811,78 @@ select {
 	margin-top: 2.75rem;
 }
 
+.wp-pagenavi{
+	align-items: center;
+	display: flex;
+	gap: 0.75rem;
+	justify-content: center;
+	list-style: none;
+}
+
+.wp-pagenavi span{
+	align-items: center;
+	border: 0.0625rem solid #408F95;
+	display: inline-flex;
+	font-family: "Lato", sans-serif;
+	font-size: 1rem;
+	font-weight: 700;
+	height: 2.375rem;
+	justify-content: center;
+	padding: 0.5625rem;
+	transition: color 0.3s, background-color 0.3s;
+	width: 2.375rem;
+	background-color: #408F95;
+	color: #fff;
+}
+
+.wpcf7-list-item{
+	display: block;
+}
+
+.wpcf7-spinner{
+	display: none;
+}
+
+.wpcf7-submit{
+	align-items: center;
+	background-color: #408F95;
+	display: inline-flex;
+	justify-content: center;
+	padding: 1rem 2.8125rem 1rem 2.5rem;
+	position: relative;
+	z-index: 1;
+}
+
+.wpcf7-submit::before{
+	border: 0.0625rem solid #408F95;
+	content: "";
+	height: 100%;
+	left: 0.25rem;
+	position: absolute;
+	top: 0.25rem;
+	width: 100%;
+	z-index: -2;
+}
+
+.wpcf7-submit::after{
+	background-color: #fff;
+	border: 0.0625rem solid #408F95;
+	content: "";
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	transform: scale(0, 1);
+	transform-origin: left top;
+	transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
+	width: 100%;
+	z-index: -1;
+}
+
+.wpcf7-submit:hover::after{
+	transform: scale(1, 1);
+}
+
 @media screen and (min-width: 768px) {
 
 .u-desktop {
@@ -3416,7 +3487,7 @@ address .contact__access-text {
 .form__input,
 .form__textarea {
 	margin-top: 0;
-	width: 68%;
+	width: 100%;
 }
 
 .form__select {
@@ -3430,10 +3501,6 @@ address .contact__access-text {
 
 .form__privacy {
 	margin-top: 5rem;
-}
-
-.form__privacy span {
-	padding-left: 2.375rem;
 }
 
 .form__submit {
@@ -3814,6 +3881,14 @@ address .contact__access-text {
 
 .voice-lower__contents {
 	margin-top: 1.875rem;
+}
+
+.wpcf7-form-control-wrap{
+	width: 69%;
+}
+
+.form__checkbox .wpcf7-form-control-wrap{
+	width: 100%;
 }
 
 }

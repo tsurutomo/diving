@@ -22,87 +22,59 @@
     <div class="price-lower__inner">
       <div class="price-lower__container">
         <div class="price-lower__charts charts">
-          <div class="charts__chart chart" id="license">
+          <div class="charts__chart chart" id="add_first">
             <h2 class="chart__title"><span class="chart__img"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/whale-w.webp" alt="白クジラ"></span><span>ライセンス講習</span></h2>
             <table class="chart__list">
               <tbody>
-                <tr class="chart__item">
-                  <td class="chart__name">オープンウォーター<br class="u-mobile">ダイバーコース</td>
-                  <td class="chart__price">¥50,000</td>
-                </tr>
-                <tr class="chart__item">
-                  <td class="chart__name">アドバンスド<br class="u-mobile">オープンウォーターコース</td>
-                  <td class="chart__price">¥60,000</td>
-                </tr>
-                <tr class="chart__item">
-                  <td class="chart__name">レスキュー＋EFRコース</td>
-                  <td class="chart__price">¥70,000</td>
-                </tr>
+              <?php $license = SCF::get('license_course');
+                foreach($license as $val): ?>
+                  <tr class="chart__item">
+                    <td class="chart__name"><?php echo esc_html($val['license_name']); ?></td>
+                    <td class="chart__price">¥<?php echo esc_html(number_format(floatval($val['license_price']))); ?></td>
+                  </tr>
+              <?php endforeach; ?>
+              </tbody>
               </tbody>
             </table>
           </div>
           <div class="charts__chart chart" id="experience">
             <h2 class="chart__title"><span class="chart__img"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/whale-w.webp" alt="白クジラ"></span><span>体験ダイビング</span></h2>
             <table class="chart__list">
-              <tbody>
-                <tr class="chart__item">
-                  <td class="chart__name">ビーチ体験ダイビング<br class="u-mobile">(半日)</td>
-                  <td class="chart__price">¥7,000</td>
-                </tr>
-                <tr class="chart__item">
-                  <td class="chart__name">ビーチ体験ダイビング<br class="u-mobile">(1日)</td>
-                  <td class="chart__price">¥14,000</td>
-                </tr>
-                <tr class="chart__item">
-                  <td class="chart__name">ボート体験ダイビング<br class="u-mobile">(半日)</td>
-                  <td class="chart__price">¥10,000</td>
-                </tr>
-                <tr class="chart__item">
-                  <td class="chart__name">ボート体験ダイビング<br class="u-mobile">(1日)</td>
-                  <td class="chart__price">¥18,000</td>
-                </tr>
-              </tbody>
-            </table>
+            <tbody>
+            <?php $license = SCF::get('experience_course');
+                foreach($license as $val): ?>
+                  <tr class="chart__item">
+                    <td class="chart__name"><?php echo esc_html($val['course_name']); ?></td>
+                    <td class="chart__price">¥<?php echo esc_html(number_format(floatval($val['course_price']))); ?></td>
+                  </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
           </div>
           <div class="charts__chart chart" id="fun">
             <h2 class="chart__title"><span class="chart__img"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/whale-w.webp" alt="白クジラ"></span><span>ファンダイビング</span></h2>
             <table class="chart__list">
               <tbody>
-                <tr class="chart__item">
-                  <td class="chart__name">ビーチダイビング<br class="u-mobile">(2ダイブ)</td>
-                  <td class="chart__price">¥14,000</td>
-                </tr>
-                <tr class="chart__item">
-                  <td class="chart__name">ボートダイビング<br class="u-mobile">(2ダイブ)</td>
-                  <td class="chart__price">¥18,000</td>
-                </tr>
-                <tr class="chart__item">
-                  <td class="chart__name">スペシャルダイビング<br class="u-mobile">(2ダイブ)</td>
-                  <td class="chart__price">¥24,000</td>
-                </tr>
-                <tr class="chart__item">
-                  <td class="chart__name">ナイトダイビング<br class="u-mobile">(1ダイブ)</td>
-                  <td class="chart__price">¥10,000</td>
-                </tr>
-              </tbody>
+              <?php $license = SCF::get('fun_course');
+                foreach($license as $val): ?>
+                  <tr class="chart__item">
+                    <td class="chart__name"><?php echo esc_html($val['fun_name']); ?></td>
+                    <td class="chart__price">¥<?php echo esc_html(number_format(floatval($val['fun_price']))); ?></td>
+                  </tr>
+              <?php endforeach; ?>
             </table>
           </div>
           <div class="charts__chart chart" id="special">
             <h2 class="chart__title"><span class="chart__img"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/whale-w.webp" alt="白クジラ"></span><span>スペシャルダイビング</span></h2>
             <table class="chart__list">
               <tbody>
-                <tr class="chart__item">
-                  <td class="chart__name">貸切ダイビング<br class="u-mobile">(2ダイブ)</td>
-                  <td class="chart__price">¥24,000</td>
-                </tr>
-                <tr class="chart__item">
-                  <td class="chart__name">1日ダイビング<br class="u-mobile">(3ダイブ)</td>
-                  <td class="chart__price">¥32,000</td>
-                </tr>
-                <tr class="chart__item">
-                  <td class="chart__name">1日ダイビング<br class="u-mobile">(3ダイブ)</td>
-                  <td class="chart__price">¥14,000</td>
-                </tr>
+              <?php $license = SCF::get('special_course');
+                foreach($license as $val): ?>
+                  <tr class="chart__item">
+                    <td class="chart__name"><?php echo esc_html($val['special_name']); ?></td>
+                    <td class="chart__price">¥<?php echo esc_html(number_format(floatval($val['special_price']))); ?></td>
+                  </tr>
+              <?php endforeach; ?>
               </tbody>
             </table>
           </div>

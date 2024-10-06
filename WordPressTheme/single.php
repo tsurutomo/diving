@@ -73,41 +73,39 @@
         <div class="side__wrap">
           <h2 class="side__title">人気記事</h2>
           <div class="side__content">
-            <ul class="side__article article">
-              <li class="article__item">
-                <a href="#">
-                  <figure class="article__img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog-card4.webp" width="602" height="402" alt="黄色い魚">
-                  </figure>
-                  <div class="article__body">
-                    <time class="article__time" datetime="2023-11-17">2023.11/17</time>
-                    <p class="article__title">ライセンス取得</p>
-                  </div>
-                </a>
-              </li>
-              <li class="article__item">
-                <a href="#">
-                  <figure class="article__img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog02.webp" width="602" height="402" alt="ウミガメ">
-                  </figure>
-                  <div class="article__body">
-                    <time class="article__time" datetime="2023-11-17">2023.11/17</time>
-                    <p class="article__title">ウミガメと泳ぐ</p>
-                  </div>
-                </a>
-              </li>
-              <li class="article__item">
-                <a href="#">
-                  <figure class="article__img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog03.webp" width="602" height="402" alt="カクレクマノミ">
-                  </figure>
-                  <div class="article__body">
-                    <time class="article__time" datetime="2023-11-17">2023.11/17</time>
-                    <p class="article__title">カクレクマノミ</p>
-                  </div>
-                </a>
-              </li>
-            </ul>
+          <ul class="side__article article">
+                  <?php
+                    $popular_posts_args = array(
+                      'post_type'      => 'post',
+                      'posts_per_page' => 3, // 表示する人気記事の数
+                      'meta_key'       => 'post_views_count',
+                      'orderby'        => 'meta_value_num',
+                      'order'          => 'DESC'
+                    );
+                    $popular_posts = new WP_Query($popular_posts_args);
+
+                    if ($popular_posts->have_posts()) :
+                      while ($popular_posts->have_posts()) : $popular_posts->the_post(); ?>
+                        <li class="article__item">
+                          <a href="<?php the_permalink(); ?>">
+                            <figure class="article__img">
+                              <?php if (has_post_thumbnail()) : ?>
+                                <?php the_post_thumbnail('full', array('class' => 'article__img img')); ?>
+                              <?php else: ?>
+                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" alt="<?php the_title(); ?>">
+                              <?php endif; ?>
+                            </figure>
+                            <div class="article__body">
+                              <time class="article__time" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m-d'); ?></time>
+                              <p class="article__title"><?php the_title(); ?></p>
+                            </div>
+                          </a>
+                        </li>
+                      <?php endwhile;
+                      wp_reset_postdata();
+                    endif;
+                  ?>
+                  </ul>
           </div>
         </div>
         <div class="side__wrap">

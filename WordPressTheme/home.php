@@ -29,23 +29,25 @@
                 <li class="cards__card card">
                 <a href="<?php the_permalink(); ?>" class="card__list">
                   <figure class="card__img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog01.jpg" width="602" height="402" alt="サンゴの写真">
+                  <?php if(get_the_post_thumbnail()) : ?>
+                      <?php the_post_thumbnail('full', ['class' => 'card__img img']); ?>
+                    <?php else: ?>
+                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
+                    <?php endif; ?>
                   </figure>
                   <div class="card__body">
                     <time class="card__date" datetime="<?php the_time('c') ?>"><?php the_time('Y.m-d') ?></time>
                     <h3 class="card__title"><?php the_title(); ?></h3>
-                    <p class="card__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+                    <p class="card__text"><?php the_excerpt(); ?></p>
                   </div>
                 </a>
                 </li>
                 <?php endwhile; endif; ?>
-              
-              
             </ul>
             <!-- ページネーション -->
             <div class="blog-lower__pagination pagination top-pagenation">
-              <ul class="pagination__list">
-              <?php wp_pagenavi(); ?>
+              <ul class="pagenavi__list">
+                <?php wp_pagenavi(); ?>
               </ul>
             </div>
           </div>
@@ -56,100 +58,139 @@
                 <h2 class="side__title">人気記事</h2>
                 <div class="side__content">
                   <ul class="side__article article">
-                    <li class="article__item">
-                      <a href="#">
-                        <figure class="article__img">
-                          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog-card4.webp" width="602" height="402" alt="黄色い魚">
-                        </figure>
-                        <div class="article__body">
-                          <time class="article__time" datetime="2023-11-17">2023.11/17</time>
-                          <p class="article__title">ライセンス取得</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="article__item">
-                      <a href="#">
-                        <figure class="article__img">
-                          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog02.webp" width="602" height="402" alt="ウミガメ">
-                        </figure>
-                        <div class="article__body">
-                          <time class="article__time" datetime="2023-11-17">2023.11/17</time>
-                          <p class="article__title">ウミガメと泳ぐ</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="article__item">
-                      <a href="#">
-                        <figure class="article__img">
-                          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/blog03.webp" width="602" height="402" alt="カクレクマノミ">
-                        </figure>
-                        <div class="article__body">
-                          <time class="article__time" datetime="2023-11-17">2023.11/17</time>
-                          <p class="article__title">カクレクマノミ</p>
-                        </div>
-                      </a>
-                    </li>
+                  <?php
+                    $popular_posts_args = array(
+                      'post_type'      => 'post',
+                      'posts_per_page' => 3, // 表示する人気記事の数
+                      'meta_key'       => 'post_views_count',
+                      'orderby'        => 'meta_value_num',
+                      'order'          => 'DESC'
+                    );
+                    $popular_posts = new WP_Query($popular_posts_args);
+
+                    if ($popular_posts->have_posts()) :
+                      while ($popular_posts->have_posts()) : $popular_posts->the_post(); ?>
+                        <li class="article__item">
+                          <a href="<?php the_permalink(); ?>">
+                            <figure class="article__img">
+                              <?php if (has_post_thumbnail()) : ?>
+                                <?php the_post_thumbnail('full', array('class' => 'article__img img')); ?>
+                              <?php else: ?>
+                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" alt="<?php the_title(); ?>">
+                              <?php endif; ?>
+                            </figure>
+                            <div class="article__body">
+                              <time class="article__time" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m-d'); ?></time>
+                              <p class="article__title"><?php the_title(); ?></p>
+                            </div>
+                          </a>
+                        </li>
+                      <?php endwhile;
+                      wp_reset_postdata();
+                    endif;
+                  ?>
                   </ul>
                 </div>
               </div>
               <div class="side__wrap">
                 <h2 class="side__title">口コミ</h2>
+                <?php
+                  $args = [
+                      "post_type" => "voice",
+                      "posts_per_page" => 1,
+                      "orderby" => "date",
+                      "order" => "DESC",
+                  ];
+                  $the_query = new WP_Query($args);
+                ?>
+                <?php if ($the_query->have_posts()) : ?>
                 <div class="side__content">
+                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                   <div class="side__review review">
-                    <a href="#">
+                    <a href="<?php the_permalink(); ?>">
                       <figure class="review__img">
-                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice5.webp" width="294" height="218" alt="腕を組み微笑む夫婦">
+                        <?php if(get_the_post_thumbnail()) : ?>
+                          <?php the_post_thumbnail('full', ['class' => 'review__img img']); ?>
+                        <?php else: ?>
+                          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
+                        <?php endif; ?>
                       </figure>
                       <div class="review__body">
-                        <p class="review__gender">30代(カップル)</p>
-                        <h3 class="review__title">ここにタイトルが入ります。ここにタイトル</h3>
+                        <p class="review__gender">
+                          <?php
+                          $age = get_field('add_age');
+                          $gender = get_field('add_gender');
+                          if ($age && $gender) {
+                            echo esc_html($age) . ' (' . esc_html($gender) . ')';
+                          }
+                          ?>
+                        </p>
+                        <h3 class="review__title"><?php the_title(); ?></h3>
                       </div>
                     </a>
                   </div>
+                  <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
                   <div class="side__button-wrap">
                     <a href="#" class="button"><p>View&nbsp;more</p></a>
                   </div>
+                  <?php else : ?>
+                    <p>口コミが投稿されていません</p>
+                  <?php endif; ?>
                 </div>
               </div>
               <div class="side__wrap">
                 <h2 class="side__title">キャンペーン</h2>
                 <div class="side__content">
+                <?php
+                    $args = [
+                        "post_type" => "campaign",
+                        "posts_per_page" => 2,
+                        "orderby" => "date",
+                        "order" => "DESC",
+                    ];
+                    $the_query = new WP_Query($args);
+                  ?>
+                  <?php if ($the_query->have_posts()) : ?>
                   <ul class="side__campaign campaign__cards campaign__cards--side">
+                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                     <li class="campaign__card">
-                      <a href="#">
+                      <a href="">
                         <figure class="campaign__card-img">
-                          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/campaign1.jpg" width="666" height="446" alt="海の中で泳ぐ色鮮やかな魚たち">
+                          <?php if(get_the_post_thumbnail()) : ?>
+                            <?php the_post_thumbnail('full', ['class' => 'campaign__card-img img']); ?>
+                          <?php else: ?>
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
+                          <?php endif; ?>
                         </figure>
                         <div class="campaign__card-body campaign__card-body--pd">
-                          <h3 class="campaign__card-name campaign__card-name--center">ライセンス取得</h3>
+                          <h3 class="campaign__card-name campaign__card-name--center"><?php the_title(); ?></h3>
                         </div>
                         <div class="campaign__card-text-wrap campaign__card-text-wrap--pb">
                           <p class="campaign__card-text">全部コミコミ(お一人様)</p>
                           <div class="campaign__card-price-wrap">
-                            <p class="campaign__card-list-price">¥56,000</p>
-                            <p class="campaign__card-price campaign__card-price--lower">¥46,000</p>
+                            <p class="campaign__card-list-price">
+                              <?php $list_price = get_field('campaign__list-price');
+                                if($list_price){
+                                  echo '￥' . number_format($list_price);
+                                } ?>
+                            </p>
+                            <p class="campaign__card-price campaign__card-price--lower">
+                              <?php $price = get_field('campaign__price');
+                                if($price){
+                                  echo '￥' . number_format($price);
+                                } ?>
+                            </p>
                           </div>
                         </div>
                       </a>
                     </li>
-                    <li class="campaign__card">
-                      <a href="#">
-                        <figure class="campaign__card-img">
-                          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/campaign2.jpg" width="666" height="446" alt="船が浮かぶ透き通った海">
-                        </figure>
-                        <div class="campaign__card-body campaign__card-body--pd">
-                          <h3 class="campaign__card-name campaign__card-name--center">貸切体験ダイビング</h3>
-                        </div>
-                        <div class="campaign__card-text-wrap campaign__card-text-wrap--pb">
-                          <p class="campaign__card-text">全部コミコミ(お一人様)</p>
-                          <div class="campaign__card-price-wrap">
-                            <p class="campaign__card-list-price">¥24,000</p>
-                            <p class="campaign__card-price  campaign__card-price--lower">¥18,000</p>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
+                    <?php endwhile; ?>
+                    <?php wp_reset_postdata(); ?>
                   </ul>
+                  <?php else : ?>
+                  <p>記事が投稿されていません</p>
+                  <?php endif; ?>
                   <div class="side__button-wrap">
                     <a href="#" class="button"><p>View&nbsp;more</p></a>
                   </div>
@@ -176,9 +217,9 @@
               </div>
             </div>
           </aside>
+        </div>
       </div>
     </div>
-  </div>
   <!-- contact -->
   <?php get_template_part('include/contact') ?>
   </main>

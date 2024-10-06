@@ -1,4 +1,8 @@
-<footer class="footer top-footer">
+<?php if ( is_404() ) : ?>
+    <footer class="footer">
+    <?php else : ?>
+      <footer class="footer top-footer">
+    <?php endif; ?>
     <div class="footer__inner inner">
       <div class="footer__heading">
         <div class="footer__site-logo">
