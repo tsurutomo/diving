@@ -110,64 +110,105 @@
         </div>
         <div class="side__wrap">
           <h2 class="side__title">口コミ</h2>
+          <?php
+            $args = [
+              "post_type" => "voice",
+              "posts_per_page" => 1,
+              "orderby" => "date",
+              "order" => "DESC",
+            ];
+            $the_query = new WP_Query($args);
+          ?>
+          <?php if ($the_query->have_posts()) : ?>
           <div class="side__content">
+          <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
             <div class="side__review review">
-              <a href="#">
+              <a href="<?php the_permalink(); ?>">
                 <figure class="review__img">
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice5.webp" width="294" height="218" alt="腕を組み微笑む夫婦">
+                  <?php if(get_the_post_thumbnail()) : ?>
+                    <?php the_post_thumbnail('full', ['class' => 'review__img img']); ?>
+                  <?php else: ?>
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
+                  <?php endif; ?>
                 </figure>
                 <div class="review__body">
-                  <p class="review__gender">30代(カップル)</p>
-                  <h3 class="review__title">ここにタイトルが入ります。ここにタイトル</h3>
+                  <p class="review__gender">
+                  <?php
+                    $age = get_field('add_age');
+                    $gender = get_field('add_gender');
+                    if ($age && $gender) {
+                      echo esc_html($age) . ' (' . esc_html($gender) . ')';
+                    }
+                  ?>
+                  </p>
+                  <h3 class="review__title"><?php the_title(); ?></h3>
                 </div>
               </a>
             </div>
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
             <div class="side__button-wrap">
-              <a href="#" class="button"><p>View&nbsp;more</p></a>
+              <a href="<?php echo esc_url(home_url('/voice')); ?>" class="button"><p>View&nbsp;more</p></a>
             </div>
+            <?php else : ?>
+              <p>口コミが投稿されていません</p>
+            <?php endif; ?>
           </div>
         </div>
         <div class="side__wrap">
           <h2 class="side__title">キャンペーン</h2>
           <div class="side__content">
+          <?php
+            $args = [
+              "post_type" => "campaign",
+              "posts_per_page" => 2,
+              "orderby" => "date",
+              "order" => "DESC",
+            ];
+            $the_query = new WP_Query($args);
+          ?>
+          <?php if ($the_query->have_posts()) : ?>
             <ul class="side__campaign campaign__cards campaign__cards--side">
+              <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
               <li class="campaign__card">
-                <a href="#">
+                <a href="<?php echo esc_url(home_url('/campaign')); ?>">
                   <figure class="campaign__card-img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/campaign1.jpg" width="666" height="446" alt="海の中で泳ぐ色鮮やかな魚たち">
+                    <?php if(get_the_post_thumbnail()) : ?>
+                      <?php the_post_thumbnail('full', ['class' => 'campaign__card-img img']); ?>
+                    <?php else: ?>
+                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
+                    <?php endif; ?>
                   </figure>
                   <div class="campaign__card-body campaign__card-body--pd">
-                    <h3 class="campaign__card-name campaign__card-name--center">ライセンス取得</h3>
+                    <h3 class="campaign__card-name campaign__card-name--center"><?php the_title(); ?></h3>
                   </div>
                   <div class="campaign__card-text-wrap campaign__card-text-wrap--pb">
                     <p class="campaign__card-text">全部コミコミ(お一人様)</p>
                     <div class="campaign__card-price-wrap">
-                      <p class="campaign__card-list-price">¥56,000</p>
-                      <p class="campaign__card-price campaign__card-price--lower">¥46,000</p>
+                      <p class="campaign__card-list-price">
+                        <?php $list_price = get_field('campaign__list-price');
+                          if($list_price){
+                            echo '￥' . number_format($list_price);
+                          } ?>
+                      </p>
+                      <p class="campaign__card-price campaign__card-price--lower">
+                        <?php $price = get_field('campaign__price');
+                          if($price){
+                            echo '￥' . number_format($price);
+                          } ?>
+                      </p>
                     </div>
                   </div>
                 </a>
               </li>
-              <li class="campaign__card">
-                <a href="#">
-                  <figure class="campaign__card-img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/campaign2.jpg" width="666" height="446" alt="船が浮かぶ透き通った海">
-                  </figure>
-                  <div class="campaign__card-body campaign__card-body--pd">
-                    <h3 class="campaign__card-name campaign__card-name--center">貸切体験ダイビング</h3>
-                  </div>
-                  <div class="campaign__card-text-wrap campaign__card-text-wrap--pb">
-                    <p class="campaign__card-text">全部コミコミ(お一人様)</p>
-                    <div class="campaign__card-price-wrap">
-                      <p class="campaign__card-list-price">¥24,000</p>
-                      <p class="campaign__card-price  campaign__card-price--lower">¥18,000</p>
-                    </div>
-                  </div>
-                </a>
-              </li>
+              <?php endwhile; ?>
+              <?php wp_reset_postdata(); ?>
             </ul>
+            <?php else : ?>
+              <p>記事が投稿されていません</p>
+            <?php endif; ?>
             <div class="side__button-wrap">
-              <a href="#" class="button"><p>View&nbsp;more</p></a>
+              <a href="<?php echo esc_url(home_url('/campaign')); ?>" class="button"><p>View&nbsp;more</p></a>
             </div>
           </div>
         </div>

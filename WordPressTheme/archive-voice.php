@@ -69,7 +69,7 @@
                     <div class="card-sort__info">
                       <p class="card-sort__gender">
                         <?php
-                          $age = get_field('add_age'); 
+                          $age = get_field('add_age');
                           $gender = get_field('add_gender');
                           if ($age && $gender) {
                             echo esc_html($age) . ' (' . esc_html($gender) . ')';

@@ -64,7 +64,7 @@
         <ul class="campaign__cards campaign__cards--lower">
           <?php while (have_posts()) : the_post(); ?>
           <li class="campaign__card" id="canpaign-license">
-            <a href="#">
+            <a href="<?php echo esc_url(home_url('/contact')); ?>">
               <figure class="campaign__card-img">
                 <?php if(get_the_post_thumbnail()) : ?>
                   <?php the_post_thumbnail('full', ['class' => 'campaign__card-img img']); ?>
@@ -112,7 +112,7 @@
                   </div>
                   <div class="campaign__card-bottom">
                     <time class="campaign__card-time" datetime="<?php echo esc_attr(get_field('campaign__start-date')); ?>">
-                    <?php 
+                    <?php
                       $start_date = get_field('campaign__start-date'); 
                       $end_date = get_field('campaign__end-date');
                       if ($start_date && $end_date) {

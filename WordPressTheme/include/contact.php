@@ -24,7 +24,7 @@
             </div>
             <p class="contact__text">ご予約・お問い合わせはコチラ</p>
             <div class="contact__button-wrap">
-              <a href="contact-lower.html" class="button"><p>Contact&nbsp;us</p></a>
+              <a href="<?php echo esc_url(home_url('/contact')); ?>" class="button"><p>Contact&nbsp;us</p></a>
             </div>
           </div>
         </div>

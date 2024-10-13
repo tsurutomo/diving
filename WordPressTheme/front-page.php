@@ -100,7 +100,7 @@
           </div>
         </div>
         <div class="campaign__button-wrap">
-          <a href="campaign.html" class="button"><p>View&nbsp;more</p></a>
+          <a href="<?php echo esc_url(home_url('/campaign')); ?>" class="button"><p>View&nbsp;more</p></a>
         </div>
         <div class="campaign-swiper__button-wrap u-desktop">
           <div class="swiper-button-prev js-service-arrow u-desktop"></div>
@@ -131,7 +131,7 @@
             <div class="about-us__text-box">
               <p class="about-us__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
               <div class="about-us__button-wrapper">
-                <a href="about-us.html" class="button"><p>View&nbsp;more</p></a>
+                <a href="<?php echo esc_url(home_url('/about')); ?>" class="button"><p>View&nbsp;more</p></a>
               </div>
             </div>
           </div>
@@ -156,7 +156,7 @@
             <h3 class="info__sub-title">ライセンス講習</h3>
             <p class="info__text">当店はダイビングライセンス（Cカード）世界最大の教育機関PADIの「正規店」として店舗登録されています。<br>正規登録店として、安心安全に初めての方でも安心安全にライセンス取得をサポート致します。</p>
             <div class="info__button-wrap">
-              <a href="information.html" class="button"><p>View&nbsp;more</p></a>
+              <a href="<?php echo esc_url(home_url('/information')); ?>" class="button"><p>View&nbsp;more</p></a>
             </div>
           </div>
         </div>
@@ -204,7 +204,7 @@
           <p>記事が投稿されていません</p>
         <?php endif; ?>
         <div class="blog__button-wrap">
-          <a href="blog.html" class="button"><p>View&nbsp;more</p></a>
+          <a href="<?php echo esc_url(home_url('/blog')); ?>" class="button"><p>View&nbsp;more</p></a>
         </div>
         <div class="blog__top-img-wrap u-desktop">
         <img src="<?php echo get_theme_file_uri(); ?>/assets/images/deco-fish1.png" alt="泳ぐ魚たちのイラスト">
@@ -280,7 +280,7 @@
           <?php endif; ?>
         </div>
         <div class="voice__button-wrap">
-          <a href="voice.html" class="button"><p>View&nbsp;more</p></a>
+          <a href="<?php echo esc_url(home_url('/voice')); ?>" class="button"><p>View&nbsp;more</p></a>
         </div>
         <div class="voice__top-img-wrap u-desktop">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-top__img.png" alt="泳ぐ魚たちのイラスト">
@@ -375,7 +375,7 @@
           </div>
         </div>
         <div class="price__button-wrap">
-          <a href="price.html" class="button"><p>View&nbsp;more</p></a>
+          <a href="<?php echo esc_url(home_url('/price')); ?>" class="button"><p>View&nbsp;more</p></a>
         </div>
         <div class="price__under-img-wrap u-desktop">
         <img src="<?php echo get_theme_file_uri(); ?>/assets/images/fish-green.png" alt="魚たちのイラスト">

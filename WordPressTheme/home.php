@@ -132,7 +132,7 @@
                   <?php endwhile; ?>
                 <?php wp_reset_postdata(); ?>
                   <div class="side__button-wrap">
-                    <a href="#" class="button"><p>View&nbsp;more</p></a>
+                    <a href="<?php echo esc_url(home_url('/voice')); ?>" class="button"><p>View&nbsp;more</p></a>
                   </div>
                   <?php else : ?>
                     <p>口コミが投稿されていません</p>
@@ -155,7 +155,7 @@
                   <ul class="side__campaign campaign__cards campaign__cards--side">
                     <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                     <li class="campaign__card">
-                      <a href="">
+                      <a href="<?php echo esc_url(home_url('/campaign')); ?>">
                         <figure class="campaign__card-img">
                           <?php if(get_the_post_thumbnail()) : ?>
                             <?php the_post_thumbnail('full', ['class' => 'campaign__card-img img']); ?>
@@ -192,7 +192,7 @@
                   <p>記事が投稿されていません</p>
                   <?php endif; ?>
                   <div class="side__button-wrap">
-                    <a href="#" class="button"><p>View&nbsp;more</p></a>
+                    <a href="<?php echo esc_url(home_url('/campaign')); ?>" class="button"><p>View&nbsp;more</p></a>
                   </div>
                 </div>
               </div>

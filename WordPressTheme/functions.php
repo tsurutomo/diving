@@ -234,3 +234,25 @@ add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
 function wpcf7_autop_return_false() {
   return false;
 } 
+
+// バリデーション
+// テキストエリアに対するバリデーション
+add_filter( 'wpcf7_validate_textarea', 'wpcf7_validate_spam_message', 10, 2 );
+add_filter( 'wpcf7_validate_textarea*', 'wpcf7_validate_spam_message', 10, 2 );
+
+function wpcf7_validate_spam_message( $result, $tag ) {
+    $name = $tag['name'];
+
+    // テキストエリアフィールド名の確認
+    if ( $name == 'textarea-763' ) {  // フォーム内のテキストエリアの名前を確認
+        $value = str_replace(array(PHP_EOL, ' '), '', esc_attr($_POST[$name]));
+        
+        // 日本語が含まれていない場合のバリデーション
+        if (!empty($value)) {
+            if (preg_match('/^[!-~]+$/', $value)) {
+                $result->invalidate( $tag, '日本語で入力してください' );
+            }
+        }
+    }
+    return $result;
+}

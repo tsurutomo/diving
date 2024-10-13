@@ -1584,12 +1584,13 @@ address .contact__access-text {
 	display: flex;
 	flex-direction: column;
 	gap: 0.25rem;
+	padding-left: 0.5rem;
+	margin-top: 1rem;
 }
 
 .form__checkbox span {
 	color: #0D2936;
 	font-size: 1rem;
-	/* padding-left: 1.375rem; */
 	position: relative;
 }
 
@@ -1649,7 +1650,8 @@ address .contact__access-text {
 
 .form__privacy {
 	margin-top: 2.5rem;
-	text-align: center;
+	text-align: left;
+	padding-left: 1rem;
 }
 
 .form__privacy span {
@@ -1657,7 +1659,6 @@ address .contact__access-text {
 	display: inline-block;
 	font-size: 0.875rem;
 	line-height: 1.5714285714;
-	/* padding-left: 1.875rem; */
 	position: relative;
 }
 
@@ -3471,6 +3472,10 @@ address .contact__access-text {
 	margin-top: 5rem;
 }
 
+.form__checkbox{
+	margin-top: 0;
+}
+
 .form__item {
 	display: flex;
 	padding-bottom: 2.5rem;
@@ -3501,6 +3506,8 @@ address .contact__access-text {
 
 .form__privacy {
 	margin-top: 5rem;
+	text-align: center;
+	padding-left: 0;
 }
 
 .form__submit {
