@@ -256,3 +256,33 @@ function wpcf7_validate_spam_message( $result, $tag ) {
     }
     return $result;
 }
+
+// Contact Form 7 セレクトボックスの選択肢をタクソノミーのターム一覧から自動生成
+
+add_filter('do_shortcode_tag', function ($output, $tag, $attr) {
+    if ('contact-form-7' === $tag || 'contact-form' === $tag) {
+
+        $id   = '2368fe1';               // コンタクトフォームの ID
+        $name = 'menu'; // セレクトボックスの名前
+        $tax  = 'campaign_category';       // タクソノミーのスラッグ
+
+
+        if ($id == $attr['id']) {
+            // タームを名前順で取得（昇順）
+            $terms = get_terms(array(
+                'taxonomy' => 'campaign_category',
+                'hide_empty' => false,
+                'orderby' => 'term_id',  // タームID順
+                'order' => 'ASC'         // 昇順
+            ));
+            if (!empty($terms) && !is_wp_error($terms)) {
+                $options = '<option value="">キャンペーン内容を選択</option>';
+                foreach ($terms as $term) {
+                    $options .= '<option value="' . esc_attr($term->name) . '">' . esc_html($term->name) . '</option>';
+                }
+                $output = preg_replace('/(<select .*?name="' . $name . '".*?>)(.*?)(<\/select>)/i', '${1}' . $options . '${3}', $output);
+            }
+        }
+    }
+    return $output;
+}, 10, 3);

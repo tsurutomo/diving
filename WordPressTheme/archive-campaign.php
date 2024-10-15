@@ -63,7 +63,7 @@
       <?php if (have_posts()) : ?>
         <ul class="campaign__cards campaign__cards--lower">
           <?php while (have_posts()) : the_post(); ?>
-          <li class="campaign__card" id="canpaign-license">
+          <li class="campaign__card" id="campaign-license">
             <a href="<?php echo esc_url(home_url('/contact')); ?>">
               <figure class="campaign__card-img">
                 <?php if(get_the_post_thumbnail()) : ?>

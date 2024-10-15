@@ -86,8 +86,18 @@
                     <div class="campaign__card-text-wrap">
                     <p class="campaign__card-text">全部コミコミ(お一人様)</p>
                     <div class="campaign__card-price-wrap">
-                      <p class="campaign__card-list-price">¥56,000</p>
-                      <p class="campaign__card-price">¥46,000</p>
+                      <p class="campaign__card-list-price">
+                        <?php $list_price = get_field('campaign__list-price');
+                        if($list_price){
+                          echo '￥' . number_format($list_price);
+                        } ?>
+                      </p>
+                      <p class="campaign__card-price">
+                        <?php $price = get_field('campaign__price');
+                        if($price){
+                          echo '￥' . number_format($price);
+                        } ?>
+                      </p>
                     </div>
                   </div>
                 </li>
@@ -129,9 +139,17 @@
               <h3 class="about-us__copy">Dive&nbsp;into<br>the&nbsp;Ocean</h3>
             </div>
             <div class="about-us__text-box">
-              <p class="about-us__text">ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキスト</p>
+              <p class="about-us__text">
+                <?php
+                $page = get_page_by_path('about-us');
+                if ( $page ) {
+                    $about_text = SCF::get('about__text', $page->ID);
+                    echo esc_html( $about_text );
+                }
+                ?>
+              </p>
               <div class="about-us__button-wrapper">
-                <a href="<?php echo esc_url(home_url('/about')); ?>" class="button"><p>View&nbsp;more</p></a>
+                <a href="<?php echo esc_url(home_url('/about-us')); ?>" class="button"><p>View&nbsp;more</p></a>
               </div>
             </div>
           </div>
@@ -309,67 +327,55 @@
             <dl class="price__list">
               <div class="price__items">
                 <h3 class="price__item">ライセンス講習</h3>
+                <?php $license = SCF::get('license_course', get_page_by_path('price')->ID);
+                if ( !empty($license) ) :
+                  foreach($license as $val): ?>
                 <div class="price__course">
-                  <dt class="price__name">オープンウォーターダイバーコース</dt>
-                  <dd class="price__cost">¥50,000</dd>
+                  <dt class="price__name"><?php echo esc_html($val['license_name']); ?></dt>
+                  <dd class="price__cost">¥<?php echo esc_html(number_format(floatval($val['license_price']))); ?></dd>
                 </div>
-                <div class="price__course">
-                  <dt class="price__name">アドバンスドオープンウォーターコース</dt>
-                  <dd class="price__cost">¥60,000</dd>
-                </div>
-                <div class="price__course">
-                  <dt class="price__name">レスキュー＋EFRコース</dt>
-                  <dd class="price__cost">¥70,000</dd>
-                </div>
+                <?php endforeach;
+                endif;
+                ?>
               </div>
               <div class="price__items">
                 <h3 class="price__item">体験ダイビング</h3>
+                <?php $license = SCF::get('experience_course', get_page_by_path('price')->ID);
+                if ( !empty($license) ) :
+                  foreach($license as $val): ?>
                 <div class="price__course">
-                  <dt class="price__name">ビーチ体験ダイビング(半日)</dt>
-                  <dd class="price__cost">¥7,000</dd>
+                  <dt class="price__name"><?php echo esc_html($val['course_name']); ?></dt>
+                  <dd class="price__cost">¥<?php echo esc_html(number_format(floatval($val['course_price']))); ?></dd>
                 </div>
-                <div class="price__course">
-                  <dt class="price__name">ビーチ体験ダイビング(1日)</dt>
-                  <dd class="price__cost">¥14,000</dd>
-                </div>
-                <div class="price__course">
-                  <dt class="price__name">ボート体験ダイビング(半日)</dt>
-                  <dd class="price__cost">¥10,000</dd>
-                </div>
-                <div class="price__course">
-                  <dt class="price__name">ボート体験ダイビング(1日)</dt>
-                  <dd class="price__cost">¥18,000</dd>
-                </div>
+                <?php endforeach;
+                endif;
+                ?>
               </div>
               <div class="price__items">
                 <h3 class="price__item">ファンダイビング</h3>
+                <?php $license = SCF::get('fun_course', get_page_by_path('price')->ID);
+                if ( !empty($license) ) :
+                  foreach($license as $val): ?>
                 <div class="price__course">
-                  <dt class="price__name">ビーチダイビング(2ダイブ)</dt>
-                  <dd class="price__cost">¥14,000</dd>
+                  <dt class="price__name"><?php echo esc_html($val['fun_name']); ?></dt>
+                  <dd class="price__cost"><?php echo esc_html(number_format(floatval($val['fun_price']))); ?></dd>
                 </div>
-                <div class="price__course">
-                  <dt class="price__name">ボートダイビング(2ダイブ)</dt>
-                  <dd class="price__cost">¥18,000</dd>
-                </div>
-                <div class="price__course">
-                  <dt class="price__name">スペシャルダイビング(2ダイブ)</dt>
-                  <dd class="price__cost">¥24,000</dd>
-                </div>
-                <div class="price__course">
-                  <dt class="price__name">ナイトダイビング(1ダイブ)</dt>
-                  <dd class="price__cost">¥10,000</dd>
-                </div>
+                <?php endforeach;
+                endif;
+                ?>
               </div>
               <div class="price__items">
                 <h3 class="price__item">スペシャルダイビング</h3>
+                <?php $license = SCF::get('special_course', get_page_by_path('price')->ID);
+                if ( !empty($license) ) :
+                  foreach($license as $val): ?>
                 <div class="price__course">
-                  <dt class="price__name">貸切ダイビング(2ダイブ)</dt>
-                  <dd class="price__cost">¥24,000</dd>
+                  <dt class="price__name"><?php echo esc_html($val['special_name']); ?></dt>
+                  <dd class="price__cost">¥<?php echo esc_html(number_format(floatval($val['special_price']))); ?></dd>
                 </div>
-                <div class="price__course">
-                  <dt class="price__name">1日ダイビング(3ダイブ)</dt>
-                  <dd class="price__cost">¥32,000</dd>
-                </div>
+                <?php endforeach;
+                endif;
+                ?>
               </div>
             </dl>
           </div>

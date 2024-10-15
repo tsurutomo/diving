@@ -27,7 +27,7 @@
                 <li class="footer-nav__item"><a href="campaign.html#campaign-night" class="footer-nav__link">ナイトダイビング</a></li>
               </ul>
               <ul class="footer-nav__items">
-                <li class="footer-nav__item footer-nav__item--icon"><a href="<?php echo esc_url(home_url('/about')); ?>" class="footer-nav__link">私たちについて</a></li>
+                <li class="footer-nav__item footer-nav__item--icon"><a href="<?php echo esc_url(home_url('/about-us')); ?>" class="footer-nav__link">私たちについて</a></li>
               </ul>
             </div>
             <div class="footer-nav__box">
@@ -59,10 +59,10 @@
                 <li class="footer-nav__item footer-nav__item--icon footer-nav--mg"><a href="<?php echo esc_url(home_url('/faq')); ?>" class="footer-nav__link">よくある質問</a></li>
               </ul>
               <ul class="footer-nav__items">
-                <li class="footer-nav__item footer-nav__item--icon"><a href="<?php echo esc_url(home_url('/privacy')); ?>" class="footer-nav__link">プライバシー<br class="u-mobile">ポリシー</a></li>
+                <li class="footer-nav__item footer-nav__item--icon"><a href="<?php echo esc_url(home_url('/privacypolicy')); ?>" class="footer-nav__link">プライバシー<br class="u-mobile">ポリシー</a></li>
               </ul>
               <ul class="footer-nav__items">
-                <li class="footer-nav__item footer-nav__item--icon"><a href="<?php echo esc_url(home_url('/terms')); ?>" class="footer-nav__link">利用規約</a></li>
+                <li class="footer-nav__item footer-nav__item--icon"><a href="<?php echo esc_url(home_url('/terms-of-service')); ?>" class="footer-nav__link">利用規約</a></li>
               </ul>
               <ul class="footer-nav__items">
                 <li class="footer-nav__item footer-nav__item--icon"><a href="<?php echo esc_url(home_url('/contact')); ?>" class="footer-nav__link">お問い合わせ</a></li>

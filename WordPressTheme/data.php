@@ -5,7 +5,7 @@
     <div class="fv-lower">
       <div class="fv-lower__inner">
         <div class="fv-lower__tittle-wrap">
-          <h1 class="fv-lower__title">Blog</h1>
+          <h1 class="fv-lower__title">月別一覧</h1>
         </div>
         <div class="fv-lower__img-wrap">
           <picture>
@@ -196,21 +196,22 @@
                   </div>
                 </div>
               </div>
+
               <div class="side__wrap">
                 <h2 class="side__title">アーカイブ</h2>
                 <div class="side__content">
                   <ul class="side__archive archive">
                   <li class="archive__item">
                   <?php
-    wp_get_archives(array(
-      'type' => 'monthly',
-      'limit' => 12,
-      'format' => 'custom',
-      'before' => '<p class="archive__month">',
-      'after' => '</p>',
-    ));
-    ?>
-    </li>
+      wp_get_archives(array(
+        'type' => 'monthly',
+        'limit' => 12,
+        'format' => 'custom',
+        'before' => '<li class="archive__item"><p class="archive__month">',
+        'after' => '</p></li>',
+      ));
+      ?>
+  </li>
                   </ul>
                 </div>
               </div>

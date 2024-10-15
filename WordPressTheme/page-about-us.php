@@ -47,23 +47,7 @@
         <h2 class="title__sub-title">フォト</h2>
       </div>
       <ul class="gallery__list">
-      <?php
-      // gallery フィールドを取得
-      if (have_rows('gallery')):
-          while (have_rows('gallery')): the_row();
-              // gallery__image フィールドから画像を取得
-              $image = get_sub_field('gallery__image');
-              if ($image): ?>
-                <li class="gallery__item js-modal-open">
-                  <img src="<?php echo esc_url($image['url']); ?>"
-                        width="<?php echo esc_attr($image['width']); ?>"
-                        height="<?php echo esc_attr($image['height']); ?>"
-                        loading="lazy"
-                        alt="<?php echo esc_attr($image['alt']); ?>">
-                </li>
-      <?php endif; endwhile;
-      endif;
-      ?>
+      
       </ul>
       <!-- モーダルウィンドウ -->
       <?php

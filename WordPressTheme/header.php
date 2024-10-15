@@ -11,11 +11,11 @@
     <div class="header__inner">
       <?php if ( is_front_page() ) : ?>
         <h1 class="header__logo">
-          <a href="#" class="header__logoーlink"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/CodeUpslogo.svg" alt="CodeUps"></a>
+          <a href="<?php echo esc_url(home_url('')); ?>" class="header__logoーlink"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/CodeUpslogo.svg" alt="CodeUps"></a>
         </h1>
       <?php else : ?>
         <p class="header__logo">
-          <a href="#" class="header__logoーlink"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/CodeUpslogo.svg" alt="CodeUps"></a>
+          <a href="<?php echo esc_url(home_url('')); ?>" class="header__logoーlink"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/CodeUpslogo.svg" alt="CodeUps"></a>
         </p>
       <?php endif; ?>
       <!-- hamburger -->
@@ -35,7 +35,7 @@
               <li class="sp-nav__item"><a href="campaign.html#campaign-night" class="sp-nav__link">ナイトダイビング</a></li>
             </ul>
             <ul class="sp-nav__items">
-              <li class="sp-nav__item sp-nav__item--icon"><a href="<?php echo esc_url(home_url('/about')); ?>" class="sp-nav__link">私たちについて</a></li>
+              <li class="sp-nav__item sp-nav__item--icon"><a href="<?php echo esc_url(home_url('/about-us')); ?>" class="sp-nav__link">私たちについて</a></li>
             </ul>
             <ul class="sp-nav__items sp-nav__items--left">
               <li class="sp-nav__item sp-nav__item--icon"><a href="<?php echo esc_url(home_url('/information')); ?>" class="sp-nav__link">ダイビング情報</a></li>
@@ -60,8 +60,8 @@
             </ul>
             <ul class="sp-nav__items">
               <li class="sp-nav__item sp-nav__item--icon"><a href="<?php echo esc_url(home_url('/faq')); ?>" class="sp-nav__link">よくある質問</a></li>
-              <li class="sp-nav__item sp-nav__item--icon"><a href="<?php echo esc_url(home_url('/privacy')); ?>" class="sp-nav__link">プライバシー<br>ポリシー</a></li>
-              <li class="sp-nav__item sp-nav__item--icon"><a href="<?php echo esc_url(home_url('/terms')); ?>" class="sp-nav__link">利用規約</a></li>
+              <li class="sp-nav__item sp-nav__item--icon"><a href="<?php echo esc_url(home_url('/privacypolicy')); ?>" class="sp-nav__link">プライバシー<br>ポリシー</a></li>
+              <li class="sp-nav__item sp-nav__item--icon"><a href="<?php echo esc_url(home_url('/terms-of-service')); ?>" class="sp-nav__link">利用規約</a></li>
               <li class="sp-nav__item sp-nav__item--icon"><a href="<?php echo esc_url(home_url('/contact')); ?>" class="sp-nav__link">お問い合わせ</a></li>
             </ul>
         </nav>
@@ -71,7 +71,7 @@
       <nav class="header__pc-nav pc-nav u-desktop">
         <ul class="pc-nav__items">
           <li class="pc-nav__item"><a href="<?php echo esc_url(home_url('/campaign')); ?>" class="pc-nav__link">Campaign<span class="color-white">キャンペーン</span></a></li>
-          <li class="pc-nav__item"><a href="<?php echo esc_url(home_url('/about')); ?>" class="pc-nav__link">About&nbsp;us<span class="color-white">私たちについて</span></a></li>
+          <li class="pc-nav__item"><a href="<?php echo esc_url(home_url('/about-us')); ?>" class="pc-nav__link">About&nbsp;us<span class="color-white">私たちについて</span></a></li>
           <li class="pc-nav__item"><a href="<?php echo esc_url(home_url('/information')); ?>" class="pc-nav__link">Information<span class="color-white">ダイビング情報</span></a></li>
           <li class="pc-nav__item"><a href="<?php echo esc_url(home_url('/blog')); ?>" class="pc-nav__link">Blog<span class="color-white">ブログ</span></a></li>
           <li class="pc-nav__item"><a href="<?php echo esc_url(home_url('/voice')); ?>" class="pc-nav__link">Voice<span class="color-white">お客様の声</span></a></li>
