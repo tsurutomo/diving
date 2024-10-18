@@ -47,28 +47,35 @@
         <h2 class="title__sub-title">フォト</h2>
       </div>
       <ul class="gallery__list">
-      
+        <?php
+          $imgGroup = SCF::get('gallery');
+          foreach ($imgGroup as $imgItem) {
+              $img_data = wp_get_attachment_image_src($imgItem['gallery__image'], 'large');
+              $url = $img_data[0];
+              $alt = get_post_meta($imgItem['repeat-img'], '_wp_attachment_image_alt', true) ?: get_post($imgItem['gallery__image'])->post_title;
+              echo ' <li class="gallery__item js-modal-open"><img src="' . esc_url($url) . '" alt="' . esc_attr($alt) . '"></li>';
+          }
+          ?>
       </ul>
       <!-- モーダルウィンドウ -->
+      <div class="gallery__item-modal modal js-modal">
       <?php
-if (have_rows('gallery')): 
-    while (have_rows('gallery')): the_row();
-        $image = get_sub_field('gallery__image');
-        if ($image): ?>
-            <div class="gallery__item-modal modal js-modal">
-                <div class="modal__content">
-                    <img src="<?php echo esc_url($image['url']); ?>" 
-                         width="<?php echo esc_attr($image['width']); ?>" 
-                         height="<?php echo esc_attr($image['height']); ?>" 
-                         loading="lazy" 
-                         alt="<?php echo esc_attr($image['alt']); ?>">
-                </div>
-            </div>
-        <?php endif;
-    endwhile;
-endif;
-?>
-
+      // SCFで設定したギャラリーのグループフィールドを取得
+      $gallery_images = SCF::get('gallery'); // 'gallery'はグループ名
+      if ( !empty($gallery_images) ):
+          foreach ($gallery_images as $image) :
+              // 画像URLを取得
+              $image_url = wp_get_attachment_image_src($image['gallery__image'], 'full'); 
+              if ($image_url): ?>
+                  <div class="gallery__item-modal modal js-modal">
+                      <div class="modal__content <?php echo ($image['gallery__image_vertical']) ? 'modal__content--vertical' : ''; ?>">
+                          <img src="<?php echo esc_url($image_url[0]); ?>" width="<?php echo esc_attr($image_url[1]); ?>" height="<?php echo esc_attr($image_url[2]); ?>" alt="<?php echo esc_attr($image['alt_text']); ?>" loading="lazy">
+                      </div>
+                  </div>
+              <?php endif;
+          endforeach;
+      endif;
+      ?>
     </div>
   </section>
   <!-- contact -->

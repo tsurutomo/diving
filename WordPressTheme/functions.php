@@ -286,3 +286,29 @@ add_filter('do_shortcode_tag', function ($output, $tag, $attr) {
     }
     return $output;
 }, 10, 3);
+
+//月別アーカイブ
+// 指定年の投稿数を取得
+function get_year_archives_num( $year ) {
+    global $wpdb;
+    $cnt = $wpdb->get_var(
+      "SELECT count(*) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post' AND DATE_FORMAT(post_date, '%Y') = '".$year."';"
+    );
+    return $cnt;
+  }
+  // 指定年月の投稿数を取得
+  function get_month_archives_num( $year, $month ) {
+    global $wpdb;
+    $cnt = $wpdb->get_var(
+      "SELECT count(*) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post' AND DATE_FORMAT(post_date, '%Y%m') = '".$year.str_pad($month, 2, 0, STR_PAD_LEFT)."';"
+    );
+    return $cnt;
+  }
+  // 一番古い記事の年を取得
+  function get_oldest_year() {
+    global $wpdb;
+    $oldest_date = $wpdb->get_var(
+      "SELECT post_date FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post' ORDER BY post_date ASC LIMIT 1;"
+    );
+    return idate('Y', strtotime($oldest_date) ); //投稿日の年だけ数値で取得
+  }

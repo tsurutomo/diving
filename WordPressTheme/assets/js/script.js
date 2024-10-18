@@ -114,9 +114,8 @@ jQuery(function ($) {
     }, 500);
     return false;
   });
-});
 
-//モーダル
+  //モーダル
 $(document).ready(function () {
   // モーダルを開く処理
   $(".js-modal-open").each(function (index) {
@@ -209,3 +208,7 @@ $(document).ready(function () {
     }
   });
 });
+
+
+});
+

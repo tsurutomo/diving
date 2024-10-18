@@ -514,7 +514,7 @@ a {
 }
 
 .bg-fish::before {
-	background-image: url(/assets/images/voice-top__img.png);
+	background-image: url(../images/voice-top__img.png);
 	background-position: top;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -533,7 +533,7 @@ a {
 }
 
 .bg-fish-right::before {
-	background-image: url(/assets/images/fish-green.png);
+	background-image: url(../images/fish-green.png);
 	background-position: top;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -552,7 +552,7 @@ a {
 }
 
 .blog::after {
-	background-image: url(/assets/images/blog-bg.jpg);
+	background-image: url(../images/blog-bg.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -1361,7 +1361,7 @@ address .contact__access-text {
 }
 
 .detail__content li::after {
-	background-image: url(/assets/images/star-fish-g.webp);
+	background-image: url(../images/star-fish-g.webp);
 	background-repeat: no-repeat;
 	background-size: cover;
 	content: "";
@@ -1384,7 +1384,7 @@ address .contact__access-text {
 }
 
 .error__inner::before {
-	background-image: url(/assets/images/whale.webp);
+	background-image: url(../images/whale.webp);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -1497,13 +1497,11 @@ address .contact__access-text {
 }
 
 .footer-nav__item.footer-nav__item--icon {
-	background-image: url(/assets/images/starfish.png);
+	background-image: url(../images/starfish.png);
 	background-position: top left;
 	background-repeat: no-repeat;
-	background-size: cover 1.125rem;
 	font-weight: 700;
 	line-height: 1.125;
-	line-height: 1.125rem;
 	margin-top: 0.875rem;
 	margin-top: 2.5rem;
 	padding-left: 1.375rem;
@@ -2436,7 +2434,7 @@ select {
 }
 
 .side__title::after {
-	background-image: url(/assets/images/whale-black.webp);
+	background-image: url(../images/whale-black.webp);
 	background-repeat: no-repeat;
 	background-size: cover;
 	content: "";
@@ -2485,7 +2483,7 @@ select {
 }
 
 .site-map-nav__item--icon::before {
-	background-image: url(/assets/images/star-fish-b.png);
+	background-image: url(../images/star-fish-b.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -2545,7 +2543,7 @@ select {
 }
 
 .sp-nav__item.sp-nav__item--icon {
-	background-image: url(/assets/images/starfish.png);
+	background-image: url(../images/starfish.png);
 	background-position: top left;
 	background-repeat: no-repeat;
 	background-size: cover 1.125rem;
@@ -2602,15 +2600,15 @@ select {
 }
 
 .tab__menu-item.is-active .tab__menu-icon--whale::before {
-	background-image: url(/assets/images/whale.svg);
+	background-image: url(../images/whale.svg);
 }
 
 .tab__menu-item.is-active .tab__menu-icon--shark::before {
-	background-image: url(/assets/images/shark.svg);
+	background-image: url(../images/shark.svg);
 }
 
 .tab__menu-item.is-active .tab__menu-icon--fish::before {
-	background-image: url(/assets/images/fish.svg);
+	background-image: url(../images/fish.svg);
 }
 
 .tab__content {
@@ -3757,7 +3755,7 @@ address .contact__access-text {
 }
 
 .tab__menu-icon::before {
-	background-image: url(/assets/images/whale.svg);
+	background-image: url(../images/whale.svg);
 	background-position: left;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -3774,25 +3772,25 @@ address .contact__access-text {
 }
 
 .tab__menu-icon.tab__menu-icon--shark::before {
-	background-image: url(/assets/images/shark.svg);
+	background-image: url(../images/shark.svg);
 }
 
 .tab__menu-icon.tab__menu-icon--fish::before {
-	background-image: url(/assets/images/fish.svg);
+	background-image: url(../images/fish.svg);
 }
 
 .tab__menu-item:hover .tab__menu-icon--whale::before {
-	background-image: url(/assets/images/whale.svg);
+	background-image: url(../images/whale.svg);
 	filter: brightness(0) invert(1);
 }
 
 .tab__menu-item:hover .tab__menu-icon--shark::before {
-	background-image: url(/assets/images/shark.svg);
+	background-image: url(../images/shark.svg);
 	filter: brightness(0) invert(1);
 }
 
 .tab__menu-item:hover .tab__menu-icon--fish::before {
-	background-image: url(/assets/images/fish.svg);
+	background-image: url(../images/fish.svg);
 	filter: brightness(0) invert(1);
 }
 
