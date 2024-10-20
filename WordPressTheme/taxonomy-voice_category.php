@@ -2,8 +2,7 @@
 <?php wp_head(); ?>
 <main>
 <!--fv-->
-<?php get_template_part('include/fv-lower') ?>
-<!-- <div class="fv-lower">
+<div class="fv-lower">
   <div class="fv-lower__inner">
       <div class="fv-lower__tittle-wrap">
         <h1 class="fv-lower__title">Voice</h1>
@@ -15,7 +14,7 @@
       </picture>
       </div>
   </div>
-</div> -->
+</div>
     <!-- パンくずリスト-->
     <?php get_template_part('include/breadcrumb') ?>
     <!-- voice -->

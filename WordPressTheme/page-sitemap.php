@@ -25,9 +25,10 @@
             <div class="site-map-nav__box">
               <ul class="site-map-nav__items">
                 <li class="site-map-nav__item site-map-nav__item--icon site-map-nav__item--top"><a href="campaign.html">キャンペーン</a></li>
-                <li class="site-map-nav__item"><a href="campaign.html#canpaign-license">ライセンス取得</a></li>
-                <li class="site-map-nav__item"><a href="campaign.html#campaign-private">貸切体験ダイビング</a></li>
-                <li class="site-map-nav__item"><a href="campaign.html#campaign-night">ナイトダイビング</a></li>
+                <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/campaign_category/license/')); ?>" class="footer-nav__link">ライセンス取得</a></li>
+                <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/campaign_category/fun_diving/')); ?>" class="footer-nav__link">ファンダイビング</a></li>
+                <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/campaign_category/experience/')); ?>" class="footer-nav__link">体験ダイビング</a></li>
+                <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/campaign_category/special/')); ?>" class="footer-nav__link">スペシャルダイビング</a></li>
               </ul>
               <ul class="site-map-nav__items">
                 <li class="site-map-nav__item site-map-nav__item--icon"><a href="about-us.html">私たちについて</a></li>
@@ -52,9 +53,10 @@
               </ul>
               <ul class="site-map-nav__items">
                 <li class="site-map-nav__item site-map-nav__item--icon"><a href="price.html" class="footer-nav__link">料金一覧</a></li>
-                <li class="site-map-nav__item"><a href="price.html#license">ライセンス講習</a></li>
-                <li class="site-map-nav__item"><a href="price.html#experience">体験ダイビング</a></li>
-                <li class="site-map-nav__item"><a href="price.html#fun">ファンダイビング</a></li>
+                <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/price#license')); ?>" class="footer-nav__link">ライセンス講習</a></li>
+                <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/price#experience')); ?>" class="footer-nav__link">体験ダイビング</a></li>
+                <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/price#fun')); ?>" class="footer-nav__link">ファンダイビング</a></li>
+                <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/price#special')); ?>" class="footer-nav__link">スペシャルダイビング</a></li>
               </ul>
             </div>
             <div class="site-map-nav__box">

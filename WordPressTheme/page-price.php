@@ -34,7 +34,6 @@
                   </tr>
               <?php endforeach; ?>
               </tbody>
-              </tbody>
             </table>
           </div>
           <div class="charts__chart chart" id="experience">
@@ -62,6 +61,7 @@
                     <td class="chart__price">¥<?php echo esc_html(number_format(floatval($val['fun_price']))); ?></td>
                   </tr>
               <?php endforeach; ?>
+              </tbody>
             </table>
           </div>
           <div class="charts__chart chart" id="special">

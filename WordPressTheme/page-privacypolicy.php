@@ -1,11 +1,11 @@
 <?php get_header(); ?>
 <?php wp_head(); ?>
 <main>
-<!--fv-->
-<div class="fv-lower">
+    <!--fv-->
+    <div class="fv-lower">
       <div class="fv-lower__inner">
         <div class="fv-lower__tittle-wrap">
-          <h2 class="fv-lower__title">Terms&nbsp;of&nbsp;Service</h2>
+          <h2 class="fv-lower__title">Privacy&nbsp;Policy</h2>
         </div>
         <div class="fv-lower__img-wrap">
           <picture>
@@ -17,11 +17,12 @@
     </div>
     <!-- パンくずリスト-->
     <?php get_template_part('include/breadcrumb') ?>
-    <div class="terms bg-fish top-lower">
-      <div class="terms__inner">
-        <h1 class="terms__title">利用規約</h1>
-        <div class="terms__content">
-        <?php
+
+    <section class="privacy bg-fish top-lower">
+      <div class="privacy__inner">
+        <h1 class="privacy__title">プライバシーポリシー</h1>
+        <div class="privacy__content">
+          <?php
             if (have_posts()) :
               while (have_posts()) : the_post();
                   the_content();
@@ -30,9 +31,9 @@
           ?>
         </div>
       </div>
-    </div>
-<!-- contact -->
-<?php get_template_part('include/contact') ?>
+    </section>
+    <!-- contact -->
+    <?php get_template_part('include/contact') ?>
 </main>
 <?php get_footer(); ?>
 <?php wp_footer(); ?>

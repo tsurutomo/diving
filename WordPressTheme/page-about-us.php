@@ -76,6 +76,7 @@
           endforeach;
       endif;
       ?>
+      </div>
     </div>
   </section>
   <!-- contact -->

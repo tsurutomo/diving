@@ -3377,6 +3377,13 @@ address .contact__access-text {
 	aspect-ratio: 700/468;
 }
 
+.detail__eyecatch-wrap img{
+	aspect-ratio: 700/468;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
 .detail__content p {
 	margin-top: 2.5rem;
 }

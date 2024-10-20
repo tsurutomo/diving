@@ -200,18 +200,29 @@
               <div class="side__wrap">
                 <h2 class="side__title">アーカイブ</h2>
                 <div class="side__content">
-                  <ul class="side__archive archive">
-                  <li class="archive__item">
-                  <?php
-      wp_get_archives(array(
-        'type' => 'monthly',
-        'limit' => 12,
-        'format' => 'custom',
-        'before' => '<li class="archive__item"><p class="archive__month">',
-        'after' => '</p></li>',
-      ));
-      ?>
-  </li>
+                <ul class="side__archive archive">
+                    <?php
+                    // 最も古い年を取得
+                    $start_year = get_oldest_year();
+                    $current_year = date('Y');
+
+                    // 各年をループ
+                    for ($year = $current_year; $year >= $start_year; $year--) {
+                        $year_count = get_year_archives_num($year); // 年の投稿数を取得
+                        if ($year_count > 0) { // 投稿がある年のみ表示
+                            echo '<li class="archive__item">';
+                            echo '<p class="archive__year" data-open-acd="archive-acd-' . $year . '">' . $year . '年</p>';
+                            // 各月をループ
+                            for ($month = 1; $month <= 12; $month++) {
+                                $month_count = get_month_archives_num($year, $month); // 月の投稿数を取得
+                                if ($month_count > 0) { // 投稿がある月のみ表示
+                                    echo '<p class="archive__month"><a href="' . get_month_link($year, $month) . '">' . $month . '月</a></p>';
+                                }
+                            }
+                            echo '</li>';
+                        }
+                    }
+                    ?>
                   </ul>
                 </div>
               </div>
