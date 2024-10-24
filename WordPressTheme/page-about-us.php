@@ -65,10 +65,10 @@
   </div>
 </section>
 
-<!-- モーダルウィンドウ (1つだけ) -->
+<!-- モーダルウィンドウ-->
 <div class="gallery__item-modal modal js-modal">
   <div class="modal__content">
-    <img src="" alt="" loading="lazy"> <!-- 画像はクリックされた画像の情報で動的に更新 -->
+    <img src="" alt="" loading="lazy">
   </div>
 </div>
   <!-- contact -->
