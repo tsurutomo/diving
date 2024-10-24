@@ -47,38 +47,30 @@
         <h2 class="title__sub-title">フォト</h2>
       </div>
       <ul class="gallery__list">
-        <?php
-          $imgGroup = SCF::get('gallery');
-          foreach ($imgGroup as $imgItem) {
-              $img_data = wp_get_attachment_image_src($imgItem['gallery__image'], 'large');
-              $url = $img_data[0];
-              $alt = get_post_meta($imgItem['repeat-img'], '_wp_attachment_image_alt', true) ?: get_post($imgItem['gallery__image'])->post_title;
-              echo ' <li class="gallery__item js-modal-open"><img src="' . esc_url($url) . '" alt="' . esc_attr($alt) . '"></li>';
-          }
-          ?>
-      </ul>
-      <!-- モーダルウィンドウ -->
-      <div class="gallery__item-modal modal js-modal">
       <?php
-      // SCFで設定したギャラリーのグループフィールドを取得
-      $gallery_images = SCF::get('gallery'); // 'gallery'はグループ名
-      if ( !empty($gallery_images) ):
-          foreach ($gallery_images as $image) :
-              // 画像URLを取得
-              $image_url = wp_get_attachment_image_src($image['gallery__image'], 'full'); 
-              if ($image_url): ?>
-                  <div class="gallery__item-modal modal js-modal">
-                      <div class="modal__content <?php echo ($image['gallery__image_vertical']) ? 'modal__content--vertical' : ''; ?>">
-                          <img src="<?php echo esc_url($image_url[0]); ?>" width="<?php echo esc_attr($image_url[1]); ?>" height="<?php echo esc_attr($image_url[2]); ?>" alt="<?php echo esc_attr($image['alt_text']); ?>" loading="lazy">
-                      </div>
-                  </div>
-              <?php endif;
-          endforeach;
-      endif;
+        // SCFで設定したギャラリーの画像を取得
+        $imgGroup = SCF::get('gallery');
+        foreach ($imgGroup as $imgItem) {
+            $img_data = wp_get_attachment_image_src($imgItem['gallery__image'], 'large');
+            $url = $img_data[0];
+            $alt = get_post_meta($imgItem['gallery__image'], '_wp_attachment_image_alt', true) ?: get_post($imgItem['gallery__image'])->post_title;
+            $is_vertical = $imgItem['gallery__image_vertical']; // 縦長画像の判定
+            $orientation_class = $is_vertical ? 'vertical' : ''; // 縦長ならクラスを追加
+            echo '<li class="gallery__item js-modal-open">';
+            echo '<img src="' . esc_url($url) . '" alt="' . esc_attr($alt) . '" class="' . $orientation_class . '">';
+            echo '</li>';
+        }
       ?>
-      </div>
-    </div>
-  </section>
+    </ul>
+  </div>
+</section>
+
+<!-- モーダルウィンドウ (1つだけ) -->
+<div class="gallery__item-modal modal js-modal">
+  <div class="modal__content">
+    <img src="" alt="" loading="lazy"> <!-- 画像はクリックされた画像の情報で動的に更新 -->
+  </div>
+</div>
   <!-- contact -->
   <?php get_template_part('include/contact') ?>
   </main>

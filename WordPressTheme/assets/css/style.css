@@ -2021,7 +2021,6 @@ address .contact__access-text {
 
 .modal__content img {
 	-o-object-fit: cover;
-	aspect-ratio: 920/586;
 	height: 100%;
 	max-width: 57.5rem;
 	object-fit: cover;
@@ -2030,7 +2029,7 @@ address .contact__access-text {
 
 .modal__content--vertical img {
 	aspect-ratio: 345/523;
-	max-width: 500;
+	max-width: 500px;
 	width: 100%;
 }
 
@@ -3577,37 +3576,36 @@ address .contact__access-text {
 
 .gallery__list {
 	grid-auto-flow: dense;
-	grid-auto-rows: 1fr;
-	grid-template-columns: repeat(7, 1fr);
+	grid-template-columns: repeat(11, 1fr);
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 5rem;
 }
 
 .gallery__item:nth-child(6n+1) {
-	grid-column: span 3;
-	grid-row: span 2;
+	grid-column: span 5;
+	grid-row: span 6;
 }
 
 .gallery__item:nth-child(6n+2),
 .gallery__item:nth-child(6n+3) {
-	grid-column: span 4;
-	grid-row: span 1;
+	grid-column: span 6;
+	grid-row: span 3;
 }
 
 .gallery__item:nth-child(6n+4) {
-	grid-column: span 4;
-	grid-row: span 1;
+	grid-column: span 6;
+	grid-row: span 3;
 }
 
 .gallery__item:nth-child(6n+5) {
-	grid-column: span 4;
-	grid-row: span 1;
+	grid-column: span 6;
+	grid-row: span 3;
 }
 
 .gallery__item:nth-child(6n+6) {
-	grid-column: span 3;
-	grid-row: span 2;
+	grid-column: span 5;
+	grid-row: span 6;
 }
 
 .gallery__item img {
