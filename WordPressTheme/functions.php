@@ -233,59 +233,53 @@ add_filter( 'manage_edit-post_sortable_columns', 'column_views_sortable' ); // �
 add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
 function wpcf7_autop_return_false() {
   return false;
-} 
-
-// バリデーション
-// テキストエリアに対するバリデーション
-add_filter( 'wpcf7_validate_textarea', 'wpcf7_validate_spam_message', 10, 2 );
-add_filter( 'wpcf7_validate_textarea*', 'wpcf7_validate_spam_message', 10, 2 );
-
-function wpcf7_validate_spam_message( $result, $tag ) {
-    $name = $tag['name'];
-
-    // テキストエリアフィールド名の確認
-    if ( $name == 'textarea-763' ) {  // フォーム内のテキストエリアの名前を確認
-        $value = str_replace(array(PHP_EOL, ' '), '', esc_attr($_POST[$name]));
-        
-        // 日本語が含まれていない場合のバリデーション
-        if (!empty($value)) {
-            if (preg_match('/^[!-~]+$/', $value)) {
-                $result->invalidate( $tag, '日本語で入力してください' );
-            }
-        }
-    }
-    return $result;
 }
 
-// Contact Form 7 セレクトボックスの選択肢をタクソノミーのターム一覧から自動生成
-
-add_filter('do_shortcode_tag', function ($output, $tag, $attr) {
-    if ('contact-form-7' === $tag || 'contact-form' === $tag) {
-
-        $id   = '2368fe1';               // コンタクトフォームの ID
-        $name = 'menu'; // セレクトボックスの名前
-        $tax  = 'campaign_category';       // タクソノミーのスラッグ
-
-
-        if ($id == $attr['id']) {
-            // タームを名前順で取得（昇順）
-            $terms = get_terms(array(
-                'taxonomy' => 'campaign_category',
-                'hide_empty' => false,
-                'orderby' => 'term_id',  // タームID順
-                'order' => 'ASC'         // 昇順
-            ));
-            if (!empty($terms) && !is_wp_error($terms)) {
-                $options = '<option value="">キャンペーン内容を選択</option>';
-                foreach ($terms as $term) {
-                    $options .= '<option value="' . esc_attr($term->name) . '">' . esc_html($term->name) . '</option>';
-                }
-                $output = preg_replace('/(<select .*?name="' . $name . '".*?>)(.*?)(<\/select>)/i', '${1}' . $options . '${3}', $output);
-            }
-        }
+//Contact Form 7 セレクトボックスの選択肢をカスタム投稿のタイトルから自動生成
+function job_selectlist($tag, $unused)
+{
+    // セレクトボックスの名前が 'menu' かどうか確認
+    if ($tag['name'] != 'menu') {
+        return $tag;
     }
-    return $output;
-}, 10, 3);
+
+    // get_posts()でセレクトボックスの中身を作成する
+    // クエリの作成
+    $args = array(
+        'numberposts' => -1,
+        'post_type'   => 'campaign', // カスタム投稿タイプを指定
+        // 並び順 ⇒ セレクトボックス内の表示順
+        'orderby'     => 'ID',
+        'order'       => 'ASC'
+    );
+
+    // クエリをget_posts()に入れる
+    $job_posts = get_posts($args);
+
+    // クエリがなければ戻す
+    if (!$job_posts) {
+        return $tag;
+    }
+
+    // 最初に「キャンペーン内容を選択」をプラセボ（選択不可）として追加
+    $tag['raw_values'][] = 'キャンペーン内容を選択';
+    $tag['values'][]     = 'キャンペーン内容を選択';
+    $tag['labels'][]     = 'キャンペーン内容を選択';
+
+    // 自動生成されたキャンペーンタイトルをセレクトボックスに追加
+    foreach ($job_posts as $job_post) {
+        $tag['raw_values'][] = $job_post->post_title;
+        $tag['values'][]     = $job_post->post_title;
+        $tag['labels'][]     = $job_post->post_title;
+    }
+
+    // 最初の項目「キャンペーン内容を選択」に選択不可と選択状態を追加
+    $tag['options'] = array('placeholder' => 'キャンペーン内容を選択', 'disabled', 'selected');
+
+    return $tag;
+}
+
+add_filter('wpcf7_form_tag', 'job_selectlist', 10, 2);
 
 //月別アーカイブ
 // 指定年の投稿数を取得

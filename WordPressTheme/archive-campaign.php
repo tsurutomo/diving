@@ -133,6 +133,7 @@
             <div class="campaign__card-pagination pagination top-pagenation">
               <?php wp_pagenavi(); ?>
             </div>
+        </div>
       </div>
     </div>
 <!-- contact -->

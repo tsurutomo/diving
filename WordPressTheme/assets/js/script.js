@@ -209,6 +209,9 @@ $(document).ready(function () {
   });
 });
 
+  //送信ボタンを押した時のみバリデーションメッセージ表示
+  jQuery(".form-submit").click(function () {
+    jQuery(".wpcf7 form .wpcf7-error__message").addClass("is-active");
+  });
 
 });
-

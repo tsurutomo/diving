@@ -1531,6 +1531,10 @@ address .contact__access-text {
 	text-align: center;
 }
 
+.form__list{
+	margin-top: 2.5rem;
+}
+
 .form__item {
 	border-bottom: 0.0625rem dotted #408F95;
 	padding-bottom: 1.5rem;
@@ -1539,6 +1543,7 @@ address .contact__access-text {
 .form__item + .form__item {
 	margin-top: 1.5rem;
 }
+
 
 .form__label {
 	color: #0D2936;
@@ -2881,6 +2886,38 @@ select {
 .wpcf7-submit:hover::after{
 	transform: scale(1, 1);
 }
+
+/* 必須項目が未入力の場合、エラースタイルを適用 */
+.wpcf7-form-control-wrap .wpcf7-not-valid {
+	border: 2px solid #C94800; /* 赤い枠を表示 */
+	background-color: #F4DACC; /* 背景色を淡い赤に */
+}
+
+/* 未入力の必須項目でプレースホルダーの色を変更 */
+.wpcf7-form-control-wrap .wpcf7-not-valid::placeholder {
+	color: #fff; /* プレースホルダーの文字色を赤に変更 */
+	opacity: 1; /* 不透明度を100%に設定（必要に応じて調整）*/
+}
+
+.wpcf7-form-control-wrap .wpcf7-not-valid-tip {
+  display: none;
+}
+
+.wpcf7-response-output{
+	display: none;
+}
+
+.wpcf7 form .wpcf7-error__message{
+	display: none;
+	color: #C94800;
+	text-align: center;
+}
+
+.wpcf7 form .wpcf7-error__message.is-active{
+	display: block;
+	border: none;
+}
+
 
 @media screen and (min-width: 768px) {
 
