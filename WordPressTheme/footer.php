@@ -10,10 +10,10 @@
         </div>
         <div class="footer__sns">
           <div class="footer__img-wrap">
-          <a href="#" rel="noopener noreferrer"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/facebook-logo.png" alt="フェイスブック"></a>
+          <a href="#" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/facebook-logo.png" alt="フェイスブック"></a>
           </div>
           <div class="footer__img-wrap">
-            <a href="#" rel="noopener noreferrer"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/instagram-logo.png" alt="インスタグラム"></a>
+            <a href="#" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/instagram-logo.png" alt="インスタグラム"></a>
           </div>
         </div>
       </div>
