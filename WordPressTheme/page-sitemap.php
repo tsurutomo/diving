@@ -24,35 +24,35 @@
           <div class="site-map-nav__left">
             <div class="site-map-nav__box">
               <ul class="site-map-nav__items">
-                <li class="site-map-nav__item site-map-nav__item--icon site-map-nav__item--top"><a href="campaign.html">キャンペーン</a></li>
+                <li class="site-map-nav__item site-map-nav__item--icon site-map-nav__item--top"><a href="<?php echo esc_url(home_url('/campaign')); ?>">キャンペーン</a></li>
                 <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/campaign_category/license/')); ?>" class="footer-nav__link">ライセンス取得</a></li>
                 <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/campaign_category/fun_diving/')); ?>" class="footer-nav__link">ファンダイビング</a></li>
                 <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/campaign_category/experience/')); ?>" class="footer-nav__link">体験ダイビング</a></li>
                 <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/campaign_category/special/')); ?>" class="footer-nav__link">スペシャルダイビング</a></li>
               </ul>
               <ul class="site-map-nav__items">
-                <li class="site-map-nav__item site-map-nav__item--icon"><a href="about-us.html">私たちについて</a></li>
+                <li class="site-map-nav__item site-map-nav__item--icon"><a href="<?php echo esc_url(home_url('/about-us')); ?>">私たちについて</a></li>
               </ul>
             </div>
             <div class="site-map-nav__box">
               <ul class="site-map-nav__items">
-                <li class="site-map-nav__item site-map-nav__item--icon site-map-nav--mg"><a href="information.html">ダイビング情報</a></li>
-                <li class="site-map-nav__item"><a href="information.html#tab01" class="js-tab-link">ライセンス講習</a></li>
-                <li class="site-map-nav__item"><a href="information.html#tab02" class="js-tab-link">ファンダイビング</a></li>
-                <li class="site-map-nav__item"><a href="information.html#tab03" class="js-tab-link">体験ダイビング</a></li>
+                <li class="site-map-nav__item site-map-nav__item--icon site-map-nav--mg"><a href="<?php echo esc_url(home_url('/information')); ?>">ダイビング情報</a></li>
+                <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/information#tab01')); ?>" class="js-tab-link">ライセンス講習</a></li>
+                <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/information#tab02')); ?>" class="js-tab-link">ファンダイビング</a></li>
+                <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/information#tab03')); ?>" class="js-tab-link">体験ダイビング</a></li>
               </ul>
               <ul class="site-map-nav__items">
-                <li class="site-mapr-nav__item site-map-nav__item--icon"><a href="blog.html">ブログ</a></li>
+                <li class="site-mapr-nav__item site-map-nav__item--icon"><a href="<?php echo esc_url(home_url('/blog')); ?>">ブログ</a></li>
               </ul>
             </div>
           </div>
           <div class="site-map-nav__right">
             <div class="site-map-nav__box">
               <ul class="site-map-nav__items">
-                <li class="site-map-nav__item footer-nav__item--icon footer-nav__item--top"><a href="voice.html" class="footer-nav__link">お客様の声</a></li>
+                <li class="site-map-nav__item footer-nav__item--icon footer-nav__item--top"><a href="<?php echo esc_url(home_url('/voice')); ?>" class="footer-nav__link">お客様の声</a></li>
               </ul>
               <ul class="site-map-nav__items">
-                <li class="site-map-nav__item site-map-nav__item--icon"><a href="price.html" class="footer-nav__link">料金一覧</a></li>
+                <li class="site-map-nav__item site-map-nav__item--icon"><a href="<?php echo esc_url(home_url('/price')); ?>" class="footer-nav__link">料金一覧</a></li>
                 <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/price#license')); ?>" class="footer-nav__link">ライセンス講習</a></li>
                 <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/price#experience')); ?>" class="footer-nav__link">体験ダイビング</a></li>
                 <li class="site-map-nav__item"><a href="<?php echo esc_url(home_url('/price#fun')); ?>" class="footer-nav__link">ファンダイビング</a></li>
@@ -61,16 +61,16 @@
             </div>
             <div class="site-map-nav__box">
               <ul class="site-map-nav__items">
-                <li class="site-map-nav__item site-map-nav__item--icon site-map-nav--mg"><a href="faq.html">よくある質問</a></li>
+                <li class="site-map-nav__item site-map-nav__item--icon site-map-nav--mg"><a href="<?php echo esc_url(home_url('/faq')); ?>">よくある質問</a></li>
               </ul>
               <ul class="site-map-nav__items">
-                <li class="site-map-nav__item site-map-nav__item--icon"><a href="privacy.html">プライバシー<br class="u-mobile">ポリシー</a></li>
+                <li class="site-map-nav__item site-map-nav__item--icon"><a href="<?php echo esc_url(home_url('/privacypolicy')); ?>">プライバシー<br class="u-mobile">ポリシー</a></li>
               </ul>
               <ul class="site-map-nav__items">
-                <li class="site-map-nav__item site-map-nav__item--icon"><a href="terms.html">利用規約</a></li>
+                <li class="site-map-nav__item site-map-nav__item--icon"><a href="<?php echo esc_url(home_url('/terms-of-service')); ?>">利用規約</a></li>
               </ul>
               <ul class="site-map-nav__items">
-                <li class="site-map-nav__item site-map-nav__item--icon"><a href="contact.html">お問い合わせ</a></li>
+                <li class="site-map-nav__item site-map-nav__item--icon"><a href="<?php echo esc_url(home_url('/contact')); ?>">お問い合わせ</a></li>
               </ul>
             </div>
           </div>
