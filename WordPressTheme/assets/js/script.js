@@ -120,28 +120,28 @@ jQuery(function ($) {
     // モーダルを開く処理
     $(".js-modal-open").on("click", function (e) {
       e.preventDefault();
-  
+
       // クリックされた画像のsrcとaltを取得
       var imgSrc = $(this).find("img").attr("src");
       var imgAlt = $(this).find("img").attr("alt");
       var isVertical = $(this).find("img").hasClass("vertical"); // 縦長かどうか判定
-  
+
       // モーダル内の画像に反映
       $(".modal__content img").attr("src", imgSrc);
       $(".modal__content img").attr("alt", imgAlt);
-  
+
       // 縦長か横長かに応じてクラスを変更
       if (isVertical) {
         $(".modal__content").addClass("modal__content--vertical");
       } else {
         $(".modal__content").removeClass("modal__content--vertical");
       }
-  
+
       // モーダルを表示
       $(".js-modal").fadeIn();
       $("html, body").css("overflow", "hidden"); // 背景のスクロールを無効化
     });
-  
+
     // モーダルの外側をクリックして閉じる処理
     $(".js-modal").on("click", function (e) {
       if ($(e.target).closest(".modal__content").length === 0) {

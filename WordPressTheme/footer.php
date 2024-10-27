@@ -6,7 +6,7 @@
     <div class="footer__inner inner">
       <div class="footer__heading">
         <div class="footer__site-logo">
-          <a href="#"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/CodeUpslogo-bg.svg" alt="CodeUps"></a>
+          <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/CodeUpslogo-bg.svg" alt="CodeUps"></a>
         </div>
         <div class="footer__sns">
           <div class="footer__img-wrap">
