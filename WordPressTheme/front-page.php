@@ -285,7 +285,7 @@
               <?php
                 $text = get_field('add_text');
                 if ($text) {
-                  echo esc_html($text);
+                  echo esc_html(wp_trim_words($text, 169, '…'));
                 }
               ?>
               </p>

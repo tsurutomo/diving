@@ -10,10 +10,10 @@
         </div>
         <div class="footer__sns">
           <div class="footer__img-wrap">
-          <a href="#" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/facebook-logo.png" alt="フェイスブック"></a>
+          <a href="https://www.facebook.com/?locale=ja_JP" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/facebook-logo.png" alt="フェイスブック"></a>
           </div>
           <div class="footer__img-wrap">
-            <a href="#" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/instagram-logo.png" alt="インスタグラム"></a>
+            <a href="https://www.instagram.com/sem/campaign/emailsignup/?campaign_id=13534424858&extra_1=s%7Cc%7C589806353222%7Cp%7Cinstagram%7C&placement=&creative=589806353222&keyword=instagram&partner_id=googlesem&extra_2=campaignid%3D13534424858%26adgroupid%3D135268360440%26matchtype%3Dp%26network%3Dg%26source%3Dnotmobile%26search_or_content%3Ds%26device%3Dc%26devicemodel%3D%26adposition%3D%26target%3D%26targetid%3Dkwd-26729187315%26loc_physical_ms%3D1009628%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gad_source=1&gclid=CjwKCAjwyfe4BhAWEiwAkIL8sMlCAXsLC6JUYS6yBuhMSi-OdWsVKKxFdXVYJgvAXZMV77dPj9G44BoCYFEQAvD_BwE" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/instagram-logo.png" alt="インスタグラム"></a>
           </div>
         </div>
       </div>
