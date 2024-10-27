@@ -32,9 +32,10 @@
           <nav class="sp-nav__left">
             <ul class="sp-nav__items">
               <li class="sp-nav__item sp-nav__item--icon"><a href="<?php echo esc_url(home_url('/campaign')); ?>"  class="sp-nav__link">キャンペーン</a></li>
-              <li class="sp-nav__item"><a href="campaign.html#canpaign-license" class="sp-nav__link">ライセンス取得</a></li>
-              <li class="sp-nav__item"><a href="campaign.html#campaign-private" class="sp-nav__link">貸切体験ダイビング</a></li>
-              <li class="sp-nav__item"><a href="campaign.html#campaign-night" class="sp-nav__link">ナイトダイビング</a></li>
+              <li class="sp-nav__item"><a href="<?php echo esc_url(home_url('/campaign_category/license/')); ?>" class="sp-nav__link">ライセンス取得</a></li>
+              <li class="sp-nav__item"><a href="<?php echo esc_url(home_url('/campaign_category/fun_diving/')); ?>" class="sp-nav__link">ファンダイビング</a></li>
+              <li class="sp-nav__item"><a href="<?php echo esc_url(home_url('/campaign_category/experience/')); ?>" class="sp-nav__link">体験ダイビング</a></li>
+              <li class="sp-nav__item"><a href="<?php echo esc_url(home_url('/campaign_category/experience/')); ?>" class="sp-nav__link">スペシャルダイビング</a></li>
             </ul>
             <ul class="sp-nav__items">
               <li class="sp-nav__item sp-nav__item--icon"><a href="<?php echo esc_url(home_url('/about-us')); ?>" class="sp-nav__link">私たちについて</a></li>
