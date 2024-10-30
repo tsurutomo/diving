@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-<?php wp_head(); ?>
   <main>
   <!--fv-->
   <div class="fv-lower">
@@ -75,6 +74,3 @@
   <?php get_template_part('include/contact') ?>
   </main>
 <?php get_footer(); ?>
-<?php wp_footer(); ?>
-</body>
-</html>

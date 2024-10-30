@@ -81,3 +81,6 @@
       <small class="footer__copy-right">Copyright&nbsp;&copy;&nbsp;2021&nbsp;-&nbsp;<?php echo wp_date("Y");?>&nbsp;CodeUps&nbsp;LLC.&nbsp;All&nbsp;Rights&nbsp;Reserved.</small>
     </div>
   </footer>
+  <?php wp_footer(); ?>
+</body>
+</html>

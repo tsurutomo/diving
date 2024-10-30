@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-<?php wp_head(); ?>
 <main>
     <div class="error">
     <?php get_template_part('include/breadcrumb') ?>
@@ -14,6 +13,3 @@
     </div>
   </main>
 <?php get_footer(); ?>
-<?php wp_footer(); ?>
-</body>
-</html>

@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-<?php wp_head(); ?>
   <main>
     <!--fv-->
     <div class="fv-lower">
@@ -25,6 +24,3 @@
     </section>
   </main>
 <?php get_footer(); ?>
-<?php wp_footer(); ?>
-</body>
-</html>

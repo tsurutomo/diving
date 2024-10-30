@@ -60,21 +60,6 @@
     </div>
     <!-- campaign-card-->
       <div class="campaign__lower-contents top-campaign-lower">
-      <?php
-      $genre_slug = get_query_var('campaign_category');
-      $args = [
-          "post_type" => "campaign",
-          'tax_query' => [
-              [
-                  // タクソノミーのスラッグを指定
-                  'taxonomy' => 'campaign_category',
-                  'field'    => 'slug',
-                  'terms'    => $genre_slug,
-              ],
-          ],
-      ];
-      $the_query = new WP_Query($args);
-      ?>
       <?php if (have_posts()) : ?>
         <ul class="campaign__cards campaign__cards--lower">
           <?php while (have_posts()) : the_post(); ?>
