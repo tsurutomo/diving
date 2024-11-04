@@ -8,7 +8,7 @@
         </div>
         <div class="fv-lower__img-wrap">
           <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/faq-fv.webp" media="(min-width: 768px)"/>
+            <source srcset="<?php echo get_theme_file_uri('/assets/images/faq-fv.webp'); ?>" media="(min-width: 768px)"/>
             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/faq-fvsp.webp" width="750" height="920" alt="シーサー">
           </picture>
         </div>
@@ -35,7 +35,4 @@
         </div>
       </div>
     </section>
-    <!-- contact -->
-    <?php get_template_part('include/contact') ?>
-    </main>
     <?php get_footer(); ?>

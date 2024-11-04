@@ -8,8 +8,8 @@
       </div>
       <div class="fv-lower__img-wrap">
         <picture>
-          <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/aboutus-fv.webp" media="(min-width: 768px)"/>
-          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/aboutus-fvsp.webp" width="750" height="920" alt="シーサー">
+          <source srcset="<?php echo get_theme_file_uri('/assets/images/aboutus-fv.webp'); ?>" media="(min-width: 768px)"/>
+          <img src="<?php echo get_theme_file_uri('/assets/images/aboutus-fvsp.webp'); ?>" width="750" height="920" alt="シーサー">
         </picture>
       </div>
     </div>
@@ -23,10 +23,10 @@
       <div class="about-lower__container">
         <div class="about-lower__img-box">
           <div class="about-lower__right-wrap">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/about02.jpg" alt="魚が２匹泳ぐ様子">
+            <img src="<?php echo get_theme_file_uri('/assets/images/about02.jpg'); ?>" alt="魚が２匹泳ぐ様子">
           </div>
           <div class="about-lower__left-wrap u-desktop">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/about01.jpg" alt="屋根の上に置かれたシーサー">
+            <img src="<?php echo get_theme_file_uri('/assets/images/about01.jpg'); ?>" alt="屋根の上に置かれたシーサー">
           </div>
         </div>
           <div class="about-lower__content">
@@ -70,7 +70,4 @@
     <img src="" alt="" loading="lazy">
   </div>
 </div>
-  <!-- contact -->
-  <?php get_template_part('include/contact') ?>
-  </main>
 <?php get_footer(); ?>

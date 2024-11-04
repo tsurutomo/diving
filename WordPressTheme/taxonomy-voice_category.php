@@ -111,7 +111,4 @@
         </div>
       </div>
     </section>
-  <!-- contact -->
-  <?php get_template_part('include/contact') ?>
-  </main>
   <?php get_footer(); ?>

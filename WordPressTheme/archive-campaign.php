@@ -22,6 +22,7 @@
         <!--tag-->
         <div class="campaign__tag tag">
           <ul class="tag__list">
+          <li class="tag__item is-active"><a href="<?php echo esc_url(home_url('/campaign')); ?>" >all</a></li>
             <?php
             $current_term_id = get_queried_object()->term_id;
             $terms = get_terms([
@@ -29,16 +30,6 @@
               'orderby' => 'description',
               'order'   => 'ASC'
             ]);
-
-            // 'all'リンクの生成
-            $home_class = (is_post_type_archive('campaign')) ? 'is-active' : '';
-            $home_link = sprintf(
-                '<li class="tag__item %s"><a href="%s" title="%s">all</a></li>',
-                $home_class,
-                esc_url(home_url('/campaign')),
-                esc_attr(__('View all posts', 'textdomain'))
-            );
-            echo $home_link;
 
             // タームリンクの生成
             if ($terms) {
@@ -66,7 +57,7 @@
                 <a href="<?php echo esc_url(home_url('/contact')); ?>">
                   <figure class="campaign__card-img">
                     <?php if(get_the_post_thumbnail()) : ?>
-                      <?php the_post_thumbnail('full', ['class' => 'campaign__card-img img']); ?>
+                      <?php the_post_thumbnail('full'); ?>
                       <?php else: ?>
                           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
                         <?php endif; ?>
@@ -135,7 +126,4 @@
         </div>
       </div>
     </div>
-<!-- contact -->
-<?php get_template_part('include/contact') ?>
-</main>
   <?php get_footer(); ?>
