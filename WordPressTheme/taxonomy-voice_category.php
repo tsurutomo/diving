@@ -22,24 +22,12 @@
         <!--tag-->
         <div class="voice-lower__tag tag">
           <ul class="tag__list">
+          <li class="tag__item"><a href="<?php echo esc_url(home_url('/voice')); ?>" >all</a></li>
             <?php
               $current_term_id = get_queried_object()->term_id;
               $terms = get_terms([
                 'taxonomy' => 'voice_category',
-                'orderby' => 'description',
-                'order'   => 'ASC'
               ]);
-
-              // 'all'リンクの生成
-              $home_class = (is_post_type_archive('voice')) ? 'is-active' : '';
-              $home_link = sprintf(
-                  '<li class="tag__item %s"><a href="%s" title="%s">all</a></li>',
-                  $home_class,
-                  esc_url(home_url('/voice')),
-                  esc_attr(__('View all posts', 'textdomain'))
-              );
-              echo $home_link;
-
               // タームリンクの生成
               if ($terms) {
                   foreach ($terms as $term) {
@@ -67,7 +55,7 @@
                     <div class="card-sort__info">
                       <p class="card-sort__gender">
                         <?php
-                          $age = get_field('add_age'); 
+                          $age = get_field('add_age')
                           $gender = get_field('add_gender');
                           if ($age && $gender) {
                             echo esc_html($age) . ' (' . esc_html($gender) . ')';
@@ -87,7 +75,7 @@
                   </div>
                   <div class="card-sort__img-wrap color-box">
                     <?php if(get_the_post_thumbnail()) : ?>
-                      <?php the_post_thumbnail('full', ['class' => 'card-sort__img']); ?>
+                      <img src="<?php the_post_thumbnail_url(); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                     <?php else: ?>
                       <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
                     <?php endif; ?>

@@ -306,3 +306,5 @@ function get_year_archives_num( $year ) {
     );
     return idate('Y', strtotime($oldest_date) ); //投稿日の年だけ数値で取得
   }
+  //自動的に追加される <p> タグを無効化
+ remove_filter('the_excerpt', 'wpautop');

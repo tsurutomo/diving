@@ -32,7 +32,7 @@
               <?php if(get_the_post_thumbnail()) : ?>
                   <img src="<?php the_post_thumbnail_url('full'); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
               <?php else: ?>
-                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
+                  <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
               <?php endif; ?>
               </figure>
               <!--the contents-->
@@ -73,38 +73,22 @@
           <h2 class="side__title">人気記事</h2>
           <div class="side__content">
           <ul class="side__article article">
-                  <?php
-                    $popular_posts_args = array(
-                      'post_type'      => 'post',
-                      'posts_per_page' => 3, // 表示する人気記事の数
-                      'meta_key'       => 'post_views_count',
-                      'orderby'        => 'meta_value_num',
-                      'order'          => 'DESC'
-                    );
-                    $popular_posts = new WP_Query($popular_posts_args);
-
-                    if ($popular_posts->have_posts()) :
-                      while ($popular_posts->have_posts()) : $popular_posts->the_post(); ?>
-                        <li class="article__item">
-                          <a href="<?php the_permalink(); ?>">
-                            <figure class="article__img">
-                              <?php if (has_post_thumbnail()) : ?>
-                                <?php the_post_thumbnail('full', array('class' => 'article__img img')); ?>
-                              <?php else: ?>
-                                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" alt="<?php the_title(); ?>">
-                              <?php endif; ?>
-                            </figure>
-                            <div class="article__body">
-                              <time class="article__time" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m-d'); ?></time>
-                              <p class="article__title"><?php the_title(); ?></p>
-                            </div>
-                          </a>
-                        </li>
-                      <?php endwhile;
-                      wp_reset_postdata();
-                    endif;
-                  ?>
-                  </ul>
+            <li class="article__item">
+              <a href="<?php the_permalink(); ?>">
+                <figure class="article__img">
+                  <?php if (has_post_thumbnail()) : ?>
+                    <?php the_post_thumbnail('full', array('class' => 'article__img img')); ?>
+                  <?php else: ?>
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" alt="<?php the_title(); ?>">
+                  <?php endif; ?>
+                </figure>
+                <div class="article__body">
+                  <time class="article__time" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m-d'); ?></time>
+                  <p class="article__title"><?php the_title(); ?></p>
+                </div>
+              </a>
+            </li>
+          </ul>
           </div>
         </div>
         <div class="side__wrap">
@@ -113,8 +97,6 @@
             $args = [
               "post_type" => "voice",
               "posts_per_page" => 1,
-              "orderby" => "date",
-              "order" => "DESC",
             ];
             $the_query = new WP_Query($args);
           ?>
@@ -125,9 +107,9 @@
               <a href="<?php the_permalink(); ?>">
                 <figure class="review__img">
                   <?php if(get_the_post_thumbnail()) : ?>
-                    <?php the_post_thumbnail('full', ['class' => 'review__img img']); ?>
+                    <?php the_post_thumbnail('full'); ?>
                   <?php else: ?>
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
+                    <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
                   <?php endif; ?>
                 </figure>
                 <div class="review__body">
@@ -161,8 +143,6 @@
             $args = [
               "post_type" => "campaign",
               "posts_per_page" => 2,
-              "orderby" => "date",
-              "order" => "DESC",
             ];
             $the_query = new WP_Query($args);
           ?>
@@ -173,9 +153,9 @@
                 <a href="<?php echo esc_url(home_url('/campaign')); ?>">
                   <figure class="campaign__card-img">
                     <?php if(get_the_post_thumbnail()) : ?>
-                      <?php the_post_thumbnail('full', ['class' => 'campaign__card-img img']); ?>
+                      <?php the_post_thumbnail('full'); ?>
                     <?php else: ?>
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
+                      <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
                     <?php endif; ?>
                   </figure>
                   <div class="campaign__card-body campaign__card-body--pd">

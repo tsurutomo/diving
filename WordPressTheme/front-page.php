@@ -67,37 +67,37 @@
                 <li class="campaign__card swiper-slide">
                   <figure class="campaign__card-img">
                     <?php if(get_the_post_thumbnail()) : ?>
-                    <?php the_post_thumbnail('full', ['class' => 'campaign__card-img img']); ?>
+                      <img src="<?php echo the_post_thumbnail_url(); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                     <?php else: ?>
-                        <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
+                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
                     <?php endif; ?>
                   </figure>
                   <div class="campaign__card-body">
                     <?php
                       $taxonomy_terms = get_the_terms($post->ID, 'campaign_category');
-                      if ( ! empty( $taxonomy_terms ) ) {
-                          foreach( $taxonomy_terms as $taxonomy_term ) {
-                              echo '<span class="campaign__card-tag">' . esc_html( $taxonomy_term->name ) . '</span>';
-                          }
-                      }
+                      if ( ! empty( $taxonomy_terms ) ) :
+                          foreach( $taxonomy_terms as $taxonomy_term ) : ?>
+                          <span class="campaign__card-tag">
+                              <?php echo esc_html( $taxonomy_term->name ); ?>
+                          </span>
+                          <?php endforeach;
+                          endif;
                     ?>
                     <h3 class="campaign__card-name"><?php the_title(); ?></h3>
                   </div>
-                    <div class="campaign__card-text-wrap">
+                  <div class="campaign__card-text-wrap">
                     <p class="campaign__card-text">全部コミコミ(お一人様)</p>
                     <div class="campaign__card-price-wrap">
-                      <p class="campaign__card-list-price">
-                        <?php $list_price = get_field('campaign__list-price');
-                        if($list_price){
-                          echo '￥' . number_format($list_price);
-                        } ?>
-                      </p>
-                      <p class="campaign__card-price">
-                        <?php $price = get_field('campaign__price');
-                        if($price){
-                          echo '￥' . number_format($price);
-                        } ?>
-                      </p>
+                      <?php if (($list_price = get_field('campaign__list-price'))) : ?>
+                        <p class="campaign__card-list-price">
+                          ¥<?= number_format($list_price); ?>
+                        </p>
+                      <?php endif; ?>
+                      <?php if (($price = get_field('campaign__price'))) : ?>
+                        <p class="campaign__card-price">
+                          ￥<?= number_format($price); ?>
+                        </p>
+                      <?php endif; ?>
                     </div>
                   </div>
                 </li>
@@ -128,10 +128,10 @@
         <div class="about-us__container">
           <div class="about-us__img-box">
             <div class="about-us__right-wrap">
-              <img src="<?php echo get_theme_file_uri('/assets/images/about02.jpg'); ?>" alt="魚が２匹泳ぐ様子">
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/about02.jpg" alt="魚が２匹泳ぐ様子">
             </div>
             <div class="about-us__left-wrap">
-              <img src="<?php echo get_theme_file_uri('/assets/images/about01.jpg'); ?>" alt="屋根の上に置かれたシーサー">
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/about01.jpg" alt="屋根の上に置かれたシーサー">
             </div>
           </div>
           <div class="about-us__contents">
@@ -155,7 +155,7 @@
           </div>
         </div>
         <div class="about-us__under-img-wrap u-desktop">
-          <img src="<?php echo get_theme_file_uri('/assets/images/about-under__img.png'); ?>" alt="サンゴのイラスト">
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/about-under__img.png" alt="サンゴのイラスト">
         </div>
       </div>
     </section>
@@ -168,7 +168,7 @@
         </div>
         <div class="info__contents">
           <div class="info__img-wrap color-box">
-            <img src="<?php echo get_theme_file_uri('/assets/images/info.jpg'); ?>" width="1080" height="712" alt="２匹の魚が泳いでいる様子">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/info.jpg" width="1080" height="712" alt="２匹の魚が泳いでいる様子">
           </div>
           <div class="info__text-content">
             <h3 class="info__sub-title">ライセンス講習</h3>
@@ -190,11 +190,7 @@
         <ul class="blog__cards cards">
         <?php
           $popular_posts_args = array(
-            'post_type'      => 'post',
-            'posts_per_page' => 3,
-            'meta_key'       => 'post_views_count',
-            'orderby'        => 'meta_value_num',
-            'order'          => 'DESC'
+            'posts_per_page' => 3
           );
           $popular_posts = new WP_Query($popular_posts_args);
             if ($popular_posts->have_posts()) :
@@ -203,9 +199,9 @@
             <a href="<?php the_permalink(); ?>" class="card__list">
               <figure class="card__img">
                 <?php if (has_post_thumbnail()) : ?>
-                  <?php the_post_thumbnail('full', array('class' => 'card__img img')); ?>
+                  <img src="<?php the_post_thumbnail_url() ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                 <?php else: ?>
-                  <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" alt="<?php the_title(); ?>">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" alt="<?php the_title(); ?>">
                 <?php endif; ?>
               </figure>
               <div class="card__body">
@@ -225,7 +221,7 @@
           <a href="<?php echo esc_url(home_url('/blog')); ?>" class="button"><p>View&nbsp;more</p></a>
         </div>
         <div class="blog__top-img-wrap u-desktop">
-        <img src="<?php echo get_theme_file_uri('/assets/images/deco-fish1.png'); ?>" alt="泳ぐ魚たちのイラスト">
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/deco-fish1.png" alt="泳ぐ魚たちのイラスト">
       </div>
       </div>
     </section>
@@ -241,8 +237,6 @@
           $args = [
               "post_type" => "voice",
               "posts_per_page" => 2,
-              "orderby" => "date",
-              "order" => "DESC",
           ];
           $the_query = new WP_Query($args);
         ?>
@@ -275,9 +269,9 @@
                 </div>
                 <div class="card-sort__img-wrap color-box">
                 <?php if(get_the_post_thumbnail()) : ?>
-                  <?php the_post_thumbnail('full', ['class' => 'card-sort__img']); ?>
+                  <img src="<?php the_post_thumbnail_url() ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                 <?php else: ?>
-                  <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
+                  <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
                 <?php endif; ?>
                 </div>
               </div>
@@ -301,10 +295,10 @@
           <a href="<?php echo esc_url(home_url('/voice')); ?>" class="button"><p>View&nbsp;more</p></a>
         </div>
         <div class="voice__top-img-wrap u-desktop">
-          <img src="<?php echo get_theme_file_uri('/assets/images/voice-top__img.png'); ?>" alt="泳ぐ魚たちのイラスト">
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-top__img.png" alt="泳ぐ魚たちのイラスト">
         </div>
         <div class="voice__under-img-wrap u-desktop">
-          <img src="<?php echo get_theme_file_uri('/assets/images/voice-under.png'); ?>" alt="タツノオトシゴ">
+          <img src="<?php echo get_theme_file_ur(); ?>/assets/images/voice-under.png" alt="タツノオトシゴ">
         </div>
       </div>
     </section>
@@ -317,10 +311,10 @@
         </div>
         <div class="price__contents">
           <div class="price__img-wrap color-box u-mobile">
-            <img src="<?php echo get_theme_file_uri('/assets/images/price-sp.jpg'); ?>" width="690" height="454" alt="ウミガメ">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/price-sp.jpg" width="690" height="454" alt="ウミガメ">
           </div>
           <div class="price__img-wrap color-box u-desktop">
-            <img src="<?php echo get_theme_file_uri('/assets/images/price-pc.jpg'); ?>"  width="984" height="1482" alt="たくさんの魚">
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/price-pc.jpg"  width="984" height="1482" alt="たくさんの魚">
 
           </div>
           <div class="price__box">
@@ -384,7 +378,7 @@
           <a href="<?php echo esc_url(home_url('/price')); ?>" class="button"><p>View&nbsp;more</p></a>
         </div>
         <div class="price__under-img-wrap u-desktop">
-        <img src="<?php echo get_theme_file_uri('/assets/images/fish-green.png'); ?>" alt="魚たちのイラスト">
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/fish-green.png" alt="魚たちのイラスト">
       </div>
       </div>
     </section>

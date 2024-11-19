@@ -29,9 +29,9 @@
                 <a href="<?php the_permalink(); ?>" class="card__list">
                   <figure class="card__img">
                   <?php if(get_the_post_thumbnail()) : ?>
-                      <?php the_post_thumbnail('full', ['class' => 'card__img img']); ?>
+                      <?php the_post_thumbnail('full'); ?>
                     <?php else: ?>
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
+                      <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
                     <?php endif; ?>
                   </figure>
                   <div class="card__body">
@@ -59,11 +59,7 @@
                   <ul class="side__article article">
                   <?php
                     $popular_posts_args = array(
-                      'post_type'      => 'post',
-                      'posts_per_page' => 3, // 表示する人気記事の数
-                      'meta_key'       => 'post_views_count',
-                      'orderby'        => 'meta_value_num',
-                      'order'          => 'DESC'
+                      'posts_per_page' => 3
                     );
                     $popular_posts = new WP_Query($popular_posts_args);
 
@@ -72,8 +68,8 @@
                         <li class="article__item">
                           <a href="<?php the_permalink(); ?>">
                             <figure class="article__img">
-                              <?php if (has_post_thumbnail()) : ?>
-                                <?php the_post_thumbnail('full', array('class' => 'article__img img')); ?>
+                              <?php if(get_the_post_thumbnail()) : ?>
+                              <?php the_post_thumbnail('full'); ?>
                               <?php else: ?>
                                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" alt="<?php the_title(); ?>">
                               <?php endif; ?>
@@ -97,8 +93,6 @@
                   $args = [
                       "post_type" => "voice",
                       "posts_per_page" => 1,
-                      "orderby" => "date",
-                      "order" => "DESC",
                   ];
                   $the_query = new WP_Query($args);
                 ?>
@@ -109,9 +103,9 @@
                     <a href="<?php the_permalink(); ?>">
                       <figure class="review__img">
                         <?php if(get_the_post_thumbnail()) : ?>
-                          <?php the_post_thumbnail('full', ['class' => 'review__img img']); ?>
+                          <?php the_post_thumbnail('full'); ?>
                         <?php else: ?>
-                          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
+                          <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
                         <?php endif; ?>
                       </figure>
                       <div class="review__body">
@@ -145,8 +139,6 @@
                     $args = [
                         "post_type" => "campaign",
                         "posts_per_page" => 2,
-                        "orderby" => "date",
-                        "order" => "DESC",
                     ];
                     $the_query = new WP_Query($args);
                   ?>
@@ -157,9 +149,9 @@
                       <a href="<?php echo esc_url(home_url('/campaign')); ?>">
                         <figure class="campaign__card-img">
                           <?php if(get_the_post_thumbnail()) : ?>
-                            <?php the_post_thumbnail('full', ['class' => 'campaign__card-img img']); ?>
+                            <?php the_post_thumbnail('full'); ?>
                           <?php else: ?>
-                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
+                            <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
                           <?php endif; ?>
                         </figure>
                         <div class="campaign__card-body campaign__card-body--pd">

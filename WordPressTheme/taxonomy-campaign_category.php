@@ -1,64 +1,52 @@
 <?php get_header(); ?>
 <?php wp_head(); ?>
 <main>
-    <!--fv-->
-    <div class="fv-lower">
-      <div class="fv-lower__inner">
-        <div class="fv-lower__tittle-wrap">
-          <h1 class="fv-lower__title">Campaign</h1>
-        </div>
-        <div class="fv-lower__img-wrap">
-          <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/campaign-fv.webp" media="(min-width: 768px)"/>
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/campaign-fvsp.webp" width="750" height="920" alt="海の中を泳ぐ魚たち">
-          </picture>
-        </div>
+<!--fv-->
+  <div class="fv-lower">
+    <div class="fv-lower__inner">
+      <div class="fv-lower__tittle-wrap">
+        <h1 class="fv-lower__title">Campaign</h1>
+      </div>
+      <div class="fv-lower__img-wrap">
+        <picture>
+          <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/campaign-fv.webp" media="(min-width: 768px)"/>
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/campaign-fvsp.webp" width="750" height="920" alt="海の中を泳ぐ魚たち">
+        </picture>
       </div>
     </div>
-    <!-- パンくずリスト-->
-    <?php get_template_part('include/breadcrumb') ?>
-    <!-- campaign__lower-->
-    <div class="campaign-lower bg-fish top-lower">
-      <div class="campaign-lower-inner inner">
-    <!--tag-->
-    <div class="campaign__tag tag">
-      <ul class="tag__list">
-      <?php
-      $current_term_id = get_queried_object()->term_id;
-      $terms = get_terms([
-        'taxonomy' => 'campaign_category',
-        'orderby' => 'description',
-        'order'   => 'ASC'
-      ]);
-
-      // 'all'リンクの生成
-      $home_class = (is_post_type_archive('campaign')) ? 'is-active' : '';
-      $home_link = sprintf(
-          '<li class="tag__item %s"><a href="%s" title="%s">all</a></li>',
-          $home_class,
-          esc_url(home_url('/campaign')),
-          esc_attr(__('View all posts', 'textdomain'))
-      );
-      echo $home_link;
-
-      // タームリンクの生成
-      if ($terms) {
-          foreach ($terms as $term) {
+  </div>
+  <!-- パンくずリスト-->
+  <?php get_template_part('include/breadcrumb') ?>
+  <!-- campaign__lower-->
+  <div class="campaign-lower bg-fish top-lower">
+    <div class="campaign-lower-inner inner">
+      <!--tag-->
+      <div class="campaign__tag tag">
+        <ul class="tag__list">
+          <li class="tag__item"><a href="<?php echo esc_url(home_url('/campaign')); ?>" >all</a></li>
+          <?php
+            $current_term_id = get_queried_object()->term_id;
+            $terms = get_terms([
+              'taxonomy' => 'campaign_category',
+            ]);
+            // タームリンクの生成
+            if ($terms) {
+              foreach ($terms as $term) {
               $term_class = ($current_term_id === $term->term_id) ? 'is-active' : '';
               $term_link = sprintf(
-                  '<li class="tag__item %s"><a href="%s" title="%s">%s</a></li>',
+                '<li class="tag__item %s"><a href="%s" title="%s">%s</a></li>',
                   $term_class,
                   esc_url(get_term_link($term->term_id)),
                   esc_attr(sprintf(__('View all posts in %s', 'textdomain'), $term->name)),
                   esc_html($term->name)
               );
               echo $term_link;
-          }
-      }
-      ?>
-      </ul>
-    </div>
-    <!-- campaign-card-->
+              }
+            }
+          ?>
+        </ul>
+      </div>
+      <!-- campaign-card-->
       <div class="campaign__lower-contents top-campaign-lower">
       <?php if (have_posts()) : ?>
         <ul class="campaign__cards campaign__cards--lower">
@@ -67,9 +55,9 @@
             <a href="<?php echo esc_url(home_url('/contact')); ?>">
               <figure class="campaign__card-img">
                 <?php if(get_the_post_thumbnail()) : ?>
-                  <?php the_post_thumbnail('full', ['class' => 'campaign__card-img img']); ?>
+                  <img src="<?php the_post_thumbnail_url(); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                   <?php else: ?>
-                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
+                    <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
                     <?php endif; ?>
               </figure>
               <div class="campaign__card-body campaign__card-body--lower">
@@ -133,7 +121,7 @@
         <div class="campaign__card-pagination pagination top-pagenation">
           <?php wp_pagenavi(); ?>
         </div>
-     </div>
-     </div>
+      </div>
     </div>
+  </div>
   <?php get_footer(); ?>

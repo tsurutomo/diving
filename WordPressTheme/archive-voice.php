@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <main>
-<!--fv-->
-<div class="fv-lower">
-  <div class="fv-lower__inner">
+  <!--fv-->
+  <div class="fv-lower">
+    <div class="fv-lower__inner">
       <div class="fv-lower__tittle-wrap">
         <h1 class="fv-lower__title">Voice</h1>
       </div>
@@ -12,16 +12,17 @@
         <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-fvsp.webp" width="750" height="920" alt="スキューバダイビングをする人たち">
       </picture>
       </div>
+    </div>
   </div>
-</div>
-    <!-- パンくずリスト-->
-    <?php get_template_part('include/breadcrumb') ?>
+  <!-- パンくずリスト-->
+  <?php get_template_part('include/breadcrumb') ?>
     <!-- voice -->
     <section class="voice-lower bg-fish top-lower">
       <div class="voice-lower__inner inner">
         <!--tag-->
         <div class="voice-lower__tag tag">
           <ul class="tag__list">
+            <li class="tag__item is-active"><a href="<?php echo esc_url(home_url('/voice')); ?>" >all</a></li>
           <?php
               $current_term_id = get_queried_object()->term_id;
               $terms = get_terms([
@@ -29,17 +30,6 @@
                 'orderby' => 'description',
                 'order'   => 'ASC'
               ]);
-
-              // 'all'リンクの生成
-              $home_class = (is_post_type_archive('voice')) ? 'is-active' : '';
-              $home_link = sprintf(
-                  '<li class="tag__item %s"><a href="%s" title="%s">all</a></li>',
-                  $home_class,
-                  esc_url(home_url('/voice')),
-                  esc_attr(__('View all posts', 'textdomain'))
-              );
-              echo $home_link;
-
               // タームリンクの生成
               if ($terms) {
                   foreach ($terms as $term) {
@@ -75,19 +65,21 @@
                         ?>
                       </p>
                       <?php
-                          $taxonomy_terms = get_the_terms($post->ID, 'voice_category');
-                          if ( ! empty( $taxonomy_terms ) ) {
-                              foreach( $taxonomy_terms as $taxonomy_term ) {
-                                  echo '<span class="card-sort__tag">' . esc_html( $taxonomy_term->name ) . '</span>';
-                              }
-                          }
+                        $taxonomy_terms = get_the_terms($post->ID, 'voice_category');
+                          if ( ! empty( $taxonomy_terms ) ) :
+                              foreach( $taxonomy_terms as $taxonomy_term ) : ?>
+                                <span class="card-sort__tag">
+                                  <?php echo esc_html( $taxonomy_term->name ); ?>
+                                </span>
+                              <?php endforeach;
+                                 endif;
                       ?>
                     </div>
                     <h3 class="card-sort__sub-title"><?php the_title(); ?></h3>
                   </div>
                   <div class="card-sort__img-wrap color-box">
                     <?php if(get_the_post_thumbnail()) : ?>
-                      <?php the_post_thumbnail('full', ['class' => 'card-sort__img']); ?>
+                      <img src="<?php the_post_thumbnail_url() ?>"width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                     <?php else: ?>
                       <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
                     <?php endif; ?>
