@@ -1,21 +1,21 @@
 <?php get_header(); ?>
 <main>
-<!--fv-->
-<div class="fv-lower">
-  <div class="fv-lower__inner">
-      <div class="fv-lower__tittle-wrap">
-        <h1 class="fv-lower__title">Voice</h1>
-      </div>
-      <div class="fv-lower__img-wrap">
-      <picture>
-        <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/voice-fv.webp" media="(min-width: 768px)"/>
-        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-fvsp.webp" width="750" height="920" alt="スキューバダイビングをする人たち">
-      </picture>
-      </div>
+  <!--fv-->
+  <div class="fv-lower">
+    <div class="fv-lower__inner">
+        <div class="fv-lower__tittle-wrap">
+          <h1 class="fv-lower__title">Voice</h1>
+        </div>
+        <div class="fv-lower__img-wrap">
+        <picture>
+          <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/voice-fv.webp" media="(min-width: 768px)"/>
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-fvsp.webp" width="750" height="920" alt="スキューバダイビングをする人たち">
+        </picture>
+        </div>
+    </div>
   </div>
-</div>
-    <!-- パンくずリスト-->
-    <?php get_template_part('include/breadcrumb') ?>
+  <!-- パンくずリスト-->
+  <?php get_template_part('include/breadcrumb') ?>
     <!-- voice -->
     <section class="voice-lower bg-fish top-lower">
       <div class="voice-lower__inner inner">
@@ -26,6 +26,8 @@
             <?php
             $terms = get_terms([
               'taxonomy' => 'voice_category',
+              'orderby'  => 'description',
+              'order'    => 'ASC',
             ]);
             if($terms) :
                 foreach($terms as $term) :
@@ -51,7 +53,7 @@
                     <div class="card-sort__info">
                       <p class="card-sort__gender">
                         <?php
-                          $age = get_field('add_age')
+                          $age = get_field('add_age');
                           $gender = get_field('add_gender');
                           if ($age && $gender) {
                             echo esc_html($age) . ' (' . esc_html($gender) . ')';
@@ -59,13 +61,15 @@
                         ?>
                       </p>
                       <?php
-                          $taxonomy_terms = get_the_terms($post->ID, 'voice_category');
-                          if ( ! empty( $taxonomy_terms ) ) {
-                              foreach( $taxonomy_terms as $taxonomy_term ) {
-                                  echo '<span class="card-sort__tag">' . esc_html( $taxonomy_term->name ) . '</span>';
-                              }
-                          }
-                      ?>
+                        $taxonomy_terms = get_the_terms($post->ID, 'voice_category');
+                          if ( ! empty( $taxonomy_terms ) ) :
+                              foreach( $taxonomy_terms as $taxonomy_term ) : ?>
+                                <span class="card-sort__tag">
+                                  <?php echo esc_html( $taxonomy_term->name ); ?>
+                                </span>
+                              <?php endforeach;
+                                  endif;
+                              ?>
                     </div>
                     <h3 class="card-sort__sub-title"><?php the_title(); ?></h3>
                   </div>

@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-<?php wp_head(); ?>
 <main>
 <!--fv-->
   <div class="fv-lower">
@@ -38,8 +37,8 @@
                       </a>
                     </li>
                 <?php endforeach;
-            endif;
-            ?>
+                endif;
+                ?>
         </ul>
       </div>
       <!-- campaign-card-->

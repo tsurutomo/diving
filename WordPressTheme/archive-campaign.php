@@ -37,8 +37,8 @@
                       </a>
                     </li>
                 <?php endforeach;
-            endif;
-            ?>
+                endif;
+                ?>
         </ul>
       </div>
       <!-- campaign-card-->
@@ -64,8 +64,8 @@
                           <?php echo esc_html( $taxonomy_term->name ); ?>
                         </span>
                       <?php endforeach;
-                        endif;
-                        ?>
+                      endif;
+                      ?>
                 <h3 class="campaign__card-name"><?php the_title(); ?></h3>
               </div>
               <div class="campaign__card-text-wrap">
