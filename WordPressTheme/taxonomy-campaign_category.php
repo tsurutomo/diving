@@ -23,27 +23,23 @@
       <!--tag-->
       <div class="campaign__tag tag">
         <ul class="tag__list">
-          <li class="tag__item"><a href="<?php echo esc_url(home_url('/campaign')); ?>" >all</a></li>
+          <li class="tag__item is-active"><a href="<?php echo esc_url(home_url('/campaign')); ?>" >all</a></li>
           <?php
-            $current_term_id = get_queried_object()->term_id;
             $terms = get_terms([
               'taxonomy' => 'campaign_category',
             ]);
-            // タームリンクの生成
-            if ($terms) {
-              foreach ($terms as $term) {
-              $term_class = ($current_term_id === $term->term_id) ? 'is-active' : '';
-              $term_link = sprintf(
-                '<li class="tag__item %s"><a href="%s" title="%s">%s</a></li>',
-                  $term_class,
-                  esc_url(get_term_link($term->term_id)),
-                  esc_attr(sprintf(__('View all posts in %s', 'textdomain'), $term->name)),
-                  esc_html($term->name)
-              );
-              echo $term_link;
-              }
-            }
-          ?>
+            if($terms) :
+                foreach($terms as $term) :
+                    $term_class = is_tax('campaign_category', $term->term_id) ? 'is-active' : '';
+                    ?>
+                    <li class="tag__item <?php echo esc_attr($term_class); ?>">
+                      <a href="<?php echo esc_url(get_term_link($term)); ?>">
+                          <?php echo esc_html($term->name); ?>
+                      </a>
+                    </li>
+                <?php endforeach;
+            endif;
+            ?>
         </ul>
       </div>
       <!-- campaign-card-->
@@ -57,57 +53,55 @@
                 <?php if(get_the_post_thumbnail()) : ?>
                   <img src="<?php the_post_thumbnail_url(); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                   <?php else: ?>
-                    <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
                     <?php endif; ?>
               </figure>
               <div class="campaign__card-body campaign__card-body--lower">
                 <?php
                     $taxonomy_terms = get_the_terms($post->ID, 'campaign_category');
-                    if ( ! empty( $taxonomy_terms ) ) {
-                        foreach( $taxonomy_terms as $taxonomy_term ) {
-                            echo '<span class="campaign__card-tag">' . esc_html( $taxonomy_term->name ) . '</span>';
-                        }
-                    }
-                ?>
+                      if ( ! empty( $taxonomy_terms ) ) :
+                        foreach( $taxonomy_terms as $taxonomy_term ) :?>
+                          <span class="campaign__card-tag">
+                            <?php echo esc_html( $taxonomy_term->name ); ?>
+                          </span>
+                        <?php endforeach;
+                          endif;
+                          ?>
                 <h3 class="campaign__card-name"><?php the_title(); ?></h3>
               </div>
               <div class="campaign__card-text-wrap">
                 <p class="campaign__card-text">全部コミコミ(お一人様)</p>
                 <div class="campaign__card-price-wrap">
-                  <p class="campaign__card-list-price">
-                    <?php $list_price = get_field('campaign__list-price');
-                    if($list_price){
-                      echo '￥' . number_format($list_price);
-                    } ?>
-                  </p>
-                  <p class="campaign__card-price">
-                    <?php $price = get_field('campaign__price');
-                    if($price){
-                      echo '￥' . number_format($price);
-                    } ?>
+                  <?php if (($list_price = get_field('campaign__list-price'))) : ?>
+                    <p class="campaign__card-list-price">
+                      ¥<?= number_format($list_price); ?>
+                    </p>
+                  <?php endif; ?>
+                  <?php if (($price = get_field('campaign__price'))) : ?>
+                    <p class="campaign__card-price">
+                      ￥<?= number_format($price); ?>
+                    </p>
+                  <?php endif; ?>
                   </p>
                 </div>
                 <div class="campaign__card-box u-desktop">
                   <div class="campaign__card-text-lower">
-                    <p class="campaign__card-desc">
-                    <?php
-                    $desc = get_field('campaign__text');
-                    if ($desc) {
-                      echo esc_html($desc);
-                    }
-                  ?>
-                    </p>
+                    <?php if (($text = get_field('campaign__text'))) : ?>
+                      <p class="campaign__card-desc">
+                        <?= esc_html($text); ?>
+                      </p>
+                    <?php endif; ?>
                   </div>
                   <div class="campaign__card-bottom">
-                    <time class="campaign__card-time" datetime="<?php echo esc_attr(get_field('campaign__start-date')); ?>">
-                    <?php 
-                      $start_date = get_field('campaign__start-date'); 
-                      $end_date = get_field('campaign__end-date');
-                      if ($start_date && $end_date) {
-                        echo esc_html(date('Y/n/j', strtotime($start_date))) . ' - ' . esc_html(date('n/j', strtotime($end_date)));
-                      }
+                    <?php
+                    $start_date = get_field('campaign__start-date');
+                    $end_date = get_field('campaign__end-date');
                     ?>
+                    <?php if ($start_date && $end_date) : ?>
+                    <time class="campaign__card-time" datetime="<?= esc_attr(date('Y-m-d',strtotime($start_date))); ?>">
+                    <?= esc_html(date('Y/n/j', strtotime($start_date))). ' - ' . esc_html(date('n/j', strtotime($end_date))); ?>
                     </time>
+                    <?php endif; ?>
                     <p class="campaign__card-info">ご予約・お問い合わせはコチラ</p>
                     <div class="button campaign-lower-button"><p>Contact&nbsp;us</p></div>
                   </div>

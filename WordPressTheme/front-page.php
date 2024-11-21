@@ -189,12 +189,12 @@
         </div>
         <ul class="blog__cards cards">
         <?php
-          $popular_posts_args = array(
+          $blog_posts_args = array(
             'posts_per_page' => 3
           );
-          $popular_posts = new WP_Query($popular_posts_args);
-            if ($popular_posts->have_posts()) :
-            while ($popular_posts->have_posts()) : $popular_posts->the_post(); ?>
+          $blog_posts = new WP_Query($blog_posts_args);
+            if ($blog_posts->have_posts()) :
+            while ($blog_posts->have_posts()) : $blog_posts->the_post(); ?>
           <li class="cards__card card">
             <a href="<?php the_permalink(); ?>" class="card__list">
               <figure class="card__img">
@@ -257,19 +257,21 @@
                     ?>
                     </p>
                     <?php
-                          $taxonomy_terms = get_the_terms($post->ID, 'voice_category');
-                          if ( ! empty( $taxonomy_terms ) ) {
-                              foreach( $taxonomy_terms as $taxonomy_term ) {
-                                  echo '<span class="card-sort__tag">' . esc_html( $taxonomy_term->name ) . '</span>';
-                              }
-                          }
-                      ?>
+                      $taxonomy_terms = get_the_terms($post->ID, 'voice_category');
+                      if ( ! empty( $taxonomy_terms ) ) :
+                          foreach( $taxonomy_terms as $taxonomy_term ) : ?>
+                            <span class="card-sort__tag">
+                              <?php echo esc_html( $taxonomy_term->name ); ?>
+                            </span>
+                          <?php endforeach;
+                            endif;
+                          ?>
                   </div>
                   <h3 class="card-sort__sub-title"><?php the_title(); ?></h3>
                 </div>
                 <div class="card-sort__img-wrap color-box">
                 <?php if(get_the_post_thumbnail()) : ?>
-                  <img src="<?php the_post_thumbnail_url() ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
+                  <img src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
                 <?php else: ?>
                   <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
                 <?php endif; ?>
@@ -298,7 +300,7 @@
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-top__img.png" alt="泳ぐ魚たちのイラスト">
         </div>
         <div class="voice__under-img-wrap u-desktop">
-          <img src="<?php echo get_theme_file_ur(); ?>/assets/images/voice-under.png" alt="タツノオトシゴ">
+          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/voice-under.png" alt="タツノオトシゴ">
         </div>
       </div>
     </section>

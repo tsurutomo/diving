@@ -22,26 +22,22 @@
         <!--tag-->
         <div class="voice-lower__tag tag">
           <ul class="tag__list">
-          <li class="tag__item"><a href="<?php echo esc_url(home_url('/voice')); ?>" >all</a></li>
+          <li class="tag__item is-active"><a href="<?php echo esc_url(home_url('/voice')); ?>" >all</a></li>
             <?php
-              $current_term_id = get_queried_object()->term_id;
-              $terms = get_terms([
-                'taxonomy' => 'voice_category',
-              ]);
-              // タームリンクの生成
-              if ($terms) {
-                  foreach ($terms as $term) {
-                      $term_class = ($current_term_id === $term->term_id) ? 'is-active' : '';
-                      $term_link = sprintf(
-                          '<li class="tag__item %s"><a href="%s" title="%s">%s</a></li>',
-                          $term_class,
-                          esc_url(get_term_link($term->term_id)),
-                          esc_attr(sprintf(__('View all posts in %s', 'textdomain'), $term->name)),
-                          esc_html($term->name)
-                      );
-                      echo $term_link;
-                  }
-              }
+            $terms = get_terms([
+              'taxonomy' => 'voice_category',
+            ]);
+            if($terms) :
+                foreach($terms as $term) :
+                    $term_class = is_tax('voice_category', $term->term_id) ? 'is-active' : '';
+                    ?>
+                    <li class="tag__item <?php echo esc_attr($term_class); ?>">
+                      <a href="<?php echo esc_url(get_term_link($term)); ?>">
+                          <?php echo esc_html($term->name); ?>
+                      </a>
+                    </li>
+                <?php endforeach;
+            endif;
             ?>
           </ul>
         </div>

@@ -8,8 +8,8 @@
         </div>
         <div class="fv-lower__img-wrap">
           <picture>
-            <source srcset="<?php echo get_theme_file_uri('/assets/images/contact-fv.webp'); ?>" media="(min-width: 768px)"/>
-            <img src="<?php echo get_theme_file_uri('/assets/images/contact-fvsp.webp'); ?>" width="750" height="920" alt="波飛沫ち">
+            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/contact-fv.webp" media="(min-width: 768px)"/>
+            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/contact-fvsp.webp" width="750" height="920" alt="波飛沫ち">
           </picture>
         </div>
       </div>

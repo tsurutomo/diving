@@ -29,9 +29,9 @@
                 <a href="<?php the_permalink(); ?>" class="card__list">
                   <figure class="card__img">
                   <?php if(get_the_post_thumbnail()) : ?>
-                      <?php the_post_thumbnail('full'); ?>
+                    <img src="<?php the_post_thumbnail_url(); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                     <?php else: ?>
-                      <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
+                      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
                     <?php endif; ?>
                   </figure>
                   <div class="card__body">
@@ -59,7 +59,9 @@
                   <ul class="side__article article">
                   <?php
                     $popular_posts_args = array(
-                      'posts_per_page' => 3
+                      'posts_per_page' => 3,
+                      'meta_key'       => 'post_views_count',
+                      'orderby'        => 'meta_value_num',
                     );
                     $popular_posts = new WP_Query($popular_posts_args);
 
@@ -69,7 +71,7 @@
                           <a href="<?php the_permalink(); ?>">
                             <figure class="article__img">
                               <?php if(get_the_post_thumbnail()) : ?>
-                              <?php the_post_thumbnail('full'); ?>
+                                <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
                               <?php else: ?>
                                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" alt="<?php the_title(); ?>">
                               <?php endif; ?>
@@ -103,9 +105,9 @@
                     <a href="<?php the_permalink(); ?>">
                       <figure class="review__img">
                         <?php if(get_the_post_thumbnail()) : ?>
-                          <?php the_post_thumbnail('full'); ?>
+                          <img src="<?php the_post_thumbnail_url(); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                         <?php else: ?>
-                          <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
+                          <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
                         <?php endif; ?>
                       </figure>
                       <div class="review__body">
@@ -149,9 +151,9 @@
                       <a href="<?php echo esc_url(home_url('/campaign')); ?>">
                         <figure class="campaign__card-img">
                           <?php if(get_the_post_thumbnail()) : ?>
-                            <?php the_post_thumbnail('full'); ?>
+                            <img src="<?php the_post_thumbnail_url(); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                           <?php else: ?>
-                            <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
                           <?php endif; ?>
                         </figure>
                         <div class="campaign__card-body campaign__card-body--pd">

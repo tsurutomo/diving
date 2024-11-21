@@ -24,24 +24,21 @@
         <ul class="tag__list">
           <li class="tag__item is-active"><a href="<?php echo esc_url(home_url('/campaign')); ?>" >all</a></li>
           <?php
-          $queried_object = get_queried_object();
-          $current_term_id = isset($queried_object->term_id) ? $queried_object->term_id : null;
-          $terms = get_terms([
-            'taxonomy' => 'campaign_category'
-          ]);
-          if($terms){
-            foreach($terms as $term){
-              $term_class = ($current_term_id === $term->term_id) ? 'is-active' : '';
-              $term_link = sprintf(
-                '<li class="tag__item %s"><a href="%s" title="%s">%s</a></li>',
-                $term_class,
-                esc_url(get_term_link($term->term_id)),
-                esc_attr(sprintf(__('View all posts in %s', 'textdomain'), $term->name)),
-                esc_html($term->name)
-              );
-              echo $term_link;
-            }
-          } ?>
+            $terms = get_terms([
+              'taxonomy' => 'campaign_category',
+            ]);
+            if($terms) :
+                foreach($terms as $term) :
+                    $term_class = is_tax('voice_category', $term->term_id) ? 'is-active' : '';
+                    ?>
+                    <li class="tag__item <?php echo esc_attr($term_class); ?>">
+                      <a href="<?php echo esc_url(get_term_link($term)); ?>">
+                          <?php echo esc_html($term->name); ?>
+                      </a>
+                    </li>
+                <?php endforeach;
+            endif;
+            ?>
         </ul>
       </div>
       <!-- campaign-card-->
@@ -67,8 +64,8 @@
                           <?php echo esc_html( $taxonomy_term->name ); ?>
                         </span>
                       <?php endforeach;
-                      endif;
-                ?>
+                        endif;
+                        ?>
                 <h3 class="campaign__card-name"><?php the_title(); ?></h3>
               </div>
               <div class="campaign__card-text-wrap">

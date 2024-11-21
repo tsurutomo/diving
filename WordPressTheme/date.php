@@ -29,7 +29,7 @@
                 <a href="<?php the_permalink(); ?>" class="card__list">
                   <figure class="card__img">
                   <?php if(get_the_post_thumbnail()) : ?>
-                      <?php the_post_thumbnail('full', ['class' => 'card__img img']); ?>
+                    <img src="<?php the_post_thumbnail_url(); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                     <?php else: ?>
                       <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
                     <?php endif; ?>
@@ -59,11 +59,9 @@
                   <ul class="side__article article">
                   <?php
                     $popular_posts_args = array(
-                      'post_type'      => 'post',
-                      'posts_per_page' => 3, // 表示する人気記事の数
+                      'posts_per_page' => 3,
                       'meta_key'       => 'post_views_count',
                       'orderby'        => 'meta_value_num',
-                      'order'          => 'DESC'
                     );
                     $popular_posts = new WP_Query($popular_posts_args);
 
@@ -73,7 +71,7 @@
                           <a href="<?php the_permalink(); ?>">
                             <figure class="article__img">
                               <?php if (has_post_thumbnail()) : ?>
-                                <?php the_post_thumbnail('full', array('class' => 'article__img img')); ?>
+                                <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
                               <?php else: ?>
                                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" alt="<?php the_title(); ?>">
                               <?php endif; ?>
@@ -96,9 +94,7 @@
                 <?php
                   $args = [
                       "post_type" => "voice",
-                      "posts_per_page" => 1,
-                      "orderby" => "date",
-                      "order" => "DESC",
+                      "posts_per_page" => 1
                   ];
                   $the_query = new WP_Query($args);
                 ?>
@@ -109,7 +105,7 @@
                     <a href="<?php the_permalink(); ?>">
                       <figure class="review__img">
                         <?php if(get_the_post_thumbnail()) : ?>
-                          <?php the_post_thumbnail('full', ['class' => 'review__img img']); ?>
+                          <img src="<?php the_post_thumbnail_url(); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                         <?php else: ?>
                           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
                         <?php endif; ?>
@@ -144,9 +140,7 @@
                 <?php
                     $args = [
                         "post_type" => "campaign",
-                        "posts_per_page" => 2,
-                        "orderby" => "date",
-                        "order" => "DESC",
+                        "posts_per_page" => 2
                     ];
                     $the_query = new WP_Query($args);
                   ?>
@@ -157,7 +151,7 @@
                       <a href="<?php echo esc_url(home_url('/campaign')); ?>">
                         <figure class="campaign__card-img">
                           <?php if(get_the_post_thumbnail()) : ?>
-                            <?php the_post_thumbnail('full', ['class' => 'campaign__card-img img']); ?>
+                            <img src="<?php the_post_thumbnail_url(); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                           <?php else: ?>
                             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" width="602" height="402" alt="noimage">
                           <?php endif; ?>
@@ -168,18 +162,16 @@
                         <div class="campaign__card-text-wrap campaign__card-text-wrap--pb">
                           <p class="campaign__card-text">全部コミコミ(お一人様)</p>
                           <div class="campaign__card-price-wrap">
-                            <p class="campaign__card-list-price">
-                              <?php $list_price = get_field('campaign__list-price');
-                                if($list_price){
-                                  echo '￥' . number_format($list_price);
-                                } ?>
-                            </p>
-                            <p class="campaign__card-price campaign__card-price--lower">
-                              <?php $price = get_field('campaign__price');
-                                if($price){
-                                  echo '￥' . number_format($price);
-                                } ?>
-                            </p>
+                            <?php if (($list_price = get_field('campaign__list-price'))) : ?>
+                              <p class="campaign__card-list-price">
+                                ¥<?= number_format($list_price); ?>
+                              </p>
+                            <?php endif; ?>
+                            <?php if (($price = get_field('campaign__price'))) : ?>
+                              <p class="campaign__card-price">
+                                ￥<?= number_format($price); ?>
+                              </p>
+                            <?php endif; ?>
                           </div>
                         </div>
                       </a>
@@ -195,7 +187,6 @@
                   </div>
                 </div>
               </div>
-
               <div class="side__wrap">
                 <h2 class="side__title">アーカイブ</h2>
                 <div class="side__content">

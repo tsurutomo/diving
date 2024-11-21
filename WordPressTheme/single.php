@@ -30,7 +30,7 @@
               <h1 class="detail__title"><?php the_title(); ?></h1>
               <figure class="detail__eyecatch-wrap">
               <?php if(get_the_post_thumbnail()) : ?>
-                  <img src="<?php the_post_thumbnail_url('full'); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
+                <img src="<?php the_post_thumbnail_url(); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
               <?php else: ?>
                   <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
               <?php endif; ?>
@@ -77,7 +77,7 @@
               <a href="<?php the_permalink(); ?>">
                 <figure class="article__img">
                   <?php if (has_post_thumbnail()) : ?>
-                    <?php the_post_thumbnail('full', array('class' => 'article__img img')); ?>
+                    <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
                   <?php else: ?>
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/noimage.jpg" alt="<?php the_title(); ?>">
                   <?php endif; ?>
@@ -107,7 +107,7 @@
               <a href="<?php the_permalink(); ?>">
                 <figure class="review__img">
                   <?php if(get_the_post_thumbnail()) : ?>
-                    <?php the_post_thumbnail('full'); ?>
+                    <img src="<?php the_post_thumbnail_url(); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                   <?php else: ?>
                     <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
                   <?php endif; ?>
@@ -153,7 +153,7 @@
                 <a href="<?php echo esc_url(home_url('/campaign')); ?>">
                   <figure class="campaign__card-img">
                     <?php if(get_the_post_thumbnail()) : ?>
-                      <?php the_post_thumbnail('full'); ?>
+                      <img src="<?php the_post_thumbnail_url(); ?>" width="602" height="402" alt="<?php the_title(); ?>のアイキャッチ画像">
                     <?php else: ?>
                       <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
                     <?php endif; ?>
