@@ -22,7 +22,7 @@
       <!--tag-->
       <div class="campaign__tag tag">
         <ul class="tag__list">
-          <li class="tag__item is-active"><a href="<?php echo esc_url(home_url('/campaign')); ?>" >all</a></li>
+          <li class="tag__item"><a href="<?php echo esc_url(home_url('/campaign')); ?>" >all</a></li>
           <?php
             $terms = get_terms([
               'taxonomy' => 'campaign_category',

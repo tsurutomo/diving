@@ -22,7 +22,7 @@
         <!--tag-->
         <div class="voice-lower__tag tag">
           <ul class="tag__list">
-          <li class="tag__item is-active"><a href="<?php echo esc_url(home_url('/voice')); ?>" >all</a></li>
+          <li class="tag__item"><a href="<?php echo esc_url(home_url('/voice')); ?>" >all</a></li>
             <?php
             $terms = get_terms([
               'taxonomy' => 'voice_category',
