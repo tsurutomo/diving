@@ -1,5 +1,4 @@
-<?php if ( is_404() || is_page(array('contact', 'thanks')) ) : ?>
-  <?php else : ?>
+<?php if (!is_404() && !is_page(array('contact', 'thanks'))) : ?>
     <section class="contact bg-fish-right top-contact">
       <div class="contact__inner inner">
         <div class="contact__contents">
@@ -34,11 +33,7 @@
     </section>
   <?php endif; ?>
   </main>
-  <?php if ( is_404() ) : ?>
-    <footer class="footer">
-    <?php else : ?>
-      <footer class="footer top-footer">
-    <?php endif; ?>
+    <footer class="<?php echo is_404()? 'footer' : 'footer top-footer'; ?>">
     <div class="footer__inner inner">
       <div class="footer__heading">
         <div class="footer__site-logo">
