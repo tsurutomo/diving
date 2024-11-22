@@ -8,15 +8,14 @@
 <body>
   <header class="header layout-header js-header">
     <div class="header__inner">
-      <?php if ( is_front_page() ) : ?>
-        <h1 class="header__logo">
-          <a href="<?php echo esc_url(home_url('')); ?>" class="header__logoーlink"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/CodeUpslogo.svg" alt="CodeUps"></a>
-        </h1>
-      <?php else : ?>
-        <p class="header__logo">
-          <a href="<?php echo esc_url(home_url('')); ?>" class="header__logoーlink"><img src="<?php echo get_theme_file_uri(); ?>/assets/images/CodeUpslogo.svg" alt="CodeUps"></a>
-        </p>
-      <?php endif; ?>
+    <?php
+    $tag = is_front_page() ? 'h1' : 'p';
+    ?>
+    <<?php echo $tag; ?> class="header__logo">
+      <a href="<?php echo esc_url(home_url('')); ?>" class="header__logoーlink">
+        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/CodeUpslogo.svg" alt="CodeUps">
+      </a>
+    </<?php echo $tag; ?>>
       <!-- hamburger -->
       <div class="header__drawer hamburger js-hamburger u-mobile">
         <span></span>
