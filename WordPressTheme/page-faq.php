@@ -16,31 +16,31 @@
     </div>
     <!-- パンくずリスト-->
     <?php get_template_part('include/breadcrumb') ?>
-
     <!-- faq -->
     <section class="faq bg-fish top-lower">
       <div class="faq__inner">
         <div class="faq__accordions accordions js-accordion">
-          <?php $faq = SCF::get('faq_list');
-          if(!empty($faq)) :
-            foreach($faq as $val):
-              $question = $val['add_question'] ?? '';
-              $answer = $val['add_answer'] ?? '';
-              if($question && $answer) :
-          ?>
-            <div class="accordions__accordion accordion">
-              <div class="accordion__title js-accordion-title">
-                <p class="accordion__title-text"><?php echo esc_html($question); ?></p>
-              </div>
-              <div class="accordion__content js-accordion-content">
-                <p class="accordion__text"><?php echo esc_html($answer); ?></p>
-              </div>
-            </div>
           <?php
-          endif;
-          endforeach;
-        endif;
-       ?>
+            $faq = SCF::get('faq_list');
+            if (!empty($faq)):
+              foreach ($faq as $fields) {
+                $question = $fields['add_question'];
+                $answer = $fields['add_answer'];
+                if (!empty($question) && !empty($answer)):
+          ?>
+          <div class="accordions__accordion accordion">
+            <div class="accordion__title js-accordion-title">
+              <p class="accordion__title-text"><?php echo esc_html($question); ?></p>
+            </div>
+            <div class="accordion__content js-accordion-content">
+              <p class="accordion__text"><?php echo esc_html($answer); ?></p>
+            </div>
+          </div>
+          <?php
+                endif;
+              }
+            endif;
+          ?>
         </div>
       </div>
     </section>
