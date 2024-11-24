@@ -35,10 +35,7 @@
                   <img src="<?php echo get_theme_file_uri('/assets/images/noimage.jpg'); ?>" width="602" height="402" alt="noimage">
               <?php endif; ?>
               </figure>
-              <!--the contents-->
-              <div class="detail__content">
-                <?php the_content(); ?>
-              </div>
+              <div class="detail__content"><?php the_content(); ?></div>
               <div class="detail__pagenavi pagenavi top-pagenavi">
                 <ul class="pagenavi__list">
                 <?php

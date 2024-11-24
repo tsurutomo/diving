@@ -59,13 +59,18 @@
               <?php endif; ?>
             </figure>
             <div class="review__body">
-              <p class="review__gender">
+            <?php
+              $age = get_field('add_age');
+              $gender = get_field('add_gender');  ?>
+              <p class="card-sort__gender">
                 <?php
-                $age = get_field('add_age');
-                $gender = get_field('add_gender');
-                if ($age && $gender) {
-                  echo esc_html($age) . ' (' . esc_html($gender) . ')';
-                }
+                  if (!empty($age) && !empty($gender)) {
+                    echo esc_html($age) . ' (' . esc_html($gender) . ')';
+                  } elseif (!empty($age)) {
+                    echo esc_html($age);
+                  } elseif (!empty($gender)) {
+                    echo esc_html($gender);
+                  }
                 ?>
               </p>
               <h3 class="review__title"><?php the_title(); ?></h3>
@@ -108,19 +113,26 @@
                 <h3 class="campaign__card-name campaign__card-name--center"><?php the_title(); ?></h3>
               </div>
               <div class="campaign__card-text-wrap campaign__card-text-wrap--pb">
+              <?php
+              $list_price = get_field('campaign__list-price');
+              $price = get_field('campaign__price');
+              if (!empty($price) && is_numeric($price)) : ?>
                 <p class="campaign__card-text">全部コミコミ(お一人様)</p>
                 <div class="campaign__card-price-wrap">
-                  <?php if (($list_price = get_field('campaign__list-price'))) : ?>
+                  <?php
+                  if (!empty($list_price) && is_numeric($list_price)) : ?>
                     <p class="campaign__card-list-price">
-                      ¥<?= number_format($list_price); ?>
+                      ¥<?php echo esc_html(number_format($list_price)); ?>
                     </p>
                   <?php endif; ?>
-                  <?php if (($price = get_field('campaign__price'))) : ?>
-                    <p class="campaign__card-price campaign__card-price--lower">
-                      ￥<?= number_format($price); ?>
+                  <?php
+                  if (!empty($price) && is_numeric($price)) : ?>
+                    <p class="campaign__card-price">
+                      ¥<?php echo esc_html(number_format($price)); ?>
                     </p>
                   <?php endif; ?>
                 </div>
+              <?php endif; ?>
               </div>
             </a>
           </li>

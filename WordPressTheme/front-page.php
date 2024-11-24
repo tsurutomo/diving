@@ -86,19 +86,26 @@
                     <h3 class="campaign__card-name"><?php the_title(); ?></h3>
                   </div>
                   <div class="campaign__card-text-wrap">
+                    <?php
+                    $list_price = get_field('campaign__list-price');
+                    $price = get_field('campaign__price');
+                    if (!empty($price) && is_numeric($price)) : ?>
                     <p class="campaign__card-text">全部コミコミ(お一人様)</p>
                     <div class="campaign__card-price-wrap">
-                      <?php if (($list_price = get_field('campaign__list-price'))) : ?>
+                      <?php
+                      if (!empty($list_price) && is_numeric($list_price)) : ?>
                         <p class="campaign__card-list-price">
-                          ¥<?= number_format($list_price); ?>
+                          ¥<?php echo esc_html(number_format($list_price)); ?>
                         </p>
                       <?php endif; ?>
-                      <?php if (($price = get_field('campaign__price'))) : ?>
-                        <p class="campaign__card-price">
-                          ￥<?= number_format($price); ?>
-                        </p>
-                      <?php endif; ?>
+                      <?php
+                        if (!empty($price) && is_numeric($price)) : ?>
+                          <p class="campaign__card-price">
+                            ¥<?php echo esc_html(number_format($price)); ?>
+                          </p>
+                        <?php endif; ?>
                     </div>
+                    <?php endif; ?>
                   </div>
                 </li>
                 <?php endwhile; ?>
@@ -247,15 +254,20 @@
               <div class="card-sort__content">
                 <div class="card-sort__topic">
                   <div class="card-sort__info">
-                    <p class="card-sort__gender">
-                    <?php
-                        $age = get_field('add_age');
-                        $gender = get_field('add_gender');
-                        if ($age && $gender) {
-                          echo esc_html($age) . ' (' . esc_html($gender) . ')';
-                        }
-                    ?>
-                    </p>
+                  <?php
+                      $age = get_field('add_age');
+                      $gender = get_field('add_gender');  ?>
+                      <p class="card-sort__gender">
+                        <?php
+                          if (!empty($age) && !empty($gender)) {
+                            echo esc_html($age) . ' (' . esc_html($gender) . ')';
+                          } elseif (!empty($age)) {
+                            echo esc_html($age);
+                          } elseif (!empty($gender)) {
+                            echo esc_html($gender);
+                          }
+                        ?>
+                      </p>
                     <?php
                       $taxonomy_terms = get_the_terms($post->ID, 'voice_category');
                       if ( ! empty( $taxonomy_terms ) ) :
@@ -277,14 +289,13 @@
                 <?php endif; ?>
                 </div>
               </div>
-              <p class="card-sort__text">
               <?php
                 $text = get_field('add_text');
-                if ($text) {
-                  echo esc_html(wp_trim_words($text, 169, '…'));
-                }
-              ?>
-              </p>
+                if (!empty($text)) : ?>
+                  <p class="card-sort__text">
+                    <?php echo esc_html(wp_trim_words($text, 169, '…')); ?>
+                  </p>
+                <?php endif; ?>
             </li>
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
@@ -321,58 +332,90 @@
           </div>
           <div class="price__box">
             <dl class="price__list">
+              <?php $license = SCF::get('license_course', get_page_by_path('price')->ID);
+              if ( !empty($license) ): ?>
               <div class="price__items">
                 <h3 class="price__item">ライセンス講習</h3>
-                <?php $license = SCF::get('license_course', get_page_by_path('price')->ID);
-                if ( !empty($license) ) :
-                  foreach($license as $val): ?>
+                  <?php foreach($license as $fields):
+                    $name = $fields['license_name'];
+                    $price = $fields['license_price'];
+                    if(!empty($name) && !empty($price)):
+                  ?>
                 <div class="price__course">
-                  <dt class="price__name"><?php echo esc_html($val['license_name']); ?></dt>
-                  <dd class="price__cost">¥<?php echo esc_html(number_format(floatval($val['license_price']))); ?></dd>
+                  <dt class="price__name"><?php echo esc_html($name); ?></dt>
+                  <dd class="price__cost">¥<?php echo esc_html(number_format(floatval($price))); ?></dd>
                 </div>
-                <?php endforeach;
-                endif;
+                <?php
+                  endif;
+                endforeach;
                 ?>
               </div>
+              <?php
+              endif;
+              ?>
+              <?php $license = SCF::get('experience_course', get_page_by_path('price')->ID);
+              if ( !empty($license) ): ?>
               <div class="price__items">
                 <h3 class="price__item">体験ダイビング</h3>
-                <?php $license = SCF::get('experience_course', get_page_by_path('price')->ID);
-                if ( !empty($license) ) :
-                  foreach($license as $val): ?>
+                  <?php foreach($license as $fields):
+                    $name = $fields['course_name'];
+                    $price = $fields['course_price'];
+                    if(!empty($name) && !empty($price)):
+                  ?>
                 <div class="price__course">
-                  <dt class="price__name"><?php echo esc_html($val['course_name']); ?></dt>
-                  <dd class="price__cost">¥<?php echo esc_html(number_format(floatval($val['course_price']))); ?></dd>
+                  <dt class="price__name"><?php echo esc_html($name); ?></dt>
+                  <dd class="price__cost">¥<?php echo esc_html(number_format(floatval($price))); ?></dd>
                 </div>
-                <?php endforeach;
-                endif;
+                <?php
+                  endif;
+                endforeach;
                 ?>
               </div>
+              <?php
+              endif;
+              ?>
+              <?php $license = SCF::get('fun_course', get_page_by_path('price')->ID);
+              if ( !empty($license) ): ?>
               <div class="price__items">
                 <h3 class="price__item">ファンダイビング</h3>
-                <?php $license = SCF::get('fun_course', get_page_by_path('price')->ID);
-                if ( !empty($license) ) :
-                  foreach($license as $val): ?>
+                  <?php foreach($license as $fields):
+                    $name = $fields['fun_name'];
+                    $price = $fields['fun_price'];
+                    if(!empty($name) && !empty($price)):
+                  ?>
                 <div class="price__course">
-                  <dt class="price__name"><?php echo esc_html($val['fun_name']); ?></dt>
-                  <dd class="price__cost"><?php echo esc_html(number_format(floatval($val['fun_price']))); ?></dd>
+                  <dt class="price__name"><?php echo esc_html($name); ?></dt>
+                  <dd class="price__cost"><?php echo esc_html(number_format(floatval($price))); ?></dd>
                 </div>
-                <?php endforeach;
-                endif;
+                <?php
+                  endif;
+                endforeach;
                 ?>
               </div>
+              <?php
+              endif;
+              ?>
+              <?php $license = SCF::get('special_course', get_page_by_path('price')->ID);
+              if ( !empty($license) ): ?>
               <div class="price__items">
                 <h3 class="price__item">スペシャルダイビング</h3>
-                <?php $license = SCF::get('special_course', get_page_by_path('price')->ID);
-                if ( !empty($license) ) :
-                  foreach($license as $val): ?>
+                <?php foreach($license as $fields):
+                    $name = $fields['special_name'];
+                    $price = $fields['special_price'];
+                    if(!empty($name) && !empty($price)):
+                  ?>
                 <div class="price__course">
-                  <dt class="price__name"><?php echo esc_html($val['special_name']); ?></dt>
-                  <dd class="price__cost">¥<?php echo esc_html(number_format(floatval($val['special_price']))); ?></dd>
+                  <dt class="price__name"><?php echo esc_html($name); ?></dt>
+                  <dd class="price__cost">¥<?php echo esc_html(number_format(floatval($price))); ?></dd>
                 </div>
-                <?php endforeach;
-                endif;
+                <?php
+                  endif;
+                endforeach;
                 ?>
               </div>
+              <?php
+              endif;
+              ?>
             </dl>
           </div>
         </div>

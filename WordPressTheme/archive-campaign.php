@@ -29,16 +29,16 @@
             ]);
             if($terms) :
                 foreach($terms as $term) :
-                    $term_class = is_tax('voice_category', $term->term_id) ? 'is-active' : '';
-                    ?>
-                    <li class="tag__item <?php echo esc_attr($term_class); ?>">
-                      <a href="<?php echo esc_url(get_term_link($term)); ?>">
-                          <?php echo esc_html($term->name); ?>
-                      </a>
-                    </li>
-                <?php endforeach;
-                endif;
-                ?>
+                  $term_class = is_tax('voice_category', $term->term_id) ? 'is-active' : '';
+          ?>
+          <li class="tag__item <?php echo esc_attr($term_class); ?>">
+            <a href="<?php echo esc_url(get_term_link($term)); ?>">
+            <?php echo esc_html($term->name); ?>
+            </a>
+          </li>
+          <?php endforeach;
+          endif;
+          ?>
         </ul>
       </div>
       <!-- campaign-card-->
@@ -69,19 +69,26 @@
                 <h3 class="campaign__card-name"><?php the_title(); ?></h3>
               </div>
               <div class="campaign__card-text-wrap">
+              <?php
+              $list_price = get_field('campaign__list-price');
+              $price = get_field('campaign__price');
+              if (!empty($price) && is_numeric($price)) : ?>
                 <p class="campaign__card-text">全部コミコミ(お一人様)</p>
                 <div class="campaign__card-price-wrap">
-                  <?php if (($list_price = get_field('campaign__list-price'))) : ?>
+                  <?php
+                  if (!empty($list_price) && is_numeric($list_price)) : ?>
                     <p class="campaign__card-list-price">
-                      ¥<?= number_format($list_price); ?>
+                      ¥<?php echo esc_html(number_format($list_price)); ?>
                     </p>
                   <?php endif; ?>
-                  <?php if (($price = get_field('campaign__price'))) : ?>
+                  <?php
+                  if (!empty($price) && is_numeric($price)) : ?>
                     <p class="campaign__card-price">
-                      ￥<?= number_format($price); ?>
+                      ¥<?php echo esc_html(number_format($price)); ?>
                     </p>
                   <?php endif; ?>
                 </div>
+              <?php endif; ?>
                 <div class="campaign__card-box u-desktop">
                   <div class="campaign__card-text-lower">
                     <?php if (($text = get_field('campaign__text'))) : ?>

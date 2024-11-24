@@ -51,12 +51,17 @@
                 <div class="card-sort__content">
                   <div class="card-sort__topic">
                     <div class="card-sort__info">
+                      <?php
+                      $age = get_field('add_age');
+                      $gender = get_field('add_gender');  ?>
                       <p class="card-sort__gender">
                         <?php
-                          $age = get_field('add_age');
-                          $gender = get_field('add_gender');
-                          if ($age && $gender) {
+                          if (!empty($age) && !empty($gender)) {
                             echo esc_html($age) . ' (' . esc_html($gender) . ')';
+                          } elseif (!empty($age)) {
+                            echo esc_html($age);
+                          } elseif (!empty($gender)) {
+                            echo esc_html($gender);
                           }
                         ?>
                       </p>
@@ -81,14 +86,13 @@
                     <?php endif; ?>
                   </div>
                 </div>
-                <p class="card-sort__text">
                 <?php
-                    $text = get_field('add_text');
-                    if ($text) {
-                      echo esc_html($text);
-                    }
-                  ?>
-                </p>
+                $text = get_field('add_text');
+                if (!empty($text)) : ?>
+                  <p class="card-sort__text">
+                    <?php echo esc_html($text); ?>
+                  </p>
+                <?php endif; ?>
               </li>
               <?php endwhile; endif; ?>
           </ul>

@@ -37,7 +37,7 @@
                   <div class="card__body">
                     <time class="card__date" datetime="<?php the_time('c') ?>"><?php the_time('Y.m-d') ?></time>
                     <h3 class="card__title"><?php the_title(); ?></h3>
-                    <p class="card__text"><?php the_excerpt(); ?></p>
+                      <p class="card__text"><?php the_excerpt(); ?></p>
                   </div>
                 </a>
                 </li>

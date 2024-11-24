@@ -16,7 +16,6 @@
   </div>
   <!-- パンくずリスト-->
   <?php get_template_part('include/breadcrumb') ?>
-
   <section class="price-lower bg-fish top-price-lower">
     <div class="price-lower__inner">
       <div class="price-lower__container">
