@@ -38,18 +38,18 @@
     </div>
   </section>
   <!-- gallery -->
+  <?php $gallery_item = SCF::get('gallery');
+  if($gallery_item): ?>
   <section class="gallery top-gallery">
     <div class="gallery__inner inner">
       <div class="gallery__title title">
         <p class="title__main-title"> Gallery</p>
         <h2 class="title__sub-title">フォト</h2>
       </div>
-      <?php $gallery_item = SCF::get('gallery');
-      if (!empty($gallery_item)) :
-      ?>
       <ul class="gallery__list">
-        <?php foreach ($gallery_item as $item) :
+      <?php foreach ($gallery_item as $item) :
               $img_id = $item['gallery__image'];
+              if(!empty($img_id)):
               $img_data = wp_get_attachment_image_src($img_id, 'large');
               $img_url = $img_data[0];
               $img_width = $img_data[1];
@@ -58,11 +58,13 @@
         <li class="gallery__item js-modal-open">
           <img src="<?php echo esc_url($img_data[0]); ?>" width="<?php echo esc_attr($img_data[1]); ?>" height="<?php echo esc_attr($img_data[2]); ?>" loading="lazy" alt="<?php the_title(); ?>の画像">
         </li>
-        <?php endforeach; ?>
+        <?php
+            endif;
+        endforeach; ?>
       </ul>
-      <?php endif; ?>
     </div>
   </section>
+<?php endif; ?>
   <!-- モーダルウィンドウ-->
   <div class="gallery__item-modal modal js-modal">
     <div class="modal__content">
