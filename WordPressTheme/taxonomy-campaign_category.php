@@ -98,15 +98,28 @@
                     <?php endif; ?>
                   </div>
                   <div class="campaign__card-bottom">
-                    <?php
+                  <?php
                     $start_date = get_field('campaign__start-date');
                     $end_date = get_field('campaign__end-date');
+                    if ($start_date && $end_date){
                     ?>
-                    <?php if ($start_date && $end_date) : ?>
                     <time class="campaign__card-time" datetime="<?= esc_attr(date('Y-m-d',strtotime($start_date))); ?>">
                     <?= esc_html(date('Y/n/j', strtotime($start_date))). ' - ' . esc_html(date('n/j', strtotime($end_date))); ?>
                     </time>
-                    <?php endif; ?>
+                    <?php
+                    }elseif ($start_date){ ?>
+                      <time class="campaign__card-time" datetime="<?= esc_attr(date('Y-m-d',strtotime($start_date))); ?>">
+                    <?= esc_html(date('Y/n/j', strtotime($start_date))); ?>
+                    </time>
+                    <?php }elseif ($end_date) { ?>
+                      <time class="campaign__card-time" datetime="<?= esc_attr(date('Y-m-d',strtotime($start_date))); ?>">
+                    <?= esc_html(date('Y/n/j', strtotime($end_date))); ?>
+                    </time>
+                    <?php 
+                    }else {?>
+                    <?php
+                    }
+                    ?>
                     <p class="campaign__card-info">ご予約・お問い合わせはコチラ</p>
                     <div class="button campaign-lower-button"><p>Contact&nbsp;us</p></div>
                   </div>

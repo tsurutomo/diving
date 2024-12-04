@@ -849,6 +849,7 @@ body.sp-nav-open {
 	display: flex;
 	justify-content: center;
 	margin-top: 0.5rem;
+	gap: 10%;
 }
 
 .campaign__card-list-price {
@@ -877,7 +878,6 @@ body.sp-nav-open {
 	font-size: 2rem;
 	font-weight: 700;
 	line-height: 1;
-	margin-left: 10%;
 }
 
 .campaign-swiper__button-wrap .swiper-button-prev,
@@ -3201,13 +3201,16 @@ html {
 	margin-top: 0;
 }
 
+.campaign__card-price-wrap{
+	gap: 8%;
+}
+
 .campaign__card-list-price {
 	font-size: 1.5rem;
 }
 
 .campaign__card-price {
 	font-size: min(2.8vw, 2.5rem);
-	margin-left: 8%;
 }
 
 .campaign__card-price--lower {
